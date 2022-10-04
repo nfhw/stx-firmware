@@ -1,0 +1,11 @@
+../Drivers/LoRaMac-node/system/systime.c:318:17:CalendarDiv61	8	static
+../Drivers/LoRaMac-node/system/systime.c:340:13:CalendarDiv60	16	static
+../Drivers/LoRaMac-node/system/systime.c:76:11:SysTimeAdd	16	static
+../Drivers/LoRaMac-node/system/systime.c:90:11:SysTimeSub	16	static
+../Drivers/LoRaMac-node/system/systime.c:104:6:SysTimeSet	24	static
+../Drivers/LoRaMac-node/system/systime.c:118:11:SysTimeGet	32	static
+../Drivers/LoRaMac-node/system/systime.c:136:11:SysTimeGetMcuTime	24	static
+../Drivers/LoRaMac-node/system/systime.c:145:10:SysTimeToMs	24	static
+../Drivers/LoRaMac-node/system/systime.c:159:11:SysTimeFromMs	24	static
+../Drivers/LoRaMac-node/system/systime.c:172:10:SysTimeMkTime	40	static
+../Drivers/LoRaMac-node/system/systime.c:203:6:SysTimeLocalTime	56	static

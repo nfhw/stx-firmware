@@ -1,0 +1,8 @@
+calib_verify.c:69:13:calib_verify	224	static
+calib_verify.c:158:20:calib_verify_extern_stored_mac.part.0	208	static
+calib_verify.c:238:13:calib_verify_extern	48	static
+calib_verify.c:302:13:calib_verify_extern_mac	40	static
+calib_verify.c:325:13:calib_verify_stored	48	static
+calib_verify.c:386:13:calib_verify_stored_mac	40	static
+calib_verify.c:409:13:calib_verify_validate	32	static
+calib_verify.c:447:13:calib_verify_invalidate	32	static

@@ -1,0 +1,8 @@
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:153:13:LmhpClockSyncInit	0	static
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:168:13:LmhpClockSyncIsInitialized	0	static
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:173:13:LmhpClockSyncIsTxPending	0	static
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:214:13:LmhpClockSyncOnMcpsIndication	40	static
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:189:13:LmhpClockSyncOnMcpsConfirm	56	static
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:148:15:LmphClockSyncPackageFactory	0	static
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:313:24:LmhpClockSyncAppTimeReq	64	static
+../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpClockSync.c:178:13:LmhpClockSyncProcess	8	static

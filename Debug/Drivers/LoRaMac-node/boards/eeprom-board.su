@@ -1,0 +1,4 @@
+../Drivers/LoRaMac-node/boards/eeprom-board.c:30:13:EepromMcuWriteBuffer	32	static
+../Drivers/LoRaMac-node/boards/eeprom-board.c:59:13:EepromMcuReadBuffer	8	static
+../Drivers/LoRaMac-node/boards/eeprom-board.c:69:6:EepromMcuSetDeviceAddr	0	static
+../Drivers/LoRaMac-node/boards/eeprom-board.c:74:13:EepromMcuGetDeviceAddr	0	static

@@ -1,0 +1,5 @@
+commonfunc.c:57:22:PresentPasswd	32	static
+commonfunc.c:180:6:st25_error	8	static
+commonfunc.c:84:22:InitITGPOMode	32	static
+commonfunc.c:116:6:DeInitITGPOMode	16	static
+commonfunc.c:128:6:ManageGPO	32	static

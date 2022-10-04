@@ -1,0 +1,2 @@
+../cryptolib/calib/calib_secureboot.c:52:13:calib_secureboot	216	static
+../cryptolib/calib/calib_secureboot.c:115:13:calib_secureboot_mac	336	static

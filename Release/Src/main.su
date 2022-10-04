@@ -1,0 +1,10 @@
+ApiMcu.h:32:5:McuXX<R>::~McuXX() [with R = McuSTM32L071]	8	static
+main.cpp:556:6:void MX_GPIO_Init()	56	static
+main.cpp:642:6:void PrepareFrame(uint8_t*)	0	static
+main.cpp:654:6:void _Error_Handler(char*, int)	8	static
+main.cpp:316:6:void SystemClock_Config()	112	static
+main.cpp:378:6:void MX_ADC_Init()	16	static
+main.cpp:419:6:void MX_I2C1_Init()	8	static
+main.cpp:511:6:void MX_SPI1_Init()	8	static
+main.cpp:115:5:int main()	2240	static
+main.cpp:663:1:cpp)	8	static

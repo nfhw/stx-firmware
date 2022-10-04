@@ -1,0 +1,5 @@
+sha1_routines.c:37:6:CL_hashInit	8	static
+sha1_routines.c:207:6:shaEngine	48	static
+sha1_routines.c:62:6:CL_hashUpdate	40	static
+sha1_routines.c:127:6:CL_hashFinal	32	static
+sha1_routines.c:198:6:CL_hash	112	static

@@ -1,0 +1,4 @@
+../Drivers/LoRaMac-node/boards/spi-board.c:67:6:SpiFormat	16	static
+../Drivers/LoRaMac-node/boards/spi-board.c:95:6:SpiFrequency	0	static
+../Drivers/LoRaMac-node/boards/spi-board.c:34:6:SpiInit	56	static
+../Drivers/LoRaMac-node/boards/spi-board.c:119:10:SpiInOut	24	static

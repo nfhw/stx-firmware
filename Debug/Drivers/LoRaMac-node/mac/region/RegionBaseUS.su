@@ -1,0 +1,3 @@
+../Drivers/LoRaMac-node/mac/region/RegionBaseUS.c:75:17:RegionBaseUSComputeNext125kHzJoinChannel	40	static
+../Drivers/LoRaMac-node/mac/region/RegionBaseUS.c:137:6:RegionBaseUSVerifyFrequencyGroup	16	static
+../Drivers/LoRaMac-node/mac/region/RegionBaseUS.c:148:10:RegionBaseUSCalcDownlinkFrequency	0	static

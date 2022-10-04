@@ -1,0 +1,10 @@
+../Drivers/LoRaMac-node/boards/board.c:48:6:BoardCriticalSectionBegin	0	static,ignoring_inline_asm
+../Drivers/LoRaMac-node/boards/board.c:54:6:BoardCriticalSectionEnd	0	static,ignoring_inline_asm
+../Drivers/LoRaMac-node/boards/board.c:59:6:BoardResetMcu	16	static,ignoring_inline_asm
+../Drivers/LoRaMac-node/boards/board.c:67:6:BoardDeInitMcu	0	static
+../Drivers/LoRaMac-node/boards/board.c:75:10:BoardGetRandomSeed	0	static
+../Drivers/LoRaMac-node/boards/board.c:88:6:BoardGetUniqueId	32	static
+../Drivers/LoRaMac-node/boards/board.c:165:6:LpmEnterStopMode	16	static,ignoring_inline_asm
+../Drivers/LoRaMac-node/boards/board.c:192:6:LpmExitStopMode	16	static,ignoring_inline_asm
+../Drivers/LoRaMac-node/boards/board.c:208:6:LpmEnterSleepMode	8	static
+../Drivers/LoRaMac-node/boards/board.c:213:6:BoardLowPowerHandler	8	static,ignoring_inline_asm

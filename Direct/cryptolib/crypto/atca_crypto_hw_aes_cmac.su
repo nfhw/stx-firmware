@@ -1,0 +1,5 @@
+../cryptolib/crypto/atca_crypto_hw_aes_cmac.c:150:13:left_shift_one.constprop	8	static
+../cryptolib/crypto/atca_crypto_hw_aes_cmac.c:58:13:atcab_aes_cmac_init_ext	32	static
+../cryptolib/crypto/atca_crypto_hw_aes_cmac.c:79:13:atcab_aes_cmac_init	16	static
+../cryptolib/crypto/atca_crypto_hw_aes_cmac.c:92:13:atcab_aes_cmac_update	64	static
+../cryptolib/crypto/atca_crypto_hw_aes_cmac.c:172:13:atcab_aes_cmac_finish	72	static

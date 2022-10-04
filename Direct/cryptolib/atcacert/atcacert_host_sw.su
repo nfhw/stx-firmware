@@ -1,0 +1,3 @@
+../cryptolib/atcacert/atcacert_host_sw.c:38:5:atcacert_verify_cert_sw	120	static
+../cryptolib/atcacert/atcacert_host_sw.c:75:5:atcacert_gen_challenge_sw	8	static
+../cryptolib/atcacert/atcacert_host_sw.c:87:5:atcacert_verify_response_sw	8	static

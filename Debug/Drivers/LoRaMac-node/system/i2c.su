@@ -1,0 +1,11 @@
+../Drivers/LoRaMac-node/system/i2c.c:32:6:I2cInit	24	static
+../Drivers/LoRaMac-node/system/i2c.c:43:6:I2cDeInit	8	static
+../Drivers/LoRaMac-node/system/i2c.c:49:6:I2cResetBus	8	static
+../Drivers/LoRaMac-node/system/i2c.c:54:13:I2cWrite	24	static
+../Drivers/LoRaMac-node/system/i2c.c:81:13:I2cWriteBuffer	24	static
+../Drivers/LoRaMac-node/system/i2c.c:108:13:I2cWriteMem	40	static
+../Drivers/LoRaMac-node/system/i2c.c:135:13:I2cWriteMemBuffer	40	static
+../Drivers/LoRaMac-node/system/i2c.c:162:13:I2cRead	8	static
+../Drivers/LoRaMac-node/system/i2c.c:174:13:I2cReadBuffer	16	static
+../Drivers/LoRaMac-node/system/i2c.c:186:13:I2cReadMem	24	static
+../Drivers/LoRaMac-node/system/i2c.c:198:13:I2cReadMemBuffer	24	static

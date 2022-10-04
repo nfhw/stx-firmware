@@ -1,0 +1,52 @@
+LoraWanProcess.cpp:30:1:LoraWanObject<T, RADIOTYPE>::LoraWanObject(sLoRaWanKeys, RADIOTYPE*, uint32_t) [with T = LoraRegionsEU; RADIOTYPE = SX1276]	48	static
+LoraWanProcess.cpp:36:1:LoraWanObject<T, RADIOTYPE>::~LoraWanObject() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:288:16:eStatusLoRaWan LoraWanObject<T, RADIOTYPE>::ReceivePayload(uint8_t*, uint8_t*, uint8_t*) [with T = LoraRegionsEU; RADIOTYPE = SX1276]	16	static
+LoraWanProcess.cpp:209:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::Join() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	24	static
+LoraWanProcess.cpp:235:13:eJoinStatus LoraWanObject<T, RADIOTYPE>::IsJoined() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:305:6:void LoraWanObject<T, RADIOTYPE>::SetDataRateStrategy(eDataRateStrategy) [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:392:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetRadioState() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:339:6:void LoraWanObject<T, RADIOTYPE>::RestoreContext() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:365:8:void LoraWanObject<T, RADIOTYPE>::FactoryReset() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:370:20:eDeviceTypeOTA_APB LoraWanObject<T, RADIOTYPE>::GetIsOtaDevice() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:374:6:void LoraWanObject<T, RADIOTYPE>::SetOtaDevice(eDeviceTypeOTA_APB) [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:350:10:uint32_t LoraWanObject<T, RADIOTYPE>::GetNextMaxPayloadLength() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:245:6:void LoraWanObject<T, RADIOTYPE>::NewJoin() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:315:10:uint32_t LoraWanObject<T, RADIOTYPE>::GetDevAddr() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:323:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetNextPower() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:359:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetNextDataRate() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:331:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::GetLorawanProcessState() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:405:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetNbOfReset() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:382:6:void LoraWanObject<T, RADIOTYPE>::CopyUserPayload(const uint8_t*, uint8_t) [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:387:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetStateTimer() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:397:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetRadioIrqFlag() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	0	static
+LoraWanProcess.cpp:401:6:void LoraWanObject<T, RADIOTYPE>::RadioReset() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:252:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::SendPayload(uint8_t, const uint8_t*, uint8_t, uint8_t) [with T = LoraRegionsEU; RADIOTYPE = SX1276]	32	static
+LoraWanProcess.cpp:48:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::LoraWanProcess(uint8_t*) [with T = LoraRegionsEU; RADIOTYPE = SX1276]	32	static
+LoraWanProcess.h:226:10:void LoraWanObject<T, RADIOTYPE>::AttachRadioIsr() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.h:227:10:void LoraWanObject<T, RADIOTYPE>::DetachRadioIsr() [with T = LoraRegionsEU; RADIOTYPE = SX1276]	8	static
+LoraWanProcess.cpp:30:1:LoraWanObject<T, RADIOTYPE>::LoraWanObject(sLoRaWanKeys, RADIOTYPE*, uint32_t) [with T = LoraRegionsEU; RADIOTYPE = SX126x]	48	static
+LoraWanProcess.cpp:36:1:LoraWanObject<T, RADIOTYPE>::~LoraWanObject() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.cpp:288:16:eStatusLoRaWan LoraWanObject<T, RADIOTYPE>::ReceivePayload(uint8_t*, uint8_t*, uint8_t*) [with T = LoraRegionsEU; RADIOTYPE = SX126x]	16	static
+LoraWanProcess.cpp:209:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::Join() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	24	static
+LoraWanProcess.cpp:235:13:eJoinStatus LoraWanObject<T, RADIOTYPE>::IsJoined() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:305:6:void LoraWanObject<T, RADIOTYPE>::SetDataRateStrategy(eDataRateStrategy) [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.cpp:392:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetRadioState() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.cpp:339:6:void LoraWanObject<T, RADIOTYPE>::RestoreContext() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.cpp:365:8:void LoraWanObject<T, RADIOTYPE>::FactoryReset() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.cpp:370:20:eDeviceTypeOTA_APB LoraWanObject<T, RADIOTYPE>::GetIsOtaDevice() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:374:6:void LoraWanObject<T, RADIOTYPE>::SetOtaDevice(eDeviceTypeOTA_APB) [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:350:10:uint32_t LoraWanObject<T, RADIOTYPE>::GetNextMaxPayloadLength() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:245:6:void LoraWanObject<T, RADIOTYPE>::NewJoin() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:315:10:uint32_t LoraWanObject<T, RADIOTYPE>::GetDevAddr() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:323:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetNextPower() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:359:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetNextDataRate() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:331:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::GetLorawanProcessState() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:405:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetNbOfReset() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:382:6:void LoraWanObject<T, RADIOTYPE>::CopyUserPayload(const uint8_t*, uint8_t) [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.cpp:387:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetStateTimer() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:397:9:uint8_t LoraWanObject<T, RADIOTYPE>::GetRadioIrqFlag() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	0	static
+LoraWanProcess.cpp:401:6:void LoraWanObject<T, RADIOTYPE>::RadioReset() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.cpp:252:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::SendPayload(uint8_t, const uint8_t*, uint8_t, uint8_t) [with T = LoraRegionsEU; RADIOTYPE = SX126x]	32	static
+LoraWanProcess.cpp:48:25:eLoraWan_Process_States LoraWanObject<T, RADIOTYPE>::LoraWanProcess(uint8_t*) [with T = LoraRegionsEU; RADIOTYPE = SX126x]	32	static
+LoraWanProcess.h:226:10:void LoraWanObject<T, RADIOTYPE>::AttachRadioIsr() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static
+LoraWanProcess.h:227:10:void LoraWanObject<T, RADIOTYPE>::DetachRadioIsr() [with T = LoraRegionsEU; RADIOTYPE = SX126x]	8	static

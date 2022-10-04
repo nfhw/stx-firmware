@@ -1,0 +1,6 @@
+calib_ecdh.c:52:13:calib_ecdh_base	216	static
+calib_ecdh.c:111:13:calib_ecdh	16	static
+calib_ecdh.c:142:13:calib_ecdh_enc	48	static
+calib_ecdh.c:189:13:calib_ecdh_ioenc	72	static
+calib_ecdh.c:228:13:calib_ecdh_tempkey	16	static
+calib_ecdh.c:249:13:calib_ecdh_tempkey_ioenc	72	static

@@ -1,0 +1,754 @@
+0x0800c188 in ?? ()
+addr        bitmask     |Type| REGNAME (register description).BITNAME (bits description).value: actual value
+------------------------+----+------------------------------------------------------------------------------
+0x1ff8_0000 0xffff_ffff | rw | OFLASH_OPTR_LSH (~FLASH_OPTR[15..0] then FLASH_OPTR[15..0] option bytes nvm).value: 0xff55_00aa
+0x1ff8_0004 0xffff_ffff | rw | OFLASH_OPTR_MSH (~FLASH_OPTR[31..16] then FLASH_OPTR[31..16] option bytes nvm).value: 0x7f8f_8070
+0x1ff8_0008 0xffff_ffff | rw | OFLASH_WRPROT1_LSH (~FLASH_WRPROT1[15..0] then FLASH_WRPROT1[15..0] option bytes nvm).value: 0xffff_0000
+0x1ff8_000c 0xffff_ffff | rw | OFLASH_WRPROT1_MSH (~FLASH_WRPROT1[31..16] then FLASH_WRPROT1[31..16] option bytes nvm).value: 0xffff_0000
+0x1ff8_0010 0xffff_ffff | rw | OFLASH_WRPROT2_LSH (~FLASH_WRPROT1[15..0] then FLASH_WRPROT2[15..0] option bytes nvm).value: 0xffff_0000
+0x4000_2800 0x0000_000f | rw | RTC_TR (time shadow register).SU (second units BCD value bits): 5
+0x4000_2800 0x0000_0070 | rw | RTC_TR (time shadow register).ST (second tens BCD value bits): 5
+0x4000_2800 0x0000_0f00 | rw | RTC_TR (time shadow register).MNU (minute units BCD value bits): 3
+0x4000_2800 0x0000_7000 | rw | RTC_TR (time shadow register).MNT (minute tens BCD value bits): 1
+0x4000_2800 0x000f_0000 | rw | RTC_TR (time shadow register).HU (hour units BCD value bits): 4
+0x4000_2800 0x0030_0000 | rw | RTC_TR (time shadow register).HT (hour tens BCD value bits): 0
+0x4000_2800 0x0040_0000 | rw | RTC_TR (time shadow register).PM (am or 24h/0 or pm/1 notation bit): 0
+0x4000_2800 0x007f_7f7f | rw | RTC_TR (time shadow register).value (w!INITF==1; r=N/A rtc=0x0000_0000): 0x0004_1355
+0x4000_2804 0x0000_000f | rw | RTC_DR (date shadow register).DU (date units BCD value bits): 1
+0x4000_2804 0x0000_0030 | rw | RTC_DR (date shadow register).DT (date tens BCD value bits): 0
+0x4000_2804 0x0000_0f00 | rw | RTC_DR (date shadow register).MU (months units BCD value bits): 1
+0x4000_2804 0x0000_1000 | rw | RTC_DR (date shadow register).MT (months tens BCD value bits): 0
+0x4000_2804 0x0000_e000 | rw | RTC_DR (date shadow register).WDU (1/mon 2/tue 3/wed 4/thu 5/fri 6/sat 7/sun; week day units bits): 1
+0x4000_2804 0x000f_0000 | rw | RTC_DR (date shadow register).YU (year units BCD value bits): 0
+0x4000_2804 0x00f0_0000 | rw | RTC_DR (date shadow register).YT (year tens BCD value bits): 0
+0x4000_2804 0x00ff_ff3f | rw | RTC_DR (date shadow register).value (w!INITF==1; r=N/A rtc=0x0000_2101): 0x0000_2101
+0x4000_2808 0x0000_0007 | rw | RTC_CR (control register).WUCKSEL (w!WUTE==0 w!WUTWF==1; rtc div by 16,8,4,2/0..3 or 1hz/4,5 or 1hz+18h to WUT/6,7; wakeup clock select bits): 6
+0x4000_2808 0x0000_0008 | rw | RTC_CR (control register).TSEDGE (w!TSE==0; RTC_TS input rise/0 fall/1 edge generates timestamp event TSF bit): 0
+0x4000_2808 0x0000_0010 | rw | RTC_CR (control register).REFCKON (w!INITF==1 w!PREDIV_S==0xFF; RTC_REFIN input ref clock detect enable bit): 0
+0x4000_2808 0x0000_0020 | rw | RTC_CR (control register).BYPSHAD (shadows update each 2*rtcclk; must enable if apb1<7*rtc Hz; bypass shadow registers enable bit): 0
+0x4000_2808 0x0000_0040 | rw | RTC_CR (control register).FMT (w!INITF==1; 24hr/0 am,pm/1 hour format bit): 0
+0x4000_2808 0x0000_0100 | rw | RTC_CR (control register).ALRAE (alarm A enable bit): 0
+0x4000_2808 0x0000_0200 | rw | RTC_CR (control register).ALRAE (alarm B enable bit): 0
+0x4000_2808 0x0000_0400 | rw | RTC_CR (control register).WUTE (wakeup timer enable bit): 1
+0x4000_2808 0x0000_0800 | rw | RTC_CR (control register).TSE (timestamp enable bit): 0
+0x4000_2808 0x0000_1000 | rw | RTC_CR (control register).ALRAIE (alarm A interrupt enable bit): 0
+0x4000_2808 0x0000_2000 | rw | RTC_CR (control register).ALRBIE (alarm B interrupt enable bit): 0
+0x4000_2808 0x0000_4000 | rw | RTC_CR (control register).WUTIE (wakeup timer interrupt enable bit): 1
+0x4000_2808 0x0000_8000 | rw | RTC_CR (control register).TSIE (timestamp interrupt enable): 0
+0x4000_2808 0x0001_0000 |  w | RTC_CR (control register).ADD1H (summer time change without INIT mode; inc 1 hour on next second bit): N/A
+0x4000_2808 0x0002_0000 |  w | RTC_CR (control register).SUB1H (winter time change without INIT mode; dec 1 hour on next second bit): N/A
+0x4000_2808 0x0004_0000 | rw | RTC_CR (control register).BKP (does nothing, user may use to memorize whether DST was performed; backup bit): 0
+0x4000_2808 0x0008_0000 | rw | RTC_CR (control register).COSEL (512Hz/0 1Hz/1 w/ default prescaler setting; RTC_CALIB output select bit): 0
+0x4000_2808 0x0010_0000 | rw | RTC_CR (control register).POL (high/0 low/1 when ALRAF,ALRBF,WUTF are set; RTC_ALARM output polarity bit): 0
+0x4000_2808 0x0060_0000 | rw | RTC_CR (control register).OSEL (none/0 alarmA/1 alarmB/2 wakeup/3; RTC_ALARM output select bit): 0
+0x4000_2808 0x0080_0000 | rw | RTC_CR (control register).COE (RTC_CALIB output enable bit): 0
+0x4000_2808 0x00f7_ff7f | rw | RTC_CR (control register).value (r=N/A rtc=0x0000_0000): 0x0000_4406
+0x4000_280c 0x0000_0001 | r  | RTC_ISR (initialization and status register).ALRAWF (ALRAE==0; alarm A write allowed flag): 1
+0x4000_280c 0x0000_0002 | r  | RTC_ISR (initialization and status register).ALRBWF (ALRBE==0; alarm B write allowed flag): 1
+0x4000_280c 0x0000_0004 | r  | RTC_ISR (initialization and status register).WUTWF (WUTE==0; delay of 2*rtcclk; wakeup timer write allowed flag): 0
+0x4000_280c 0x0000_0008 | r  | RTC_ISR (initialization and status register).SHPF (shift operation pending flag): 0
+0x4000_280c 0x0000_0010 | r  | RTC_ISR (initialization and status register).INITS (calendar date/time is initialized flag): 0
+0x4000_280c 0x0000_0020 | rc0| RTC_ISR (initialization and status register).RSF (e!BYPSHAD==0&SHPF==0&INITF==0; hw synced shadow registers flag): 1
+0x4000_280c 0x0000_0040 | r  | RTC_ISR (initialization and status register).INITF (RTC initialization mode active flag): 0
+0x4000_280c 0x0000_0080 | rw | RTC_ISR (initialization and status register).INIT (stop counters and allow register writes; init mode enable bit): 0
+0x4000_280c 0x0000_0100 | rc0| RTC_ISR (initialization and status register).ALRAF (hw0 after 2*apb1clk; RTC_TR RTC_DR match RTC_ALRMAR flag): 0
+0x4000_280c 0x0000_0200 | rc0| RTC_ISR (initialization and status register).ALRBF (hw0 after 2*apb1clk; RTC_TR RTC_DR match RTC_ALRMBR flag): 0
+0x4000_280c 0x0000_0400 | rc0| RTC_ISR (initialization and status register).WUTF (hw0 after 2*apb1clk; WUT downcounter reached 0 flag): 0
+0x4000_280c 0x0000_0800 | rc0| RTC_ISR (initialization and status register).TSF (hw0 after 2*apb1clk; timestamp event flag): 0
+0x4000_280c 0x0000_1000 | rc0| RTC_ISR (initialization and status register).TSOVF (TSF happened while TSF already set; timestamp overflow flag): 0
+0x4000_280c 0x0000_2000 | rc0| RTC_ISR (initialization and status register).TAMP1F (RTC_TAMP1 detection event flag): 0
+0x4000_280c 0x0000_4000 | rc0| RTC_ISR (initialization and status register).TAMP2F (RTC_TAMP2 detection event flag): 0
+0x4000_280c 0x0000_8000 | rc0| RTC_ISR (initialization and status register).TAMP3F (RTC_TAMP3 detection event flag): 0
+0x4000_280c 0x0001_0000 | r  | RTC_ISR (initialization and status register).RECALPF (when sw wrote to RTC_CALR; recalibration pending flag): 0
+0x4000_280c 0x0001_7fff | rw | RTC_ISR (initialization and status register).value (r=INIT,INITF,RSF=0,N/A rtc=0x0000_0007): 0x0000_0023
+0x4000_2810 0x0000_7fff | rw | RTC_PRER (prescaler register).PREDIV_S (ck_spre=ck_apre/(.+1); synchronous prescaler factor bits): 0x00ff
+0x4000_2810 0x007f_0000 | rw | RTC_PRER (prescaler register).PREDIV_A (ck_apre=rtcfreq/(.+1); asynchronous prescaler factor bits): 0x007f
+0x4000_2810 0x007f_7fff | rw | RTC_PRER (prescaler register).value (r=N/A rtc=0x007f_00ff): 0x007f_00ff
+0x4000_2814 0x0000_ffff | rw | RTC_WUTR (wakeup timer register).WUT (wakeup downcounter autoreload value bits): 0x517f
+0x4000_2814 0x0000_ffff | rw | RTC_WUTR (wakeup timer register).value (r=N/A rtc=0x0000_ffff): 0x0000_517f
+0x4000_281c 0x0000_000f | rw | RTC_ALRMAR (alarm A register).SU (second units BCD value bits): 0
+0x4000_281c 0x0000_0070 | rw | RTC_ALRMAR (alarm A register).ST (second tens BCD value bits): 0
+0x4000_281c 0x0000_0080 | rw | RTC_ALRMAR (alarm A register).MSK1 (seconds match/0 dont care/1 compare mask bit): 0
+0x4000_281c 0x0000_0f00 | rw | RTC_ALRMAR (alarm A register).MNU (minute units BCD value bits): 0
+0x4000_281c 0x0000_7000 | rw | RTC_ALRMAR (alarm A register).MNT (minute tens BCD value bits): 0
+0x4000_281c 0x0000_8000 | rw | RTC_ALRMAR (alarm A register).MSK2 (minutes match/0 dont care/1 compare mask bit): 0
+0x4000_281c 0x000f_0000 | rw | RTC_ALRMAR (alarm A register).HU (hour units BCD value bits): 0
+0x4000_281c 0x0030_0000 | rw | RTC_ALRMAR (alarm A register).HT (hour tens BCD value bits): 0
+0x4000_281c 0x0040_0000 | rw | RTC_ALRMAR (alarm A register).PM (am or 24h/0 or pm/1 notation bit): 0
+0x4000_281c 0x0080_8000 | rw | RTC_ALRMAR (alarm A register).MSK3 (hour match/0 dont care/1 compare mask bit): 0
+0x4000_281c 0x0f00_0000 | rw | RTC_ALRMAR (alarm A register).DU (date units BCD value bits): 0
+0x4000_281c 0x3000_0000 | rw | RTC_ALRMAR (alarm A register).DT (date tens BCD value bits): 0
+0x4000_281c 0x4000_0000 | rw | RTC_ALRMAR (alarm A register).WDSEL (DU represents day of month/0 week/1; date select mode bit): 0
+0x4000_281c 0x8000_0000 | rw | RTC_ALRMAR (alarm A register).MSK4 (date match/0 dont care/1 compare mask bit): 0
+0x4000_281c 0xffff_ffff | rw | RTC_ALRMAR (alarm A register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2820 0x0000_000f | rw | RTC_ALRMBR (alarm B register).SU (second units BCD value bits): 0
+0x4000_2820 0x0000_0070 | rw | RTC_ALRMBR (alarm B register).ST (second tens BCD value bits): 0
+0x4000_2820 0x0000_0080 | rw | RTC_ALRMBR (alarm B register).MSK1 (seconds match/0 dont care/1 compare mask bit): 0
+0x4000_2820 0x0000_0f00 | rw | RTC_ALRMBR (alarm B register).MNU (minute units BCD value bits): 0
+0x4000_2820 0x0000_7000 | rw | RTC_ALRMBR (alarm B register).MNT (minute tens BCD value bits): 0
+0x4000_2820 0x0000_8000 | rw | RTC_ALRMBR (alarm B register).MSK2 (minutes match/0 dont care/1 compare mask bit): 0
+0x4000_2820 0x000f_0000 | rw | RTC_ALRMBR (alarm B register).HU (hour units BCD value bits): 0
+0x4000_2820 0x0030_0000 | rw | RTC_ALRMBR (alarm B register).HT (hour tens BCD value bits): 0
+0x4000_2820 0x0040_0000 | rw | RTC_ALRMBR (alarm B register).PM (am or 24h/0 or pm/1 notation bit): 0
+0x4000_2820 0x0080_8000 | rw | RTC_ALRMBR (alarm B register).MSK3 (hour match/0 dont care/1 compare mask bit): 0
+0x4000_2820 0x0f00_0000 | rw | RTC_ALRMBR (alarm B register).DU (date units BCD value bits): 0
+0x4000_2820 0x3000_0000 | rw | RTC_ALRMBR (alarm B register).DT (date tens BCD value bits): 0
+0x4000_2820 0x4000_0000 | rw | RTC_ALRMBR (alarm B register).WDSEL (DU represents day of month/0 week/1; date select mode bit): 0
+0x4000_2820 0x8000_0000 | rw | RTC_ALRMBR (alarm B register).MSK4 (date match/0 dont care/1 compare mask bit): 0
+0x4000_2820 0xffff_ffff | rw | RTC_ALRMBR (alarm B register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2824 0x0000_00ff |  w | RTC_WPR (write protection register).KEY (w!DBP==1; write protection key): N/A
+0x4000_2824 0x0000_00ff |  w | RTC_WPR (write protection register).value (r=0x0000_0000 k1=0xCA k2=0x53): N/A
+0x4000_2828 0x0000_ffff | r  | RTC_SSR (subsecond shadow register).SS (synchronous prescaler downcounter; subsecond value bits): 0x0036
+0x4000_2828 0x0000_ffff | r  | RTC_SSR (subsecond shadow register).value (r=0x0000_0000): 0x0000_0036
+0x4000_282c 0x8000_7fff |  w | RTC_SHIFTR (shift control register).SUBFS (w!SHPF==0&REFCKON==0; extend second, decreases seconds; e.g. 1.1 becomes 1.0; subtract fraction of a second value bits): NA
+0x4000_282c 0x8000_0000 |  w | RTC_SHIFTR (shift control register).ADD1S (w!SHPF==0&REFCKON==0; shrink second, increases seconds; e.g. 0.9 becomes 1.0; add one second prior to SUBFS): NA
+0x4000_282c 0x8000_7fff |  w | RTC_SHIFTR (shift control register).value (r=N/A rtc=0x0000_0000): NA
+0x4000_2830 0x0000_000f | r  | RTC_TSTR (timestamp time register).SU (second units BCD value bits): 0
+0x4000_2830 0x0000_0070 | r  | RTC_TSTR (timestamp time register).SU (second tens BCD value bits): 0
+0x4000_2830 0x0000_0f00 | r  | RTC_TSTR (timestamp time register).MNU (minute units BCD value bits): 0
+0x4000_2830 0x0000_7000 | r  | RTC_TSTR (timestamp time register).MNT (minute tens BCD value bits): 0
+0x4000_2830 0x000f_0000 | r  | RTC_TSTR (timestamp time register).HU (hour units BCD value bits): 0
+0x4000_2830 0x0030_0000 | r  | RTC_TSTR (timestamp time register).HT (hour tens BCD value bits): 0
+0x4000_2830 0x0040_0000 | r  | RTC_TSTR (timestamp time register).PM (am or 24h/0 or pm/1 notation bit): 0
+0x4000_2830 0x007f_7f7f | r  | RTC_TSTR (timestamp time register).value (e!TSF==1; r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2834 0x0000_000f | r  | RTC_TSDR (timestamp data register).DU (date units BCD value bits): 0
+0x4000_2834 0x0000_0030 | r  | RTC_TSDR (timestamp data register).DT (date tens BCD value bits): 0
+0x4000_2834 0x0000_0f00 | r  | RTC_TSDR (timestamp data register).MU (months units BCD value bits): 0
+0x4000_2834 0x0000_1000 | r  | RTC_TSDR (timestamp data register).MT (months tens BCD value bits): 0
+0x4000_2834 0x0000_e000 | r  | RTC_TSDR (timestamp data register).WDU (1/mon 2/tue 3/wed 4/thu 5/fri 6/sat 7/sun; week day units bits): 0
+0x4000_2834 0x0000_ff3f | r  | RTC_TSDR (timestamp data register).value (e!TSF==1; r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2838 0x0000_ffff | r  | RTC_TSSSR (timestamp subsecond register).SS (synchronous prescaler downcounter; subsecond value bits): 0x0000
+0x4000_2838 0x0000_ffff | r  | RTC_TSSSR (timestamp subsecond register).value (e!TSF==1; r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_283c 0x0000_e1ff |    | RTC_CALR (calibration register).value (r=0x0000_0000): 0x0000_0000
+0x4000_2840 0x01ff_ffff |    | RTC_TAMPCR (tamper control register).value (r=0x0000_0000): 0x0000_0000
+0x4000_2844 0x0f00_7fff |    | RTC_ALRMASSR (alarm A subsecond register).value (r=0x0000_0000): 0x0000_0000
+0x4000_2848 0x0f00_7fff |    | RTC_ALRMBSSR (alarm B subsecond register).value (r=0x0000_0000): 0x0000_0000
+0x4000_284c 0x0000_0003 |    | RTC_OR (option register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2850 0xffff_ffff |    | RTC_BKP0R (backup register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2854 0xffff_ffff |    | RTC_BKP1R (backup register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2858 0xffff_ffff |    | RTC_BKP2R (backup register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_285c 0xffff_ffff |    | RTC_BKP3R (backup register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_2860 0xffff_ffff |    | RTC_BKP4R (backup register).value (r=N/A rtc=0x0000_0000): 0x0000_0000
+0x4000_5400 0x0000_0001 | rw | I2C_CR1 (control register 1).PE (peripheral semi-reset/0 or enable/1 bit): 1
+0x4000_5400 0x0000_0002 | rw | I2C_CR1 (control register 1).TXIE (TXIS transmit interrupt enable bit): 0
+0x4000_5400 0x0000_0004 | rw | I2C_CR1 (control register 1).RXIE (TXNE receive interrupt enable bit): 0
+0x4000_5400 0x0000_0008 | rw | I2C_CR1 (control register 1).ADDRIE (ADDR address match interrupt enable bit): 0
+0x4000_5400 0x0000_0010 | rw | I2C_CR1 (control register 1).NACKIE (NACKF not acknowledge received interrupt enable bit): 0
+0x4000_5400 0x0000_0020 | rw | I2C_CR1 (control register 1).STOPIE (STOPF stop detected interrupt enable bit): 0
+0x4000_5400 0x0000_0040 | rw | I2C_CR1 (control register 1).TCIE (TC,TCR transfer complete interrupt enable bit): 0
+0x4000_5400 0x0000_0080 | rw | I2C_CR1 (control register 1).ERRIE (BERR,ARLO,OVR,PECER,TIMEOUT,ALERT error detected interrupt enable bit): 0
+0x4000_5400 0x0000_0f00 | rw | I2C_CR1 (control register 1).DNF (w!PE==0, Tdnf=.*Ti2cclk; digital noise filter bits): 0
+0x4000_5400 0x0000_1000 | rw | I2C_CR1 (control register 1).ANFOFF (w!PE==0; Taf=50ns; analog noise filter disable bit): 0
+0x4000_5400 0x0000_4000 | rw | I2C_CR1 (control register 1).TXDMAEN (DMA mode enabled for transmission bit): 0
+0x4000_5400 0x0000_8000 | rw | I2C_CR1 (control register 1).RXDMAEN (DMA mode enabled for reception bit): 0
+0x4000_5400 0x0001_0000 | rw | I2C_CR1 (control register 1).SBC (slave mode w/ hw byte control enabled bit): 0
+0x4000_5400 0x0002_0000 | rw | I2C_CR1 (control register 1).NOSTRETCH (w!PE==0; clock stretching disable bit): 0
+0x4000_5400 0x0004_0000 | rw | I2C_CR1 (control register 1).WUPEN (w!DNF==0; wakeup from stop mode enable bit): 0
+0x4000_5400 0x0008_0000 | rw | I2C_CR1 (control register 1).GCEN (general call enable bit): 0
+0x4000_5400 0x0010_0000 | rw | I2C_CR1 (control register 1).SMBHEN (host/1 device/0 mode; SMBus host address enable bit): 0
+0x4000_5400 0x0020_0000 | rw | I2C_CR1 (control register 1).SMBDEN (SMBus device default address enable bit): 0
+0x4000_5400 0x0040_0000 | rw | I2C_CR1 (control register 1).ALERTEN (b!SMBHEN; SMBus alert enable bit): 0
+0x4000_5400 0x0080_0000 | rw | I2C_CR1 (control register 1).PECEN (packet error correction enable bit): 0
+0x4000_5400 0x00ff_dfff | rw | I2C_CR1 (control register 1).value (r=0x0000_0000): 0x0000_0001
+0x4000_5404 0x0000_03ff | rw | I2C_CR2 (control register 2).SADD (w!START==0; slave address bits): 0x000
+0x4000_5404 0x0000_0400 | rw | I2C_CR2 (control register 2).RD_WRN (w!START==0; master requests a write/0 read/1 transfer direction bit): 0
+0x4000_5404 0x0000_0800 | rw | I2C_CR2 (control register 2).ADD10 (w!START==0; master operates in 7,10-bit/0,1 address mode bit): 0
+0x4000_5404 0x0000_1000 | rw | I2C_CR2 (control register 2).HEAD10R (w!START==0; 10bit address header only read direction bit): 0
+0x4000_5404 0x0000_2000 | rs1| I2C_CR2 (control register 2).START (w!; generate a re/start bit): 0
+0x4000_5404 0x0000_4000 | rs1| I2C_CR2 (control register 2).STOP (generate a stop bit): 0
+0x4000_5404 0x0000_8000 | rs1| I2C_CR2 (control register 2).NACK (ACK/0 NACK/1 is sent after current received byte bit): 0
+0x4000_5404 0x00ff_0000 | rw | I2C_CR2 (control register 2).NBYTES (w!START==0 e!SBC==1; number of bytes): 0x00
+0x4000_5404 0x0100_0000 | rw | I2C_CR2 (control register 2).RELOAD (NBYTES reload mode bit): 0
+0x4000_5404 0x0200_0000 | rw | I2C_CR2 (control register 2).AUTOEND (e!RELOAD==0; software/0 automatic/1 end mode bit): 1
+0x4000_5404 0x0400_0000 | rs1| I2C_CR2 (control register 2).PECBYTE (e!RELOAD==0; PEC tx/rx request/1 finished/0 bit): 0
+0x4000_5404 0x07ff_ffff | rw | I2C_CR2 (control register 2).value (r=0x0000_0000): 0x0200_0000
+0x4000_5408 0x0000_03ff | rw | I2C_OAR1 (own address 1 register).OA1 (w!OA1EN==0; interface address): 0x000
+0x4000_5408 0x0000_0400 | rw | I2C_OAR1 (own address 1 register).OA1MODE (w!OA1EN==0; 7,10-bit/0,1 address mode bit): 0
+0x4000_5408 0x0000_8000 | rw | I2C_OAR1 (own address 1 register).OA1EN (address enable bit): 0
+0x4000_5408 0x0000_87ff | rw | I2C_OAR1 (own address 1 register).value (r=0x0000_0000): 0x0000_8000
+0x4000_540c 0x0000_00fe | rw | I2C_OAR2 (own address 2 register).OA2 (w!OA2EN==0; interface address): 0x00
+0x4000_540c 0x0000_0700 | rw | I2C_OAR2 (own address 2 register).OA2MSK (w!OA2EN==0; mask first 1..7-bits/1..7 or nomask/0 bits): 0x00
+0x4000_540c 0x0000_8000 | rw | I2C_OAR2 (own address 2 register).OA2EN (address enable bit): 0x00
+0x4000_540c 0x0000_87fe | rw | I2C_OAR2 (own address 2 register).value (r=0x0000_0000): 0x0000_0000
+0x4000_5410 0x0000_00ff | rw | I2C_TIMINGR (timing register).SCLL (w!PE==0; Tscll=(.+1)*Tpresc; SCL low period in master mode bits): 0x00
+0x4000_5410 0x0000_ff00 | rw | I2C_TIMINGR (timing register).SCLH (w!PE==0; Tsclh=(.+1)*Tpresc; SCL high period in master mode bits): 0x00
+0x4000_5410 0x000f_0000 | rw | I2C_TIMINGR (timing register).SDADEL (w!PE==0; Tsdadel=.*Tpresc; Data hold time bits): 0
+0x4000_5410 0x00f0_0000 | rw | I2C_TIMINGR (timing register).SCLDEL (w!PE==0; Tscldel=(.+1)*Tpresc; Data setup time bits): 0
+0x4000_5410 0xf000_0000 | rw | I2C_TIMINGR (timing register).PRESC (w!PE==0; Tpresc=(.+1)*Ti2cclk): 0
+0x4000_5410 0xf0ff_ffff | rw | I2C_TIMINGR (timing register).value (r=0x0000_0000): 0x0000_0000
+0x4000_5414 0x0000_0fff | rw | I2C_TIMEOUTR (timeout register).TIMEOUTA (w!TIMEOUTEN==0, TIDLE ? Tidle=(.+1)*4*Ti2cclk : Ttimeout=(.+1)*2048*Ti2cclk; Bus Timeout A bits): 0x000
+0x4000_5414 0x0000_1000 | rw | I2C_TIMEOUTR (timeout register).TIDLE (w!TIMEOUTEN==0, TIMEOUTA detects SCL low/0 or SCL&SDA high/1 timeout bit): 0
+0x4000_5414 0x0000_8000 | rw | I2C_TIMEOUTR (timeout register).TIMEOUTEN (ERR:=TIDLE ? Tsclhigh > Tidle : Tscllow > Ttimeout; SCL timeout detection enable bit): 0
+0x4000_5414 0x0fff_0000 | rw | I2C_TIMEOUTR (timeout register).TIMEOUTB (w!TEXTEN==0, Tlow:ext=(.+1)*2048*Ti2cclk; Bus Timeout B): 0x000
+0x4000_5414 0x8000_0000 | rw | I2C_TIMEOUTR (timeout register).TEXTEN (extended clock timeout detect enable bit): 0
+0x4000_5414 0x8fff_9fff | rw | I2C_TIMEOUTR (timeout register).value (r=0x0000_0000): 0x0000_0000
+0x4000_5418 0x0000_0001 | rs1| I2C_ISR (interrupt and status register).TXE (sw1 to flush TXDR; TXDR is empty and awaits data/1 or has data to be sent/0; tx data register empty bit): 1
+0x4000_5418 0x0000_0002 | rs1| I2C_ISR (interrupt and status register).TXIS (sw1 to make TXIS event; TXDR is empty and must give data; tx interrupt status): 0
+0x4000_5418 0x0000_0004 | r  | I2C_ISR (interrupt and status register).RXNE (RXDR is read/0 or rx data copy'd to RXDR/1; rx data reg not empty flag): 0
+0x4000_5418 0x0000_0008 | r  | I2C_ISR (interrupt and status register).ADDR (rx slave address matched flag): 0
+0x4000_5418 0x0000_0010 | r  | I2C_ISR (interrupt and status register).NACKF (after byte tx, not acknowledge received flag): 0
+0x4000_5418 0x0000_0020 | r  | I2C_ISR (interrupt and status register).STOPF (stop detection flag): 0
+0x4000_5418 0x0000_0040 | r  | I2C_ISR (interrupt and status register).TC (hw1 when RELOAD==0 & AUTOEND==0 & NBYTES tx'ed; sw0 by START:=1 or STOP:=1; transfer complete flag): 0
+0x4000_5418 0x0000_0080 | r  | I2C_ISR (interrupt and status register).TCR (hw1 when RELOAD==1 & NBYTES tx'ed; sw0 by NBYTES:=!0; transfer complete reload flag): 0
+0x4000_5418 0x0000_0100 | r  | I2C_ISR (interrupt and status register).BERR (hw1 when stop/start while tx; bus error flag): 0
+0x4000_5418 0x0000_0200 | r  | I2C_ISR (interrupt and status register).ARLO (hw1 when arb'n loss; arbitration lost flag): 0
+0x4000_5418 0x0000_0400 | r  | I2C_ISR (interrupt and status register).OVR (hw1 when over/underrun error occured flag): 0
+0x4000_5418 0x0000_0800 | r  | I2C_ISR (interrupt and status register).PECERR (PEC error w/ rx flag): 0
+0x4000_5418 0x0000_1000 | r  | I2C_ISR (interrupt and status register).TIMEOUT (timeout or extended clock timeout occured flag): 0
+0x4000_5418 0x0000_2000 | r  | I2C_ISR (interrupt and status register).ALERT (SMBus alert detected on SMBA pin flag): 0
+0x4000_5418 0x0000_8000 | r  | I2C_ISR (interrupt and status register).BUSY (hw1 when start, sw0 when stop; bus busy flag): 0
+0x4000_5418 0x0001_0000 | r  | I2C_ISR (interrupt and status register).DIR (write/0 read/1 transfer; slave enters rx/0 tx/1 mode; transfer direction flag): 0
+0x4000_5418 0x00fe_0000 | r  | I2C_ISR (interrupt and status register).ADDCODE (slave mode; recv addr when match occured bits): 0
+0x4000_5418 0x00ff_bfff | rs1| I2C_ISR (interrupt and status register).value (r=0x0000_0001): 0x0000_0001
+0x4000_541c 0x0000_0008 |  w | I2C_ICR (interrupt clear register).ADDRCF (ADDR, STOP flags clear bit): N/A
+0x4000_541c 0x0000_0010 |  w | I2C_ICR (interrupt clear register).NACKCF (NACKF flag clear bit): N/A
+0x4000_541c 0x0000_0020 |  w | I2C_ICR (interrupt clear register).STOPCF (STOPF flag clear bit): N/A
+0x4000_541c 0x0000_0100 |  w | I2C_ICR (interrupt clear register).BERRCF (BERRF flag clear bit): N/A
+0x4000_541c 0x0000_0010 |  w | I2C_ICR (interrupt clear register).ARLOCF (ARLO flag clear bit): N/A
+0x4000_541c 0x0000_0010 |  w | I2C_ICR (interrupt clear register).OVRCF (OVR flag clear bit): N/A
+0x4000_541c 0x0000_0010 |  w | I2C_ICR (interrupt clear register).PECCF (PECERR flag clear bit): N/A
+0x4000_541c 0x0000_0010 |  w | I2C_ICR (interrupt clear register).TIMEOUTCF (TIMOUT flag clear bit): N/A
+0x4000_541c 0x0000_0010 |  w | I2C_ICR (interrupt clear register).ALERTCF (ALERT flag clear bit): N/A
+0x4000_541c 0x0000_3f38 |  w | I2C_ICR (interrupt clear register).value: N/A
+0x4000_5420 0x0000_00ff | r  | I2C_PECR (packet error chcking register).PEC (clear when PE==0; internal PEC when PECEN==1): 0x00
+0x4000_5420 0x0000_00ff | r  | I2C_PECR (packet error chcking register).value (r=0x0000_0000): 0x0000_0000
+0x4000_5424 0x0000_00ff | r  | I2C_RXDR (receive data register).RXDATA (data byte received from I2C bus): 0x00
+0x4000_5424 0x0000_00ff | r  | I2C_RXDR (receive data register).value (r=0x0000_0000): 0x0000_0000
+0x4000_5428 0x0000_00ff | rw | I2C_TXDR (transmit data register).TXDATA (TXE==1; byte to be transmitted to the I2C bus): 0x02
+0x4000_5428 0x0000_00ff | rw | I2C_TXDR (transmit data register).value (r=0x0000_0000): 0x0000_0002
+0x4000_7000 0x0001_0000 | rw | PWR_CR (power control register).LPDS (cat1 devices only; 0/1 Set VR main/low-power mode when CPU enters stop mode; Low-Power Deep Sleep mode bit): 0
+0x4000_7000 0x0000_4000 | rw | PWR_CR (power control register).LPRUN (0/1 Set VR to main/low-power mode in 'LP run mode'; Low Power RUN mode bit): 0
+0x4000_7000 0x0000_2000 | rw | PWR_CR (power control register).DS_EE_KOFF (Exit from LP mode 'wake up'/0 'keep off'/1 non-volatiles; Deep Sleep exit, flash and EEPROM Kept OFF bit): 0
+0x4000_7000 0x0000_1800 | rw | PWR_CR (power control register).VOS (forbid/0 1.8V/1 1.5V/2 1.2V/3; VOltage Scaling selection bit): 1
+0x4000_7000 0x0000_0400 | rw | PWR_CR (power control register).FWU (Exit from LP mode 'wait until'/0 'skip'/1 Vrefint is ready; Fast Wake Up bit): 0
+0x4000_7000 0x0000_0200 | rw | PWR_CR (power control register).ULP (0/1 Vrefint on/off LP mode; Ultra Low Power mode bit): 0
+0x4000_7000 0x0000_0100 | rw | PWR_CR (power control register).DBP (Disable (RTC, RTC Backup, RCC CSR register) write Protection bit): 1
+0x4000_7000 0x0000_00e0 | rw | PWR_CR (power control register).PLS (1.9V/0 2.1V/1 2.3V/2 2.5V/3 2.7V/4 2.9V/5 3.1V/6 External/7; PVD Level Selection bits): 0
+0x4000_7000 0x0000_0010 | rw | PWR_CR (power control register).PVDE (Power Voltage Detector Enable bit): 0
+0x4000_7000 0x0000_0008 | rc1| PWR_CR (power control register).CSBF (nop/0 or Clear StandBy Flag/1): 0
+0x4000_7000 0x0000_0004 | rc1| PWR_CR (power control register).CWUF (nop/0 or Clear the WakeUp Flag after 2 sysclk cycles/1): 0
+0x4000_7000 0x0000_0002 | rw | PWR_CR (power control register).PDDS (0/1 Enter Stop/Standby mode when CPU enters Deep Sleep; Power-Down Deep Sleep bit): 0
+0x4000_7000 0x0000_0001 | rw | PWR_CR (power control register).LPSDSR (voltage Regulator kept On/0 or switched Low Power/1 when CPU Enters Sleep/Deep Sleep mode bit): 0
+0x4000_7000 0x0001_7fff | rw | PWR_CR (power control register).value (r=0x000_1000): 0x0000_0900
+0x4000_7004 0x0000_073f | rw | PWR_CSR (power control/status register).value (r=0x0000_0008): 0x0000_0008
+0x4000_7c00 0x0000_0001 | r  | LPTIM_ISR (interrupt and status register).CMPM (LPTIM_CNT == LPTIM_CMP; compare match bit): 1
+0x4000_7c00 0x0000_0002 | r  | LPTIM_ISR (interrupt and status register).ARRM (LPTIM_CNT == LPTIM_ARR; autoreload match bit): 1
+0x4000_7c00 0x0000_0004 | r  | LPTIM_ISR (interrupt and status register).EXTTRIG (selected external input reached valid edge; external trigger bit): 0
+0x4000_7c00 0x0000_0008 | r  | LPTIM_ISR (interrupt and status register).CMPOK (APB bus write to LPTIM_CMP complete; CoMPare register update OK bit): 0
+0x4000_7c00 0x0000_0010 | r  | LPTIM_ISR (interrupt and status register).ARROK (APB bus write to LPTIM_ARR complete; AutoReload Register update OK bit): 0
+0x4000_7c00 0x0000_0020 | r  | LPTIM_ISR (interrupt and status register).UP (ENC==1; encoder mode; Counter direction changed from down to up): 0
+0x4000_7c00 0x0000_0040 | r  | LPTIM_ISR (interrupt and status register).DOWN (ENC==1; encoder mode; Counter direction changed from up to down): 0
+0x4000_7c00 0x0000_007f | r  | LPTIM_ISR (interrupt and status register).value (r=0x0000_0000): 0x0000_0003
+0x4000_7c04 0x0000_007f |  w | LPTIM_ICR (interrupt clear register).value (r=0x0000_0000): N/A
+0x4000_7c08 0x0000_0001 | rw | LPTIM_IER (interrupt enable register).CMPMIE (compare match interrupt enable bit): 0
+0x4000_7c08 0x0000_0002 | rw | LPTIM_IER (interrupt enable register).ARRMIE (autoreload match interrupt enable bit): 1
+0x4000_7c08 0x0000_0004 | rw | LPTIM_IER (interrupt enable register).EXTRIGIE (external trigger active edge interrupt enable bit): 0
+0x4000_7c08 0x0000_0008 | rw | LPTIM_IER (interrupt enable register).CMPOKIE (compare register update OK interrupt enable bit): 0
+0x4000_7c08 0x0000_0010 | rw | LPTIM_IER (interrupt enable register).ARROKIE (autoreload register update OK interrupt enable bit): 1
+0x4000_7c08 0x0000_0020 | rw | LPTIM_IER (interrupt enable register).UPIE (direction change to up interrupt enable bit): 0
+0x4000_7c08 0x0000_0040 | rw | LPTIM_IER (interrupt enable register).DOWNIE (direction change to down interrupt enable bit): 0
+0x4000_7c08 0x0000_007f | rw | LPTIM_IER (interrupt enable register).value (ENABLE==0; r=0x0000_0000): 0x0000_0012
+0x4000_7c0c 0x0000_0001 | rw | LPTIM_CFGR (configuration register).CKSEL (0/1 internal/external clock source; clock select bit): 0
+0x4000_7c0c 0x0000_0006 | rw | LPTIM_CFGR (configuration register).CKPOL (ext clock; active edge is rising/0, falling/1, both/2 else if ENCODER MODE a sub-mode1,2,3 of 0/1/2; clock polarity bits): 0
+0x4000_7c0c 0x0000_0018 | rw | LPTIM_CFGR (configuration register).CKFLT (ext clock; any/0 signal change or stable for 2/1 4/2 8/3 clocks means valid edge; filter bits): 0
+0x4000_7c0c 0x0000_00c0 | rw | LPTIM_CFGR (configuration register).TRGFLT (any/0 level change or stable for 2/1 4/2 8/3 clocks means valid trigger; internal trigger filter bits): 0
+0x4000_7c0c 0x0000_0e00 | rw | LPTIM_CFGR (configuration register).PRESC (division factor 1/2/4/8/16/32/64/128; clock prescaler bitfield): 7
+0x4000_7c0c 0x0000_e000 | rw | LPTIM_CFGR (configuration register).TRIGSEL (ext clock; TRIGEN!=0; GPIO_af_LPTIM_ETR/0 RTCalarmA,B/1,2 RTC_TAMP1,2,3/3,4,5 COMP1,2/6,7; _external_ trigger source select bitfield): 0
+0x4000_7c0c 0x0006_0000 | rw | LPTIM_CFGR (configuration register).TRIGEN (counter started by sw/0 rise/1 fall/2 both/3; trigger enable bits): 0
+0x4000_7c0c 0x0008_0000 | rw | LPTIM_CFGR (configuration register).TIMOUT (if timer already started, trigev ignored/0 or timer restart/1; timeout enable bit): 0
+0x4000_7c0c 0x0010_0000 | rw | LPTIM_CFGR (configuration register).WAVE (0/1 de/activate set-once mode; waveform output shape bit): 0
+0x4000_7c0c 0x0020_0000 | rw | LPTIM_CFGR (configuration register).WAVPOL (compare results between LPTIM_ARR and LPTIM_CMP/0 or its inverse/1; waveform output shape polarity bit): 0
+0x4000_7c0c 0x0040_0000 | rw | LPTIM_CFGR (configuration register).PRELOAD (up regs on each APBbus write/0 or end of current LPTIM period/1; LPTIM_ARR,CMP regs update mode bit): 0
+0x4000_7c0c 0x0080_0000 | rw | LPTIM_CFGR (configuration register).COUNTMODE (CKSEL==0; counter incremented on each internal/0 or external valid/1 clock pulse; counter mode bit): 0
+0x4000_7c0c 0x0100_0000 | rw | LPTIM_CFGR (configuration register).ENC (CNTSTRT==1 CKSEL==0 PRESC==0; encoder mode enable bit): 0
+0x4000_7c0c 0x01fe_eedf | rw | LPTIM_CFGR (configuration register).value (ENABLE==0; r=0x0000_0000): 0x0000_0e00
+0x4000_7c10 0x0000_0001 | rw | LPTIM_CR (control register).ENABLE (LPTIM enable bit): 1
+0x4000_7c10 0x0000_0002 | rw | LPTIM_CR (control register).SNGSTRT (ENABLE==1; LPTIM start in single pulse mode bit): 0
+0x4000_7c10 0x0000_0004 | rw | LPTIM_CR (control register).CNTSTRT (ENABLE==1; LPTIM start in continuous mode bit): 0
+0x4000_7c10 0x0000_0007 | rw | LPTIM_CR (control register).value (r=0x0000_0000): 0x0000_0001
+0x4000_7c14 0x0000_ffff | rw | LPTIM_CMP (compare register).CMP (used by LPTIM; compare value bitfiled): dec 0
+0x4000_7c14 0x0000_ffff | rw | LPTIM_CMP (compare register).value (r=0x0000_0000): 0x0000_0000
+0x4000_7c18 0x0000_ffff | rw | LPTIM_ARR (autoreload register).ARR (autoreload value bitfiled): dec 26
+0x4000_7c18 0x0000_ffff | rw | LPTIM_ARR (autoreload register).value (r=0x0000_0001): 0x0000_001a
+0x4000_7c1c 0x0000_ffff | r  | LPTIM_CNT (counter register).CNT (the 16bit counter itself, may be unreliable with async clocks; counter value bitfield): dec 2
+0x4000_7c1c 0x0000_ffff | r  | LPTIM_CNT (counter register).value (r=0x0000_0000): 0x0000_0002
+0x4001_0000 0x0000_0003 | rw | SYSCFG_CFGR1 (memory remap register).MEM_MODE (MainFlash/0 SysFlash/1 res/2 SRAM/3; 0x0000_0000 memory map select bits): 0
+0x4001_0000 0x0000_0008 | rw | SYSCFG_CFGR1 (memory remap register).UFB (0x080{1,2}_0000 Flash and 0x0808{0c,18}00 EEPROM user bank swapping bit): 0
+0x4001_0000 0x0000_0300 | r  | SYSCFG_CFGR1 (memory remap register).BOOT_MODE (MainFlash/0 SysFlash/1 res/2 SRAM/3; selected by boot pin status bits): 0
+0x4001_0000 0x0000_030b | rw | SYSCFG_CFGR1 (memory remap register).value (r=0x000X_000X): 0x0000_0000
+0x4001_0004 0x0000_0001 | rw | SYSCFG_CFGR2 (peripheral mode register).FWDIS (firewall disable bit): 1
+0x4001_0004 0x0000_0f00 | rw | SYSCFG_CFGR2 (peripheral mode register).I2C_PBXFMP (PB9/8 PB8/4 PB7/2 PB6/1; Fm+ enable bitmask): 0
+0x4001_0004 0x0000_7000 | rw | SYSCFG_CFGR2 (peripheral mode register).I2CX_FMP (I2C3/4 I2C2/2 I2C1/1; Fm+ enable bitmask): 1
+0x4001_0004 0x0000_3f01 | rw | SYSCFG_CFGR2 (peripheral mode register).value (r=0x0000_0001): 0x0000_1001
+0x4001_0008 0x0000_000f | rw | SYSCFG_EXTICR1 (external interrupt config register).EXTI0 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0008 0x0000_00f0 | rw | SYSCFG_EXTICR1 (external interrupt config register).EXTI1 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0008 0x0000_0f00 | rw | SYSCFG_EXTICR1 (external interrupt config register).EXTI2 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0008 0x0000_f000 | rw | SYSCFG_EXTICR1 (external interrupt config register).EXTI3 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0008 0x0000_ffff | rw | SYSCFG_EXTICR1 (external interrupt config register).value (r=0x0000_0000): 0x0000_0000
+0x4001_000c 0x0000_000f | rw | SYSCFG_EXTICR2 (external interrupt config register).EXTI4 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_000c 0x0000_00f0 | rw | SYSCFG_EXTICR2 (external interrupt config register).EXTI5 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 1
+0x4001_000c 0x0000_0f00 | rw | SYSCFG_EXTICR2 (external interrupt config register).EXTI6 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_000c 0x0000_f000 | rw | SYSCFG_EXTICR2 (external interrupt config register).EXTI7 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_000c 0x0000_ffff | rw | SYSCFG_EXTICR2 (external interrupt config register).value (r=0x0000_0000): 0x0000_0010
+0x4001_0010 0x0000_000f | rw | SYSCFG_EXTICR3 (external interrupt config register).EXTI8 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0010 0x0000_00f0 | rw | SYSCFG_EXTICR3 (external interrupt config register).EXTI9 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0010 0x0000_0f00 | rw | SYSCFG_EXTICR3 (external interrupt config register).EXTI10 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0010 0x0000_f000 | rw | SYSCFG_EXTICR3 (external interrupt config register).EXTI11 (PH/5 PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0010 0x0000_ffff | rw | SYSCFG_EXTICR3 (external interrupt config register).value (r=0x0000_0000): 0x0000_0000
+0x4001_0014 0x0000_000f | rw | SYSCFG_EXTICR4 (external interrupt config register).EXTI12 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0014 0x0000_00f0 | rw | SYSCFG_EXTICR4 (external interrupt config register).EXTI13 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0014 0x0000_0f00 | rw | SYSCFG_EXTICR4 (external interrupt config register).EXTI14 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0014 0x0000_f000 | rw | SYSCFG_EXTICR4 (external interrupt config register).EXTI15 (PE/4 PD/3 PC/2 PB/1 PA/0; external interrupt source pin select bit): 0
+0x4001_0014 0x0000_ffff | rw | SYSCFG_EXTICR4 (external interrupt config register).value (r=0x0000_0000): 0x0000_0000
+0x4001_0020 0x0000_0001 | rw | SYSCFG_CFGR3 (reference control and status register).EN_VREFINT (VREFINT and COMP2 scaler enable bit): 0
+0x4001_0020 0x0000_0030 | rw | SYSCFG_CFGR3 (reference control and status register).SEL_VREF_OUT (PB1/2 PB0/1; VREFINT_ADC connect pin select bitmask): 0
+0x4001_0020 0x0000_0100 | rw | SYSCFG_CFGR3 (reference control and status register).ENBUF_VREFINT_ADC (buffer generate VREFINT reference for ADC enable bit): 0
+0x4001_0020 0x0000_0200 | rw | SYSCFG_CFGR3 (reference control and status register).ENBUF_SENSOR_ADC (buffer generate VREFINT reference for ADC temperature sensor enable bit): 0
+0x4001_0020 0x0000_1000 | rw | SYSCFG_CFGR3 (reference control and status register).ENBUF_VREFINT_COMP2 (buffer generate VERFINT reference for COMP2 scaler enable bit): 0
+0x4001_0020 0x4000_0000 | r  | SYSCFG_CFGR3 (reference control and status register).VREFINT_RDYF (internal voltage reference available for BOR, PVD status bit): 1
+0x4001_0020 0x8000_0000 | rs1| SYSCFG_CFGR3 (reference control and status register).REF_LOCK (lock this register until reset, enable bit): 0
+0x4001_0020 0xc000_1331 | rw | SYSCFG_CFGR3 (reference control and status register).value (r=0x0000_0000): 0x4000_0000
+0x4001_04xx 0x0000_0001 |mux | _EXTI_GPIO0 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 0d
+0x4001_04xx 0x0000_0002 |mux | _EXTI_GPIO1 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 09
+0x4001_04xx 0x0000_0004 |mux | _EXTI_GPIO2 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_0008 |mux | _EXTI_GPIO3 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 05
+0x4001_04xx 0x0000_0010 |mux | _EXTI_GPIO4 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_0020 |mux | _EXTI_GPIO5 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 05
+0x4001_04xx 0x0000_0040 |mux | _EXTI_GPIO6 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_0080 |mux | _EXTI_GPIO7 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_0100 |mux | _EXTI_GPIO8 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_0200 |mux | _EXTI_GPIO9 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 05
+0x4001_04xx 0x0000_0400 |mux | _EXTI_GPIO10 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 05
+0x4001_04xx 0x0000_0800 |mux | _EXTI_GPIO11 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_1000 |mux | _EXTI_GPIO12 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_2000 |mux | _EXTI_GPIO13 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_4000 |mux | _EXTI_GPIO14 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0000_8000 |mux | _EXTI_GPIO15 (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0001_0000 |mux | _EXTI_PVD (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0002_0000 |mux | _EXTI_RTCalarm (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0008_0000 |mux | _EXTI_RTC{timer,timestamp,CSS_LSE} (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0010_0000 |mux | _EXTI_RTCwakeup (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 05
+0x4001_04xx 0x0020_0000 |mux | _EXTI_COMP1out (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0040_0000 |mux | _EXTI_COMP2out (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 00
+0x4001_04xx 0x0080_0000 |mux | _EXTI_I2C1wakeup (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 01
+0x4001_04xx 0x0100_0000 |mux | _EXTI_I2C3wakeup (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 01
+0x4001_04xx 0x0200_0000 |mux | _EXTI_USART1wakeup (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 01
+0x4001_04xx 0x0400_0000 |mux | _EXTI_USART2wakeup (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 01
+0x4001_04xx 0x1000_0000 |mux | _EXTI_LPUART1wakeup (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 01
+0x4001_04xx 0x2000_0000 |mux | _EXTI_LPTIM1wakeup (PR, SWIER, FTSR, RTSR, EMR, IMR 6 bits): 01
+0x4001_0400 0x37fb_ffff | rw | EXTI_IMR (interrupt mask register).IM (1/0 irq request un/masked bit): 0x3790_062b
+0x4001_0400 0x37fb_ffff | rw | EXTI_IMR (interrupt mask register).value (r=0x3F84_0000): 0x3f94_062b
+0x4001_0404 0x37fb_ffff | rw | EXTI_EMR (event mask register).EM (1/0 event request un/masked bit): 0x0000_0000
+0x4001_0404 0x37fb_ffff | rw | EXTI_EMR (event mask register).value (r=0x0000_0000): 0x0000_0000
+0x4001_0408 0x007b_ffff | rw | EXTI_RTSR (rising edge trigger selection register).RT (rising trigger enabled bits): 0x0010_0629
+0x4001_0408 0x007b_ffff | rw | EXTI_RTSR (rising edge trigger selection register).value (r=0x0000_0000): 0x0010_0629
+0x4001_040c 0x007b_ffff | rw | EXTI_FTSR (falling edge trigger selection register).FT (falling trigger enabled bits): 0x0000_0003
+0x4001_040c 0x007b_ffff | rw | EXTI_FTSR (falling edge trigger selection register).value (r=0x0000_0000): 0x0000_0003
+0x4001_0410 0x007b_ffff | rw | EXTI_SWIER (software interrupt event register).SWI (0->1 to generate irq req; software interrupt bits): 0x0000_0000
+0x4001_0410 0x007b_ffff | rw | EXTI_SWIER (software interrupt event register).value (r=0x0000_0000): 0x0000_0000
+0x4001_0414 0x007b_ffff | rc1| EXTI_PR (pending register).PIF (1 if edge event on irq line; pending interrupt flag): 0x0000_0000
+0x4001_0414 0x007b_ffff | rc1| EXTI_PR (pending register).value (r=0xXXXX_XXXX): 0x0000_0000
+0x4002_1000 0x0000_0001 | rw | RCC_CR (clock control register).HSI16ON (16MHz High Speed Internal clock enable bit): 0
+0x4002_1000 0x0000_0002 | rw | RCC_CR (clock control register).HSI16KERON (retain HSI16 in STOP MODE (for IP kernels, like USARTs, I2C1) enable bit): 0
+0x4002_1000 0x0000_0004 | r  | RCC_CR (clock control register).HSI16RDYF (HSI16 oscillator is stable bit): 0
+0x4002_1000 0x0000_0008 | rw | RCC_CR (clock control register).HSI16DIVEN (HSI16 division by 4 enable bit): 0
+0x4002_1000 0x0000_0010 | r  | RCC_CR (clock control register).HSI16DIVF (HSI16 is currently divided by 4 flag): 0
+0x4002_1000 0x0000_0020 | rw | RCC_CR (clock control register).HSI16OUTEN (HSI16 output enable bit): 0
+0x4002_1000 0x0000_0100 | rw | RCC_CR (clock control register).MSION (Multi-Speed Internal clock enable bit): 1
+0x4002_1000 0x0000_0200 | r  | RCC_CR (clock control register).MSIRDY (MSI oscillator is stable bit): 1
+0x4002_1000 0x0001_0000 | rw | RCC_CR (clock control register).HSEON (High-Speed External clock enable bit): 0
+0x4002_1000 0x0002_0000 | r  | RCC_CR (clock control register).HSERDY (HSE oscillator is stable bit): 0
+0x4002_1000 0x0004_0000 | rw | RCC_CR (clock control register).HSEBYP (use an external clock instead of an oscillator; HSE bypass bit): 0
+0x4002_1000 0x0008_0000 | rw | RCC_CR (clock control register).CSSHSEON (enables clock detector while HSERDY==1; Clock Security System on HSE enable bit): 0
+0x4002_1000 0x0030_0000 | rw | RCC_CR (clock control register).RTCPRE (HSE is divided by 2/4/8/16 for RTC clock; RTC prescaler bitfield): 0
+0x4002_1000 0x0100_0000 | rw | RCC_CR (clock control register).PLLON (Phase Locked Loop enable bit): 0
+0x4002_1000 0x0200_0000 | r  | RCC_CR (clock control register).PLLRDY (PLL is locked flag): 0
+0x4002_1000 0x033f_033f | rw | RCC_CR (clock control register).value (r=0x00{XX}{0X00}_0300): 0x0000_0300
+0x4002_1004 0x0000_00ff | r  | RCC_ICSCR (internal clock sources calibration register).HSI16CAL (HSI16 factory calibration value bits): 3d
+0x4002_1004 0x0000_1f00 | rw | RCC_ICSCR (internal clock sources calibration register).HSI16TRIM (compensate variations due to volts or temps; HSI16 clock trimming bitfield): 10
+0x4002_1004 0x0000_e000 | rw | RCC_ICSCR (internal clock sources calibration register).MSIRANGE (0..6 65.536/131.072/262.144/524.288 kHz, 1.048/2.097/4.194 MHz; 2^16*(2^.) Hz; MSI clock ranges bits): 5
+0x4002_1004 0x00ff_0000 | r  | RCC_ICSCR (internal clock sources calibration register).MSICAL (MSI factory calibration value bits): 37
+0x4002_1004 0xff00_0000 | rw | RCC_ICSCR (internal clock sources calibration register).MSITRIM (compensate variations due to volts or temps; MSI clock trimming bits): 0
+0x4002_1004 0xffff_ffff |    | RCC_ICSCR (internal clock sources calibration register).value (r=0x00XX_b0XX): 0x0037_b03d
+0x4002_100c 0x0000_0003 | rw | RCC_CFGR (clock configuration register).SW (switch to MSI/0 HSI16/1 HSE/2 PLL/3 as System clock bitfield): 0
+0x4002_100c 0x0000_000c | r  | RCC_CFGR (clock configuration register).SWS (now MSI/0 HSI16/1 HSE/2 PLL/3 is System clock status): 0
+0x4002_100c 0x0000_00f0 | rw | RCC_CFGR (clock configuration register).HPRE (nodiv/0..7 div by 2,4,8,16,64,128,256,512/8..f; AHB prescaler bitfiled): 0
+0x4002_100c 0x0000_0700 | rw | RCC_CFGR (clock configuration register).PPRE1 (HCLK nodiv/0..3 div by 2,4,8,16/4..7; APB low-speed prescaler bitfield): 0
+0x4002_100c 0x0000_3800 | rw | RCC_CFGR (clock configuration register).PPRE2 (HCLK nodiv/0..3 div by 2,4,8,16/4..7; APB high-speed prescaler bitfield): 0
+0x4002_100c 0x0000_8000 | rw | RCC_CFGR (clock configuration register).STOPWUCK (use MSI/0 HSI16/1 after Wake-Up from Stop clock selection bit): 0
+0x4002_100c 0x0001_0000 | rw | RCC_CFGR (clock configuration register).PLLSRC (use HSI16/0 HSE/1 as PLL clock source bit): 0
+0x4002_100c 0x003c_0000 | rw | RCC_CFGR (clock configuration register).PLLMUL (PLLVCO = PLLsrc times 3,4,6,8,12,16,24,32,48/0..8 res/9..f; PLL multiplication factor bitfield): 0
+0x4002_100c 0x00c0_0000 | rw | RCC_CFGR (clock configuration register).PLLDIV (PLLout = PLLVCO / 2,3,4/1..3 res/0; PLL output division bits): 0
+0x4002_100c 0x0f00_0000 | rw | RCC_CFGR (clock configuration register).MCOSEL (disabled/0 SYSCLK/1 HSI16/2 MSI/3 HSE/4 PLL/5 LSI/6 LSE/7 res/8..f; MCU Clock Output selection bitfield): 0
+0x4002_100c 0x7000_0000 | rw | RCC_CFGR (clock configuration register).MCOPRE (MCO div by 1,2,4,8,16/0..4 tabu/5..7): 0
+0x4002_100c 0x77fd_bfff | rw | RCC_CFGR (clock configuration register).value (r=0x0000_0000): 0x0000_0000
+0x4002_1010 0x0000_0001 | r  | RCC_CIER (clock interrupt enabled register).LSIRDYIE (LSI ready interrupt enabled flag): 0
+0x4002_1010 0x0000_0002 | r  | RCC_CIER (clock interrupt enabled register).LSERDYIE (LSE ready interrupt enabled flag): 0
+0x4002_1010 0x0000_0004 | r  | RCC_CIER (clock interrupt enabled register).HSI16RDYIE (HSI16 ready interrupt enabled flag): 0
+0x4002_1010 0x0000_0008 | r  | RCC_CIER (clock interrupt enabled register).HSERDYIE (HSE ready interrupt enabled flag): 0
+0x4002_1010 0x0000_0010 | r  | RCC_CIER (clock interrupt enabled register).PLLRDYIE (PLL ready interrupt enabled flag): 0
+0x4002_1010 0x0000_0020 | r  | RCC_CIER (clock interrupt enabled register).MSIRDYIE (MSI ready interrupt enabled flag): 0
+0x4002_1010 0x0000_0080 | r  | RCC_CIER (clock interrupt enabled register).CSSLSE (LSE CSS interrupt enabled flag): 0
+0x4002_1010 0x0000_00bf | r  | RCC_CIER (clock interrupt enabled register).value (r=0x0000_0000): 0x0000_0000
+0x4002_1014 0x0000_0001 | r  | RCC_CIFR (clock interrupt flag register).LSIRDYF (LSIRDYIE==1; LSI clock became stable after failure status flag): 0
+0x4002_1014 0x0000_0002 | r  | RCC_CIFR (clock interrupt flag register).LSERDYF (LSERDYIE==1; LSE clock became stable after failure status flag): 0
+0x4002_1014 0x0000_0004 | r  | RCC_CIFR (clock interrupt flag register).HSI16RDYF (HSI16RDYIE==1; HSI16 clock became stable after failure status flag): 0
+0x4002_1014 0x0000_0008 | r  | RCC_CIFR (clock interrupt flag register).HSERDYF (HSERDYIE==1; HSE clock became stable after failure status flag): 0
+0x4002_1014 0x0000_0010 | r  | RCC_CIFR (clock interrupt flag register).PLLRDYF (PLLRDYIE==1; PLL clock became stable after failure status flag): 0
+0x4002_1014 0x0000_0020 | r  | RCC_CIFR (clock interrupt flag register).MSIRDYF (MSIRDYIE==1; MSI clock became stable after failure status flag): 0
+0x4002_1014 0x0000_0080 | r  | RCC_CIFR (clock interrupt flag register).CSSLSEF (CSSLSE==1; LSE clock failure detected status flag): 0
+0x4002_1014 0x0000_0100 | r  | RCC_CIFR (clock interrupt flag register).CSSHSEF (CSS HSE clock failure detected status flag): 0
+0x4002_1014 0x0000_01bf | r  | RCC_CIFR (clock interrupt flag register).value (r=0x0000_0000): 0x0000_0000
+0x4002_1018 0x0000_01bf |  w | RCC_CICR (clock interrupt clear register).value (r=0x0000_0000; ditto RC_CIFR): N/A
+0x4002_101c 0x0000_0001 | rw | RCC_IOPRSTR (GPIO reset register).IOPARST (I/O port A reset bit): 0
+0x4002_101c 0x0000_0002 | rw | RCC_IOPRSTR (GPIO reset register).IOPBRST (I/O port B reset bit): 0
+0x4002_101c 0x0000_0004 | rw | RCC_IOPRSTR (GPIO reset register).IOPCRST (I/O port C reset bit): 0
+0x4002_101c 0x0000_0008 | rw | RCC_IOPRSTR (GPIO reset register).IOPDRST (I/O port D reset bit): 0
+0x4002_101c 0x0000_0010 | rw | RCC_IOPRSTR (GPIO reset register).IOPERST (I/O port E reset bit): 0
+0x4002_101c 0x0000_0080 | rw | RCC_IOPRSTR (GPIO reset register).IOPHRST (I/O port H reset bit): 0
+0x4002_101c 0x0000_009f | rw | RCC_IOPRSTR (GPIO reset register).value (r=0x0000_0000): 0x0000_0000
+0x4002_1020 0x0000_0001 | rw | RCC_AHBRSTR (AHB peripheral reset register).DMARST (Direct Memory Access reset bit): 0
+0x4002_1020 0x0000_0100 | rw | RCC_AHBRSTR (AHB peripheral reset register).MIFRST (NVM Interface reset bit): 0
+0x4002_1020 0x0000_1000 | rw | RCC_AHBRSTR (AHB peripheral reset register).CRCRST (test integration module reset bit): 0
+0x4002_1020 0x0100_0000 | rw | RCC_AHBRSTR (AHB peripheral reset register).CRYPTRST (crypto module reset bit): 0
+0x4002_1020 0x0100_1101 | rw | RCC_AHBRSTR (AHB peripheral reset register).value (r=0x0000_0000): 0x0000_0000
+0x4002_1024 0x0000_0001 | rw | RCC_APB2RSTR (APB2 peripheral reset register).SYSCFGRST (System configuration controller reset): 0
+0x4002_1024 0x0000_0004 | rw | RCC_APB2RSTR (APB2 peripheral reset register).TIM21RST (TIM21 timer reset bit): 0
+0x4002_1024 0x0000_0020 | rw | RCC_APB2RSTR (APB2 peripheral reset register).TIM22RST (TIM22 timer reset bit): 0
+0x4002_1024 0x0000_0200 | rw | RCC_APB2RSTR (APB2 peripheral reset register).ADCRST (ADC interface reset bit): 0
+0x4002_1024 0x0000_1000 | rw | RCC_APB2RSTR (APB2 peripheral reset register).SPI1RST (SPI1 reset bit): 0
+0x4002_1024 0x0000_4000 | rw | RCC_APB2RSTR (APB2 peripheral reset register).USART1RST (USART1 reset bit): 0
+0x4002_1024 0x0040_0000 | rw | RCC_APB2RSTR (APB2 peripheral reset register).DBGRST (DBG reset bit): 0
+0x4002_1024 0x0040_5225 | rw | RCC_APB2RSTR (APB2 peripheral reset register).value (r=0x0000_0000): 0x0000_0000
+0x4002_1028 0x0000_0001 | rw | RCC_APB1RSTR (APB1 peripheral reset register).TIM2RST (TIM2 reset bit): 0
+0x4002_1028 0x0000_0002 | rw | RCC_APB1RSTR (APB1 peripheral reset register).TIM3RST (TIM3 reset bit): 0
+0x4002_1028 0x0000_0010 | rw | RCC_APB1RSTR (APB1 peripheral reset register).TIM6RST (TIM6 reset bit): 0
+0x4002_1028 0x0000_0020 | rw | RCC_APB1RSTR (APB1 peripheral reset register).TIM7RST (TIM7 reset bit): 0
+0x4002_1028 0x0000_0800 | rw | RCC_APB1RSTR (APB1 peripheral reset register).WWDGRST (window watchdog reset bit): 0
+0x4002_1028 0x0000_4000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).SPI2RST (SPI2 reset bit): 0
+0x4002_1028 0x0002_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).USART2RST (USART2 reset bit): 0
+0x4002_1028 0x0004_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).LPUART1RST (LPUART1 reset bit): 0
+0x4002_1028 0x0008_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).USART4RST (USART4 reset bit): 0
+0x4002_1028 0x0010_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).USART5RST (USART5 reset bit): 0
+0x4002_1028 0x0020_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).I2C1RST (I2C1 reset bit): 0
+0x4002_1028 0x0040_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).I2C2RST (I2C2 reset bit): 0
+0x4002_1028 0x1000_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).PWRRST (power interface reset bit): 0
+0x4002_1028 0x4000_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).I2C3RST (I2C3 reset bit): 0
+0x4002_1028 0x8000_0000 | rw | RCC_APB1RSTR (APB1 peripheral reset register).LPTIM1RST (Low-Power Timer reset bit): 0
+0x4002_1028 0xd07e_4833 | rw | RCC_APB1RSTR (APB1 peripheral reset register).value (r=0x0000_0000): 0x0000_0000
+0x4002_102c 0x0000_0001 | rw | RCC_IOPENR (GPIO clock enable register).IOPAEN (IO Port A clock enable bit): 1
+0x4002_102c 0x0000_0002 | rw | RCC_IOPENR (GPIO clock enable register).IOPBEN (IO Port B clock enable bit): 1
+0x4002_102c 0x0000_0004 | rw | RCC_IOPENR (GPIO clock enable register).IOPCEN (IO Port C clock enable bit): 1
+0x4002_102c 0x0000_0008 | rw | RCC_IOPENR (GPIO clock enable register).IOPDEN (IO Port D clock enable bit): 0
+0x4002_102c 0x0000_0010 | rw | RCC_IOPENR (GPIO clock enable register).IOPEEN (IO Port E clock enable bit): 0
+0x4002_102c 0x0000_0080 | rw | RCC_IOPENR (GPIO clock enable register).IOPHEN (IO Port H clock enable bit): 0
+0x4002_102c 0x0000_009f | rw | RCC_IOPENR (GPIO clock enable register).value (r=0x0000_0000): 0x0000_0003
+0x4002_1030 0x0000_0001 | rw | RCC_AHBENR (AHB peripheral clock enable register).DMAEN (DMA clock enable bit): 1
+0x4002_1030 0x0000_0100 | rw | RCC_AHBENR (AHB peripheral clock enable register).MIFEN (NVM interface clock enable bit): 1
+0x4002_1030 0x0000_1000 | rw | RCC_AHBENR (AHB peripheral clock enable register).CRCEN (test integration module clock enable bit): 0
+0x4002_1030 0x0100_0000 | rw | RCC_AHBENR (AHB peripheral clock enable register).CRYPEN (crypto clock enable bit): 0
+0x4002_1030 0x0100_1101 | rw | RCC_AHBENR (AHB peripheral clock enable register).value (r=0x0000_0100): 0x0000_0101
+0x4002_1034 0x0000_0001 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).SYSCFGEN (system configuration controller clock enable bit): 1
+0x4002_1034 0x0000_0004 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).TIM21EN (TIM21 timer clock enable bit): 0
+0x4002_1034 0x0000_0020 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).TIM22EN (TIM22 timer clock enable bit): 0
+0x4002_1034 0x0000_0080 | rs | RCC_APB2ENR (APB2 peripheral clock enable register).FWEN (firewall clock enable bit): 0
+0x4002_1034 0x0000_0200 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).ADCEN (ADC clock enable bit): 1
+0x4002_1034 0x0000_1000 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).SPI1EN (SPI1 clock enable bit): 1
+0x4002_1034 0x0000_4000 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).USART1EN (USART1 clock enable bit): 0
+0x4002_1034 0x0040_0000 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).DBGEN (DBG clock enable bit): 0
+0x4002_1034 0x0040_52a5 | rw | RCC_APB2ENR (APB2 peripheral clock enable register).value (r=0x0000_0000): 0x0000_1201
+0x4002_1038 0x0000_0001 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).TIM2EN (TIM2 clock enable bit): 0
+0x4002_1038 0x0000_0002 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).TIM3EN (TIM3 clock enable bit): 0
+0x4002_1038 0x0000_0010 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).TIM6EN (TIM6 clock enable bit): 0
+0x4002_1038 0x0000_0020 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).TIM7EN (TIM7 clock enable bit): 0
+0x4002_1038 0x0000_0800 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).WWDGEN (window watchdog clock enable bit): 0
+0x4002_1038 0x0000_4000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).SPI2EN (SPI2 clock enable bit): 0
+0x4002_1038 0x0002_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).USART2EN (USART2 clock enable bit): 0
+0x4002_1038 0x0004_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).LPUART1EN (LPUART1 clock enable bit): 0
+0x4002_1038 0x0008_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).USART4EN (USART4 clock enable bit): 0
+0x4002_1038 0x0010_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).USART5EN (USART5 clock enable bit): 0
+0x4002_1038 0x0020_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).I2C1EN (I2C1 clock enable bit): 1
+0x4002_1038 0x0040_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).I2C2EN (I2C2 clock enable bit): 0
+0x4002_1038 0x1000_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).PWREN (power interface clock enable bit): 1
+0x4002_1038 0x4000_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).I2C3EN (I2C3 clock enable bit): 0
+0x4002_1038 0x8000_0000 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).LPTIM1EN (Low-power timer clock enable bit): 1
+0x4002_1038 0xd07e_4833 | rw | RCC_APB1ENR (APB1 peripheral clock enable register).value (r=0x0000_0000): 0x9020_0000
+0x4002_103c 0x0000_0001 | rw | RCC_IOPSMEN (GPIO clock enable in SLEEP MODE register).IOPASMEN (IOPAEN==1; Port A clock enable in SLEEP MODE): 1
+0x4002_103c 0x0000_0002 | rw | RCC_IOPSMEN (GPIO clock enable in SLEEP MODE register).IOPBSMEN (IOPAEN==1; Port B clock enable in SLEEP MODE): 1
+0x4002_103c 0x0000_0004 | rw | RCC_IOPSMEN (GPIO clock enable in SLEEP MODE register).IOPCSMEN (IOPAEN==1; Port C clock enable in SLEEP MODE): 1
+0x4002_103c 0x0000_0008 | rw | RCC_IOPSMEN (GPIO clock enable in SLEEP MODE register).IOPDSMEN (IOPAEN==1; Port D clock enable in SLEEP MODE): 1
+0x4002_103c 0x0000_0010 | rw | RCC_IOPSMEN (GPIO clock enable in SLEEP MODE register).IOPESMEN (IOPAEN==1; Port E clock enable in SLEEP MODE): 1
+0x4002_103c 0x0000_0080 | rw | RCC_IOPSMEN (GPIO clock enable in SLEEP MODE register).IOPHSMEN (IOPAEN==1; Port H clock enable in SLEEP MODE): 1
+0x4002_103c 0x0000_009f | rw | RCC_IOPSMEN (GPIO clock enable in SLEEP MODE register).value (r=0x0000_009f): 0x0000_009f
+0x4002_1040 0x0000_0001 | rw | RCC_AHBSMENR (AHB peripheral clock enable in SLEEP MODE register).DMASMEN (DMA clock enable in SLEEP MODE bit): 1
+0x4002_1040 0x0000_0100 | rw | RCC_AHBSMENR (AHB peripheral clock enable in SLEEP MODE register).MIFSMEN (NVM interface clock enable in SLEEP MODE bit): 1
+0x4002_1040 0x0000_0200 | rw | RCC_AHBSMENR (AHB peripheral clock enable in SLEEP MODE register).SRAMSMEN (NVM interface clock enable in SLEEP MODE bit): 1
+0x4002_1040 0x0000_1000 | rw | RCC_AHBSMENR (AHB peripheral clock enable in SLEEP MODE register).CRCSMEN (test integration module clock enable in SLEEP MODE bit): 1
+0x4002_1040 0x0100_0000 | rw | RCC_AHBSMENR (AHB peripheral clock enable in SLEEP MODE register).CRYPSMEN (Crypto clock enable in SLEEP MODE bit): 1
+0x4002_1040 0x0100_1301 | rw | RCC_AHBSMENR (AHB peripheral clock enable in SLEEP MODE register).value (r=0x0100_1301): 0x0111_1301
+0x4002_1044 0x0000_0001 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).SYSCFGSMEN (system configuration controller clock enable in SLEEP MODE bit): 1
+0x4002_1044 0x0000_0004 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).TIM21SMEN (TIM21EN==1; TIM21 timer clock enable in SLEEP MODE bit): 1
+0x4002_1044 0x0000_0020 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).TIM22SMEN (TIM22EN==1; TIM22 timer clock enable in SLEEP MODE bit): 1
+0x4002_1044 0x0000_0200 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).ADCSMEN (ADCEN==1; ADC clock enable in SLEEP MODE bit): 1
+0x4002_1044 0x0000_1000 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).SPI1SMEN (SPI1EN==1; SPI1 clock enable in SLEEP MODE bit): 1
+0x4002_1044 0x0000_4000 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).USART1SMEN (USART1EN==1; USART1 clock enable in SLEEP MODE bit): 1
+0x4002_1044 0x0040_0000 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).DBGSMEN (DBGEN==1; DBG clock enable in SLEEP MODE bit): 1
+0x4002_1044 0x0040_5225 | rw | RCC_APB2SMENR (APB2 peripheral clock enable in SLEEP MODE register).value (r=0x0040_5225): 0x0040_5225
+0x4002_1048 0x0000_0001 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).TIM2SMEN (TIM2EN==1; Timer2 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0000_0002 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).TIM3SMEN (TIM3EN==1; Timer3 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0000_0010 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).TIM6SMEN (TIM6EN==1; Timer6 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0000_0020 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).TIM7SMEN (TIM7EN==1; Timer7 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0000_0800 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).WWDGSMEN (WWDGEN==1; window watchdog clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0000_4000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).SPI2SMEN (SPI2EN==1; SPI2 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0002_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).USART2EN (USART2EN==1; USART2 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0004_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).LPUART1SMEN (LPUART1EN==1; LPUART1 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0008_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).USART4SMEN (USART4EN==1; USART4 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0010_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).USART5SMEN (USART5EN==1; USART5 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0020_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).I2C1SMEN (I2C1EN==1; I2C1 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x0040_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).I2C2SMEN (I2C2EN==1; I2C2 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x1000_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).PWRSMEN (PWREN==1; power interface clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x4000_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).I2C3SMEN (I2C3EN==1; I2C3 clock enable in SLEEP MODE bit): 1
+0x4002_1048 0x8000_0000 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).LPTIM1SMEN (LPTIM1EN==1; Low-Power timer clock enable in SLEEP MODE bit): 1
+0x4002_1048 0xd07e_4833 | rw | RCC_APB1SMENR (APB1 peripheral clock enable in SLEEP MODE register).value (r=0xd07e_4833): 0xf8fe_4a33
+0x4002_104c 0x0000_0003 | rw | RCC_CCIPR (clock configuration register).USART1SEL (APB/0 SYS/1 HSI16/2 LSE/3; USART1 clock source select bits): 0
+0x4002_104c 0x0000_000c | rw | RCC_CCIPR (clock configuration register).USART2SEL (APB/0 SYS/1 HSI16/2 LSE/3; USART2 clock source select bits): 0
+0x4002_104c 0x0000_0c00 | rw | RCC_CCIPR (clock configuration register).LPUART1SEL (APB/0 SYS/1 HSI16/2 LSE/3; LPUART1 clock source select bits): 0
+0x4002_104c 0x0000_3000 | rw | RCC_CCIPR (clock configuration register).I2C1SEL (APB/0 SYS/1 HSI16/2 nouse/3; I2C1 clock source select bits): 0
+0x4002_104c 0x0003_0000 | rw | RCC_CCIPR (clock configuration register).I2C3SEL (APB/0 SYS/1 HSI16/2 nouse/3; I2C3 clock source select bits): 0
+0x4002_104c 0x000c_0000 | rw | RCC_CCIPR (clock configuration register).LPTIM1SEL (APB/0 LSI/1 HSI16/2 LSE/3; LPTIM1 clock source select bits): 3
+0x4002_104c 0x000f_3c0f | rw | RCC_CCIPR (clock configuration register).value (r=0x0000_0000): 0x000c_0000
+0x4002_1050 0x0000_0001 | rw | RCC_CSR (control/status register).LSION (internal low-speed oscillator enable bit): 1
+0x4002_1050 0x0000_0002 | r  | RCC_CSR (control/status register).LSIRDY (internal low-speed oscillator is stable flag): 1
+0x4002_1050 0x0000_0100 | rw | RCC_CSR (control/status register).LSEON (external low-speed oscillator enable bit): 1
+0x4002_1050 0x0000_0200 | r  | RCC_CSR (control/status register).LSERDY (external low-speed oscillator is stable flag): 1
+0x4002_1050 0x0000_0400 | rw | RCC_CSR (control/status register).LSEBYP (external low-speed oscillator is bypassed bit): 0
+0x4002_1050 0x0000_1800 | rw | RCC_CSR (control/status register).LSEDRV (drive is low/0 midlow/1 midhigh/2 high/3; external low-speed oscillator driving capability selection bits): 0
+0x4002_1050 0x0000_2000 | rw | RCC_CSR (control/status register).CSSLSEON (LSEON,LSION,LSERDY,LSIRDY==1 RTCSEL!=0; CSS on LSE enable bit): 0
+0x4002_1050 0x0000_4000 | r  | RCC_CSR (control/status register).CSSLSED (CSS on LSE failure detected flag): 0
+0x4002_1050 0x0003_0000 | rw | RCC_CSR (control/status register).RTCSEL (none/0 LSE/1 LSI/2 HSE/3; RTC clock source selection bits): 1
+0x4002_1050 0x0004_0000 | rw | RCC_CSR (control/status register).RTCEN (RTC clock enable bit): 1
+0x4002_1050 0x0008_0000 | rw | RCC_CSR (control/status register).RTCRST (RTC peripheral software reset bit): 0
+0x4002_1050 0x0080_0000 |  w | RCC_CSR (control/status register).RMVF (clear the reset flags bit): N/A
+0x4002_1050 0x0100_0000 | r  | RCC_CSR (control/status register).FWRSTF (firewall reset occured flag): 0
+0x4002_1050 0x0200_0000 | r  | RCC_CSR (control/status register).OBLRSTF (option bytes loading caused system reset flag): 0
+0x4002_1050 0x0400_0000 | r  | RCC_CSR (control/status register).PINRSTF (reset from NRST pin occured flag): 1
+0x4002_1050 0x0800_0000 | r  | RCC_CSR (control/status register).PORRSTF (power-on/down caused power reset flag): 0
+0x4002_1050 0x1000_0000 | r  | RCC_CSR (control/status register).SFTRSTF (software incurred system reset flag): 0
+0x4002_1050 0x2000_0000 | r  | RCC_CSR (control/status register).IWDGRSTF (independent watchdog reset occured flag): 0
+0x4002_1050 0x4000_0000 | r  | RCC_CSR (control/status register).WWDGRSTF (window watchdog reset occured flag): 0
+0x4002_1050 0x8000_0000 | r  | RCC_CSR (control/status register).LPWRRSTF (low-power management reset occured flag): 0
+0x4002_1050 0xff8f_7f03 | rw | RCC_CSR (control/status register).value (r=0x0c00_0000 por=0x0c00_0004): 0x0405_0303
+0x4002_2000 0x0000_0001 | rw | FLASH_ACR (access control register).LATENCY (wait state enable bit): 0
+0x4002_2000 0x0000_0002 | rw | FLASH_ACR (access control register).PRFTEN (internal buffers prefetch enable bit): 0
+0x4002_2000 0x0000_0008 | rw | FLASH_ACR (access control register).SLEEP_PD (when device sleep mode, NVM power-down enable bit): 0
+0x4002_2000 0x0000_0010 | rw | FLASH_ACR (access control register).RUN_PD (when device run mode, NVM power-down enable bit): 0
+0x4002_2000 0x0000_0020 | rw | FLASH_ACR (access control register).DISAB_BUF (internal buffers disable bit): 0
+0x4002_2000 0x0000_0040 | rw | FLASH_ACR (access control register).PRE_READ (internal buffers pre-read enable bit): 1
+0x4002_2000 0x0000_007b | rw | FLASH_ACR (access control register).value (r=0x0000_0000): 40
+0x4002_2004 0x0000_0001 | rw | FLASH_PECR (protect erase control register).PELOCK (protect erase/write all and EEPROM lock enable bit): 1
+0x4002_2004 0x0000_0002 | rw | FLASH_PECR (protect erase control register).PRGLOCK (protect erase/write FLASH PROGRAM lock enable bit): 1
+0x4002_2004 0x0000_0004 | rw | FLASH_PECR (protect erase control register).OPTLOCK (protect erase/write OPTION BYTES lock enable bit): 1
+0x4002_2004 0x0000_0008 | rw | FLASH_PECR (protect erase control register).PROG (FLASH PROGRAM half-page erase/write operation bit): 0
+0x4002_2004 0x0000_0010 | rw | FLASH_PECR (protect erase control register).DATA (EEPROM DATA page erase operation bit): 0
+0x4002_2004 0x0000_0100 | rw | FLASH_PECR (protect erase control register).FIX (force erase&write every word operation bit): 0
+0x4002_2004 0x0000_0200 | rw | FLASH_PECR (protect erase control register).ERASE (erase operation bit): 0
+0x4002_2004 0x0000_0400 | rw | FLASH_PECR (protect erase control register).FPRG (FLASH PROGRAM half-page write operation bit): 0
+0x4002_2004 0x0000_8000 | rw | FLASH_PECR (protect erase control register).PARALLELBANK (2 Banks in-parallel FLASH PROGRAM half-page write operation bit): 0
+0x4002_2004 0x0001_0000 | rw | FLASH_PECR (protect erase control register).EOPIE (end of programming (write success) interupt enable bit): 0
+0x4002_2004 0x0002_0000 | rw | FLASH_PECR (protect erase control register).ERRIE (write error interrupt enable bit): 0
+0x4002_2004 0x0004_0000 | rw | FLASH_PECR (protect erase control register).OBL_LAUNCH (OBLRSTF:=1; cause system reset, reload option bytes request bit): 0
+0x4002_2004 0x0080_0000 | rw | FLASH_PECR (protect erase control register).NZDISABLE (NOTZEROERR and emit interrupt disable bit): 0
+0x4002_2004 0x0087_871f | rw | FLASH_PECR (protect erase control register).value (r=0x0000_0007): 7
+0x4002_2008 0xffff_ffff |  w | FLASH_PDKEYR (power-down key register).value (r=0x0000_0000): N/A
+0x4002_200c 0xffff_ffff |  w | FLASH_PEKEYR (protect erase any or EEPROM key register).value (r=0x0000_0000 k1=0x89AB_CDEF k2=0x0203_0405): N/A
+0x4002_2010 0xffff_ffff |  w | FLASH_PRGKEYR (protect erase FLASH PROGRAM key register).value (r=0x0000_0000 k1=0x8C9D_AEBF k2=0x1314_1516): N/A
+0x4002_2014 0xffff_ffff |  w | FLASH_OPTKEYR (protect erase OPTION BYTES key register).value (r=0x0000_0000 k1=0xFBEA_D9C8 k2=0x2425_2627): N/A
+0x4002_2018 0x0000_0001 | r  | FLASH_SR (status register).BSY (memory interface doing erase/write operation bit): 0
+0x4002_2018 0x0000_0002 | rc1| FLASH_SR (status register).EOP (end of FLASH PROGRAM write bit): 1
+0x4002_2018 0x0000_0004 | r  | FLASH_SR (status register).ENDHV (no ongoing write/erase, high voltage disabled bit): 1
+0x4002_2018 0x0000_0008 | r  | FLASH_SR (status register).READY (read/write/erase operations doable bit): 1
+0x4002_2018 0x0000_0100 | rc1| FLASH_SR (status register).WRPERR (attempted protected write operation error bit): 0
+0x4002_2018 0x0000_0200 | rc1| FLASH_SR (status register).PGAERR (write not half-page aligned or alike error bit): 0
+0x4002_2018 0x0000_0400 | rc1| FLASH_SR (status register).SIZERR (provided invalid size to write operation bit): 0
+0x4002_2018 0x0000_0800 | rc1| FLASH_SR (status register).OPTVERR (option validity error bit): 0
+0x4002_2018 0x0000_2000 | rc1| FLASH_SR (status register).RDERR (attempted protected read "FLASH sector w/ PcROP" operation error bit): 0
+0x4002_2018 0x0001_0000 | rc1| FLASH_SR (status register).NOTZEROERR (attempted write to FLASH without prior erase error bit): 0
+0x4002_2018 0x0002_0000 | rc1| FLASH_SR (status register).FWWERR (fetch while write error bit): 0
+0x4002_2018 0x0003_2f0f | rw | FLASH_SR (status register).value (r=0x0000_000c): e
+0x4002_201c 0x0000_00ff | r  | FLASH_OPTR (loaded option bytes register).RDPROT (read out proctection bitfield): aa
+0x4002_201c 0x0000_0100 | r  | FLASH_OPTR (loaded option bytes register).WPRMOD (WRPROT bitmask does w=0/r=1 protection mode bit): 0
+0x4002_201c 0x000f_0000 | r  | FLASH_OPTR (loaded option bytes register).BOR_LEV (brownout reset threshold level bitfield): 0
+0x4002_201c 0x0010_0000 | r  | FLASH_OPTR (loaded option bytes register).WDG_SW (watchdog hw=0/sw=1 mode bit): 1
+0x4002_201c 0x0020_0000 | r  | FLASH_OPTR (loaded option bytes register).nRST_STOP (device stop mode, emit reset disable bit): 1
+0x4002_201c 0x0040_0000 | r  | FLASH_OPTR (loaded option bytes register).nRST_STDBY (device standy mode, emit reset disable bit): 1
+0x4002_201c 0x0080_0000 | r  | FLASH_OPTR (loaded option bytes register).BFB2 (map sysflash to 0x0 to boot from bank 2 bit): 0
+0x4002_201c 0x8000_0000 | r  | FLASH_OPTR (loaded option bytes register).nBOOT1 (bit): 1
+0x4002_201c 0x80ff_01ff | r  | FLASH_OPTR (loaded option bytes register).value (r=0xX0XX_0XXX d=0x8070_00aa mm=0x8*{111}8_*{1}00): 0x8070_00aa
+0x4002_2020 0xffff_ffff | r  | FLASH_WRPROT1 (write protection register 1).value (r=0xXXXX_XXXX d=0x0000_0000): 0x0000_0000
+0x4002_2080 0x0000_ffff | r  | FLASH_WRPROT2 (write protection register 2).value (r=0x0000_XXXX d=0x0000_0000): 0x0000_0000
+*********************** | ** | GPIOx_ PhyPinNr     MODER     OTYPER        OSPEEDR      PUPDR       IDR      ODR       LCKR        AFRL/H           Notes
+0x5000_00XX 0xXXXX_XXXX |mux | _PA0:  UFQFPN32_6   0/i       0/push-pull   0/low        2/pulldown  0/input  0/output  0/unlocked  0/af             [Button] Main Button
+0x5000_00XX 0xXXXX_XXXX |mux | _PA1:  UFQFPN32_7   0/i       0/push-pull   0/low        1/pullup    1/input  0/output  0/unlocked  0/af             [NFC] NFC Chip (ST25DV04K UFDFPN8), Interrupt
+0x5000_00XX 0xXXXX_XXXX |mux | _PA2:  UFQFPN32_8   0/gpo     0/push-pull   0/low        2/pulldown  1/input  1/output  0/unlocked  0/af             [curio] ANT_SW, to some proxy SMC, tht connects LoRa IC
+0x5000_00XX 0xXXXX_XXXX |mux | _PA3:  UFQFPN32_9   3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             [curio] Floating
+0x5000_00XX 0xXXXX_XXXX |mux | _PA4:  UFQFPN32_10  0/gpo     0/push-pull   2/high       0/none      1/input  1/output  0/unlocked  0/af             [LORA] LoRa Chip, SX_nSS
+0x5000_00XX 0xXXXX_XXXX |mux | _PA5:  UFQFPN32_11  2/af      0/push-pull   3/very high  0/none      0/input  0/output  0/unlocked  0/af SPI1_SCK    [LORA] LoRa Chip, SX_SCK
+0x5000_00XX 0xXXXX_XXXX |mux | _PA6:  UFQFPN32_12  2/af      0/push-pull   3/very high  0/none      0/input  0/output  0/unlocked  0/af SPI1_MISO   [LORA] LoRa Chip, SX_MISO
+0x5000_00XX 0xXXXX_XXXX |mux | _PA7:  UFQFPN32_13  2/af      0/push-pull   3/very high  0/none      0/input  0/output  0/unlocked  0/af SPI1_MOSI   [LORA] LoRa Chip, SX_MOSI
+0x5000_00XX 0xXXXX_XXXX |mux | _PA8:  UFQFPN32_18  0/gpo     0/push-pull   0/low        0/none      1/input  1/output  0/unlocked  0/af             [LED] LED_Green
+0x5000_00XX 0xXXXX_XXXX |mux | _PA9:  UFQFPN32_19  0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             [LED] LED_Red
+0x5000_00XX 0xXXXX_XXXX |mux | _PA10: UFQFPN32_20  3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             [curio] Floating
+0x5000_00XX 0xXXXX_XXXX |mux | _PA11: UFQFPN32_21  0/i       0/push-pull   0/low        1/pullup    0/input  0/output  0/unlocked  0/af             [LORA] LoRa Chip, SX_BUSY
+0x5000_00XX 0xXXXX_XXXX |mux | _PA12: UFQFPN32_22  0/gpo     0/push-pull   2/high       0/none      0/input  0/output  0/unlocked  0/af             [LORA] LoRa Chip, SX_DIO3
+0x5000_00XX 0xXXXX_XXXX |mux | _PA13: UFQFPN32_23  2/af      0/push-pull   3/very high  1/pullup    1/input  0/output  0/unlocked  0/af SWDIO       [JTAG] HW Debugger lines, no touchy!
+0x5000_00XX 0xXXXX_XXXX |mux | _PA14: UFQFPN32_25  2/af      0/push-pull   0/low        2/pulldown  0/input  0/output  0/unlocked  0/af SWDCLK      [JTAG] HW Debugger lines, no touchy!
+0x5000_00XX 0xXXXX_XXXX |mux | _PA15: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB0:  UFQFPN32_14  0/gpo     0/push-pull   0/low        2/pulldown  0/input  0/output  0/unlocked  0/af             [curio] SMPS_Mode, I think it's some battery controlling IC
+0x5000_04XX 0xXXXX_XXXX |mux | _PB1:  UFQFPN32_15  0/gpo     0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             [curio] Floating
+0x5000_04XX 0xXXXX_XXXX |mux | _PB2:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB3:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB4:  UFQFPN32_26  0/gpo     0/push-pull   0/low        0/none      1/input  1/output  0/unlocked  0/af             [LORA] LoRa Chip, SX_RESET
+0x5000_04XX 0xXXXX_XXXX |mux | _PB5:  UFQFPN32_27  0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             [LORA] LoRa Chip, SX_DIO1
+0x5000_04XX 0xXXXX_XXXX |mux | _PB6:  UFQFPN32_28  2/af      1/open-drain  3/very high  1/pullup    1/input  0/output  0/unlocked  1/af I2C1_SCL    [NFC] NFC Chip (ST25DV04K UFDFPN8), I2C Serial Clock
+0x5000_04XX 0xXXXX_XXXX |mux | _PB7:  UFQFPN32_29  2/af      1/open-drain  3/very high  1/pullup    1/input  0/output  0/unlocked  1/af I2C1_SDA    [NFC] NFC Chip (ST25DV04K UFDFPN8), I2C Serial Data
+0x5000_04XX 0xXXXX_XXXX |mux | _PB8:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB9:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB10: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB11: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB12: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB13: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB14: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_04XX 0xXXXX_XXXX |mux | _PB15: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC0:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC1:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC2:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC3:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC4:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC5:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC6:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC7:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC8:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC9:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC10: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC11: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC12: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC13: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_08XX 0xXXXX_XXXX |mux | _PC14: UFQFPN32_1   3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             [curio] Ground with resistor
+0x5000_08XX 0xXXXX_XXXX |mux | _PC15: UFQFPN32_2   3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             [curio] Ground with resistor
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD0:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD1:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD2:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD3:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD4:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD5:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD6:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD7:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD8:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD9:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD10: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD11: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD12: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD13: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD14: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0cXX 0xXXXX_XXXX |mux | _PD15: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE0:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE1:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE2:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE3:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE4:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE5:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE6:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE7:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE8:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE9:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE10: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE11: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE12: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE13: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE14: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_10XX 0xXXXX_XXXX |mux | _PE15: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH0:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH1:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH2:  N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH3:  N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH4:  N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH5:  N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH6:  N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH7:  N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH8:  N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH9:  N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH10: N/A          3/analog  0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH11: N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH12: N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH13: N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH14: N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_14XX 0xXXXX_XXXX |mux | _PH15: N/A          0/i       0/push-pull   0/low        0/none      0/input  0/output  0/unlocked  0/af             
+0x5000_0000 0xffff_ffff | rw | GPIOA_MODER (A port mode register).value (r=0xebff_fcff): 0xe931_a9d0
+0x5000_0004 0x0000_ffff | rw | GPIOA_OTYPER (A port output type register).value (r=0x0000_0000): 0x0000_0000
+0x5000_0008 0xffff_ffff | rw | GPIOA_OSPEEDR (A port output speed register).value (r=0x0c00_0000): 0x0e00_fe00
+0x5000_000c 0xffff_ffff | rw | GPIOA_PUPDR (A port pullup/down register).value (r=0x2400_0000): 0x2440_0026
+0x5000_0010 0x0000_ffff | r  | GPIOA_IDR (A port input data register).value (r=0x0000_XXXX): 0x0000_2116
+0x5000_0014 0x0000_ffff | rw | GPIOA_ODR (A port output data register).value (r=0x0000_XXXX): 0x0000_0114
+0x5000_001c 0x0000_ffff | rw | GPIOA_LCKR (A port configuration lock register).LCKy (PA0..15 lock bits): 0000
+0x5000_001c 0x0001_0000 | rw | GPIOA_LCKR (A port configuration lock register).LCKK (sequence: 1, 0, 1; this register lock bit): 0000
+0x5000_001c 0x0001_ffff | rw | GPIOA_LCKR (A port configuration lock register).value (r=0x0000_0000): 0x0000_0000
+0x5000_0020 0xffff_ffff | rw | GPIOA_AFRL (A port alt func low register).value (r=0x0000_0000): 0x0000_0000
+0x5000_0024 0xffff_ffff | rw | GPIOA_AFRH (A port alt func high register).value (r=0x0000_0000): 0x0000_0000
+** 0xe000_0000..0xe00f_ffff * Cortex-M0+ Peripherals **
+0xe000_e400 0x0000_00c0 | rw | NVIC_IP0_3 (interrupt priority register).WWDG (0>1; window watchdog priority bits): 0
+0xe000_e400 0xc0c0_c0c0 | rw | NVIC_IP0_3 (interrupt priority register).value (r=0x0000_0000): 0x00c0_0000
+0xe000_e404 0x0000_c000 | rw | NVIC_IP4_7 (interrupt priority register).EXTI0_1 (0>1; sw irq; sta:button stx:reedswitch): 2
+0xe000_e404 0xc0c0_c0c0 | rw | NVIC_IP4_7 (interrupt priority register).value (r=0x0000_0000): 0x0000_8000
+0xe000_e408 0xc0c0_c0c0 | rw | NVIC_IP8_11 (interrupt priority register).value (r=0x0000_0000): 0x0000_0000
+0xe000_e40c 0x0000_c000 | rw | NVIC_IP12_15 (interrupt priority register).LPTIM1 (0>1; low power timer priority bits): 1
+0xe000_e40c 0xc0c0_c0c0 | rw | NVIC_IP12_15 (interrupt priority register).value (r=0x0000_0000): 0x0000_4000
+0xe000_e410 0xc0c0_c0c0 | rw | NVIC_IP16_19 (interrupt priority register).value (r=0x0000_0000): 0x0000_0000
+0xe000_e414 0xc0c0_c0c0 | rw | NVIC_IP20_23 (interrupt priority register).value (r=0x0000_0000): 0x0000_0000
+0xe000_e418 0xc0c0_c0c0 | rw | NVIC_IP24_27 (interrupt priority register).value (r=0x0000_0000): 0x0000_0000
+0xe000_e41c 0x0000_c0c0 | rw | NVIC_IP28_29 (interrupt priority register).value (r=0x0000_0000): 0x0000_0000
+0xe000_ed08 0xffff_ff00 | rw | SCB_VTOR (system control block vector table offset register).TBLOFF (table offset bitfield): 0x08_0000
+0xe000_ed08 0xffff_ff00 | rw | SCB_VTOR (system control block vector table offset register).value (r=0x0000_0000): 0x0800_0000
+** DeviceAddr:TargetAddr * I2C ST25DV Peripheral **
+0xAE:0x0000             | rw | ST25DV_SYS_GPOR (gpo interrupt mask register).value:
+0xAE:0x0001             | rw | ST25DV_SYS_IT_TIME (interrupt pulse duration register)
+0xAE:0x0002             | rw | ST25DV_SYS_EH_MODE (energy harvesting default strategy after power-on register)
+0xAE:0x0003             | rw | ST25DV_SYS_RF_MNGT (rf interfase state after power-on register)
+0xAE:0x0004             | rw | ST25DV_SYS_RFA1SS (area 1 rf access protection register)
+0xAE:0x0005             | rw | ST25DV_SYS_ENDA1 (area 1 ending point register).value (r=0x0f; 32*ENDA+31 is area 1 last byte; 32*ENDA+32 is area 2 first byte)
+0xAE:0x0006             | rw | ST25DV_SYS_RFA2SS (area 2 rf access protection register)
+0xAE:0x0007             | rw | ST25DV_SYS_ENDA2 (area 2 ending point register).value (r=0x0f)
+0xAE:0x0008             | rw | ST25DV_SYS_RFA3SS (area 3 rf access protection register)
+0xAE:0x0009             | rw | ST25DV_SYS_ENDA3 (area 3 ending point register).value (r=0x0f)
+0xAE:0x000a             | rw | ST25DV_SYS_RFA4SS (area 4 rf access protection register)
+0xAE:0x000b             | rw | ST25DV_SYS_I2CSS (area 1..4 I2C access protection register)
+0xAE:0x000c             | rw | ST25DV_SYS_LOCK_CCFILE (blocks 0 and 1 rf write protection register)
+0xAE:0x000c             | rw | ST25DV_SYS_LOCK_CCFILE (RF write-protect blocks 0,1 of area 0 register)
+0xAE:0x000d        0x01 | rw | ST25DV_SYS_MB_MODE (mailbox mode register).value (f=0x00): 0x00
+0xAE:0x000d        0x01 | rw | ST25DV_SYS_MB_MODE (mailbox mode register).MB_MODE (fast transfer mode state after power-on; ftm enable bit): 0
+0xAE:0x000e        0x07 | rw | ST25DV_SYS_MB_WDG (mailbox watchdog register).value (f=0x07): 0x00
+0xAE:0x000e        0x07 | rw | ST25DV_SYS_MB_WDG (mailbox watchdog register).MB_WDG (msg released never/0 or 2^(MB_WDG-1)*30 ms duration bits): 0
+0xAE:0x000f             | rw | ST25DV_SYS_LOCK_CFG (RF write-protect sys-regs registers)
+0xAE:0x0010             | r  | ST25DV_SYS_LOCK_DSFID (DSFID lock status registers)
+0xAE:0x0011             | r  | ST25DV_SYS_LOCK_AFI (AFI lock status registers)
+0xAE:0x0012             | r  | ST25DV_SYS_DSFID (data storage family identifier register)
+0xAE:0x0013             | r  | ST25DV_SYS_AFI (application family identifier)
+0xAE:0x0014+2           | r  | ST25DV_SYS_MEM_SIZEA (u16 memory size value in blocks)
+0xAE:0x0016             | r  | ST25DV_SYS_BLK_SIZE (block size in bytes)
+0xAE:0x0017             | r  | ST25DV_SYS_IC_REF (IC reference value)
+0xAE:0x0018+8           | r  | ST25DV_SYS_UID (u64 iso15693 unique identifier register)
+0xAE:0x0020             | r  | ST25DV_SYS_IC_REV (integrated circuit revision)
+0xAE:0x0900+8           | rw | ST25DV_SYS_I2CPW (I2C security session password register)
+0xAE:N/A+8              |  w | ST25DV_SYS_RFCONFPW (u64 RF configuration register)
+0xAE:N/A+8              |  w | ST25DV_SYS_RFUSER2PW (u64 RF user area 2 access password register)
+0xAE:N/A+8              |  w | ST25DV_SYS_RFUSER3PW (u64 RF user area 3 access password register)
+0xAE:N/A+8              |  w | ST25DV_SYS_RFUSER4PW (u64 RF user area 4 access password register)
+0xA6:0x2000             | rw | ST25DV_DYN_GPOCTRLR (general purpose output control register)
+0xA6:0x2002             | r  | ST25DV_DYN_EHCTRLR (energy harvesting control register)
+0xA6:0x2003             | rw | ST25DV_DYN_RFMNGTR (rf interface management register)
+0xA6:0x2004             | r  | ST25DV_DYN_I2CSSOR (i2c secure session open status register)
+0xA6:0x2005             | r  | ST25DV_DYN_ITSTSR (interrupt status register)
+0xA6:0x2006        0xff | rw | ST25DV_DYN_MBCTRLR (mailbox control and status register).value (f=0x00): 0x00
+0xA6:0x2006        0x01 | rw | ST25DV_DYN_MBCTRLR (mailbox control and status register).MB_EN (w!MB_MODE==1; ftm enable bit): 0x00
+0xA6:0x2006        0x02 | rw | ST25DV_DYN_MBCTRLR (mailbox control and status register).HOST_PUT_MSG (i2c put msg in mb flag): 0x00
+0xA6:0x2006        0x04 | rw | ST25DV_DYN_MBCTRLR (mailbox control and status register).RF_PUT_MSG (rf put msg in mb flag): 0x00
+0xA6:0x2007             | r  | ST25DV_DYN_MBLENR (mailbox message length register)

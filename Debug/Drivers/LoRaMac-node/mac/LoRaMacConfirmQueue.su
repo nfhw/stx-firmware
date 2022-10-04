@@ -1,0 +1,13 @@
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:124:28:GetElement.constprop	16	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:146:6:LoRaMacConfirmQueueInit	8	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:163:6:LoRaMacConfirmQueueAdd	12	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:184:6:LoRaMacConfirmQueueRemoveLast	0	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:199:6:LoRaMacConfirmQueueRemoveFirst	0	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:214:6:LoRaMacConfirmQueueSetStatus	8	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:229:26:LoRaMacConfirmQueueGetStatus	8	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:244:6:LoRaMacConfirmQueueSetStatusCmn	16	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:266:26:LoRaMacConfirmQueueGetStatusCmn	0	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:271:6:LoRaMacConfirmQueueIsCmdActive	8	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:280:6:LoRaMacConfirmQueueHandleCb	40	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:315:9:LoRaMacConfirmQueueGetCnt	0	static
+../Drivers/LoRaMac-node/mac/LoRaMacConfirmQueue.c:320:6:LoRaMacConfirmQueueIsFull	0	static

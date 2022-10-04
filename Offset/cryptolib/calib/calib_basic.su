@@ -1,0 +1,7 @@
+calib_basic.c:41:13:calib_wakeup	8	static
+calib_basic.c:55:13:calib_idle	8	static
+calib_basic.c:69:13:calib_sleep	8	static
+calib_basic.c:90:13:calib_cfg_discover	56	static
+calib_basic.c:177:13:_calib_exit	8	static
+calib_basic.c:192:13:calib_get_addr	16	static
+calib_basic.c:238:13:calib_get_zone_size	8	static

@@ -1,0 +1,5 @@
+MiniMouseAes.cpp:349:13:void xor_block(void*, const void*)	0	static
+MiniMouseAes.cpp:376:13:void copy_and_key(void*, const void*, const void*)	8	static
+MiniMouseAes.cpp:513:13:return_type aes_set_key(const uint8_t*, length_type, aes_context*)	48	static
+MiniMouseAes.cpp:568:13:return_type aes_encrypt(const uint8_t*, uint8_t*, const aes_context*)	112	static
+MiniMouseAes.cpp:597:13:return_type aes_cbc_encrypt(const uint8_t*, uint8_t*, int32_t, uint8_t*, const aes_context*)	24	static

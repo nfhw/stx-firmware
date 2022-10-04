@@ -1,0 +1,8 @@
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:58:13:atcab_aes_ctr_init_ext	32	static
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:93:13:atcab_aes_ctr_init	32	static
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:119:13:atcab_aes_ctr_init_rand_ext	64	static
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:170:13:atcab_aes_ctr_init_rand	32	static
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:181:13:atcab_aes_ctr_increment	8	static
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:219:13:atcab_aes_ctr_block	48	static
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:261:13:atcab_aes_ctr_encrypt_block	8	static
+../cryptolib/crypto/atca_crypto_hw_aes_ctr.c:277:13:atcab_aes_ctr_decrypt_block	8	static

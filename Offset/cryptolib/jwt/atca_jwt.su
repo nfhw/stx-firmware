@@ -1,0 +1,6 @@
+atca_jwt.c:41:6:atca_jwt_check_payload_start	0	static
+atca_jwt.c:64:13:atca_jwt_init	24	static
+atca_jwt.c:105:13:atca_jwt_finalize	48	static
+atca_jwt.c:215:13:atca_jwt_add_claim_string	32	static
+atca_jwt.c:251:13:atca_jwt_add_claim_numeric	32	static
+atca_jwt.c:285:13:atca_jwt_verify	136	static

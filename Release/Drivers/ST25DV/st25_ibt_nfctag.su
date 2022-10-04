@@ -1,0 +1,12 @@
+st25_ibt_nfctag.c:70:22:BSP_NFCTAG_Init	32	static
+st25_ibt_nfctag.c:111:9:BSP_NFCTAG_isInitialized	0	static
+st25_ibt_nfctag.c:121:22:BSP_NFCTAG_ReadID	8	static
+st25_ibt_nfctag.c:135:10:BSP_NFCTAG_GetByteSize	16	static
+st25_ibt_nfctag.c:148:22:BSP_NFCTAG_IsDeviceReady	8	static
+st25_ibt_nfctag.c:170:22:BSP_NFCTAG_ConfigIT	8	static
+st25_ibt_nfctag.c:191:22:BSP_NFCTAG_GetITStatus	8	static
+st25_ibt_nfctag.c:208:22:BSP_NFCTAG_ReadData	8	static
+st25_ibt_nfctag.c:225:22:BSP_NFCTAG_WriteData	8	static
+st25_ibt_nfctag.c:242:22:BSP_NFCTAG_ReadRegister	8	static
+st25_ibt_nfctag.c:259:22:BSP_NFCTAG_WriteRegister	8	static
+st25_ibt_nfctag.c:281:23:BSP_NFCTAG_GetExtended_Drv	0	static

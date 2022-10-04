@@ -1,0 +1,4 @@
+lrw.cpp:10:9:uint8_t lrw_GetSF()	0	static
+lrw.cpp:14:12:eBandWidth lrw_GetBW()	0	static
+lrw.cpp:33:6:void lrw_SyncBackUpFlash()	8	static
+lrw.cpp:39:6:void lrw_SetProvisionning()	8	static

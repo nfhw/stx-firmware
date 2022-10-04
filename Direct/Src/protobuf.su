@@ -1,0 +1,10 @@
+../Src/protobuf.c:39:13:PrintBuffer	16	static
+../Src/protobuf.c:56:10:u64	8	static
+../Src/protobuf.c:64:6:b64	0	static
+../Src/protobuf.c:102:8:PBEncodeField	56	static
+../Src/protobuf.c:210:9:PBDecodeVarint	32	static
+../Src/protobuf.c:246:10:PBEncodeSInt	12	static
+../Src/protobuf.c:250:9:PBDecodeSInt	0	static
+../Src/protobuf.c:293:6:PBDecodeMsg	112	static
+../Src/protobuf.c:608:8:PBEncodeMsg_DeviceSensors	64	static
+../Src/protobuf.c:689:8:PBEncodeMsg_DeviceConfiguration	112	static

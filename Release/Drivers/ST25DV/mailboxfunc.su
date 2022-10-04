@@ -1,0 +1,9 @@
+mailboxfunc.c:61:22:InitMailBoxMode	16	static
+mailboxfunc.c:86:22:DeInitMailBoxMode	8	static
+mailboxfunc.c:96:22:WriteMailBoxMsg	24	static
+mailboxfunc.c:125:22:ReadCompleteMailBoxMsg	32	static
+mailboxfunc.c:149:22:ReadCompleteMailBoxDMA	32	static
+mailboxfunc.c:172:22:ReadFragmentMailBoxMsg	16	static
+mailboxfunc.c:183:6:MBDecodeHeader	0	static
+mailboxfunc.c:217:6:PrepareMBMsg	0	static
+mailboxfunc.c:244:6:SendMBData	272	static

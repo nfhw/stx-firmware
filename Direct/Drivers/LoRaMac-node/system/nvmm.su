@@ -1,0 +1,4 @@
+../Drivers/LoRaMac-node/system/nvmm.c:32:10:NvmmWrite	8	static
+../Drivers/LoRaMac-node/system/nvmm.c:41:10:NvmmRead	8	static
+../Drivers/LoRaMac-node/system/nvmm.c:50:6:NvmmCrc32Check	40	static
+../Drivers/LoRaMac-node/system/nvmm.c:79:6:NvmmReset	16	static

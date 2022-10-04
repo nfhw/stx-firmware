@@ -1,0 +1,3 @@
+../cryptolib/calib/calib_counter.c:44:13:calib_counter	216	static
+../cryptolib/calib/calib_counter.c:103:13:calib_counter_increment	8	static
+../cryptolib/calib/calib_counter.c:114:13:calib_counter_read	8	static

@@ -1,0 +1,7 @@
+../cryptolib/calib/calib_write.c:59:13:calib_write	216	static
+../cryptolib/calib/calib_write.c:125:13:calib_write_zone	48	static
+../cryptolib/calib/calib_write.c:189:13:calib_write_enc	344	static
+../cryptolib/calib/calib_write.c:379:13:calib_write_pubkey	136	static
+../cryptolib/calib/calib_write.c:434:13:calib_write_bytes_zone	64	static
+../cryptolib/calib/calib_write.c:323:13:calib_write_config_zone	32	static
+../cryptolib/calib/calib_write.c:530:13:calib_write_config_counter	40	static

@@ -1,0 +1,8 @@
+nfcmsg.c:51:17:u64	0	static
+nfcmsg.c:34:13:PrintBuffer	16	static
+nfcmsg.c:97:8:PBEncodeField	48	static
+nfcmsg.c:205:9:PBDecodeVarint	40	static
+nfcmsg.c:234:10:PBEncodeSInt	12	static
+nfcmsg.c:277:6:PBDecodeMsg	64	static
+nfcmsg.c:460:8:PBEncodeMsg_DeviceSensors	40	static
+nfcmsg.c:524:8:PBEncodeMsg_DeviceConfiguration	48	static

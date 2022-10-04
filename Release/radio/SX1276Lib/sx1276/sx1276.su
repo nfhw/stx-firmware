@@ -1,0 +1,22 @@
+sx1276.cpp:33:1:SX1276::SX1276(PinName, PinName, PinName, PinName)	24	static
+sx1276.cpp:54:6:void SX1276::Reset()	8	static
+sx1276.cpp:312:6:void SX1276::Write(uint8_t, uint8_t*, uint8_t)	32	static
+sx1276.cpp:325:6:void SX1276::Read(uint8_t, uint8_t*, uint8_t)	32	static
+sx1276.cpp:337:6:void SX1276::Write(uint8_t, uint8_t)	16	static
+sx1276.cpp:39:6:void SX1276::ClearIrqFlags()	8	static
+sx1276.cpp:166:6:void SX1276::SetModulationParamsTx(uint8_t, eBandWidth, int8_t)	24	static
+sx1276.cpp:297:6:void SX1276::SetRfFrequency(uint32_t)	16	static
+sx1276.cpp:341:6:void SX1276::WriteFifo(uint8_t*, uint8_t)	8	static
+sx1276.cpp:346:9:uint8_t SX1276::Read(uint8_t)	16	static
+sx1276.cpp:49:9:uint8_t SX1276::GetIrqFlags()	8	static
+sx1276.cpp:118:6:void SX1276::CalibrateImage()	24	static
+sx1276.cpp:153:6:void SX1276::GetPacketStatusLora(int16_t*, int16_t*, int16_t*)	16	static
+sx1276.cpp:215:6:void SX1276::SetModulationParamsRx(uint8_t, eBandWidth, uint16_t)	24	static
+sx1276.cpp:307:6:void SX1276::SetStandby()	8	static
+sx1276.cpp:278:6:void SX1276::SetPayload(uint8_t*, uint8_t)	16	static
+sx1276.cpp:352:6:void SX1276::ReadFifo(uint8_t*, uint8_t)	8	static
+sx1276.cpp:43:6:void SX1276::FetchPayload(uint8_t*, uint8_t*, int16_t*, int16_t*)	24	static
+sx1276.cpp:357:6:void SX1276::SetOpMode(uint8_t)	16	static
+sx1276.cpp:61:6:void SX1276::SendLora(uint8_t*, uint8_t, uint8_t, eBandWidth, uint32_t, int8_t)	32	static
+sx1276.cpp:88:6:void SX1276::RxLora(eBandWidth, uint8_t, uint32_t, uint16_t)	32	static
+sx1276.cpp:109:6:void SX1276::Sleep(bool)	8	static

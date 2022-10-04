@@ -1,0 +1,12 @@
+atca_iface.c:116:13:atinit	16	static
+atca_iface.c:66:13:initATCAIface	8	static
+atca_iface.c:92:11:newATCAIface	16	static
+atca_iface.c:147:13:atsend	16	static
+atca_iface.c:173:13:atreceive	16	static
+atca_iface.c:196:13:atwake	8	static
+atca_iface.c:230:13:atidle	8	static
+atca_iface.c:255:13:atsleep	8	static
+atca_iface.c:279:16:atgetifacecfg	0	static
+atca_iface.c:289:7:atgetifacehaldat	0	static
+atca_iface.c:299:13:releaseATCAIface	8	static
+atca_iface.c:314:6:deleteATCAIface	8	static

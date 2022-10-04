@@ -1,0 +1,6 @@
+../Drivers/LoRaMac-node/system/fifo.c:30:6:FifoInit	0	static
+../Drivers/LoRaMac-node/system/fifo.c:38:6:FifoPush	16	static
+../Drivers/LoRaMac-node/system/fifo.c:44:9:FifoPop	8	static
+../Drivers/LoRaMac-node/system/fifo.c:52:6:FifoFlush	0	static
+../Drivers/LoRaMac-node/system/fifo.c:58:6:IsFifoEmpty	0	static
+../Drivers/LoRaMac-node/system/fifo.c:63:6:IsFifoFull	8	static

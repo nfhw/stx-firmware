@@ -1,0 +1,17 @@
+hardware.c:81:6:LEDBlinkTask	16	static
+hardware.c:24:10:I2C_Scan	24	static
+hardware.c:45:10:getBatteryVoltage	32	static
+hardware.c:64:6:HAL_I2C_MemRxCpltCallback	8	static
+hardware.c:69:6:LEDBlinkSync	24	static
+hardware.c:104:6:LEDBlink	40	static
+hardware.c:216:6:hal_deinit	32	static
+hardware.c:275:6:hal_reinit	8	static
+hardware.c:290:6:HW_EnterStandbyMode	16	static
+hardware.c:317:6:HW_EnterStopMode	8	static
+hardware.c:364:6:HW_EraseEEPROM	8	static
+hardware.c:372:6:HW_ProgramEEPROM	16	static
+hardware.c:381:6:HW_WriteEEPROM	48	static
+hardware.c:411:6:HW_ReadEEPROM	8	static
+hardware.c:444:10:HW_RTCGetMsTime	80	static
+hardware.c:468:10:HW_RTCGetSTime	80	static
+hardware.c:343:6:HW_ExitStopMode	16	static

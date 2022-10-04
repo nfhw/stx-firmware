@@ -1,0 +1,11 @@
+../Drivers/LoRaMac-node/boards/utilities.c:37:9:rand1	8	static
+../Drivers/LoRaMac-node/boards/utilities.c:42:6:srand1	0	static
+../Drivers/LoRaMac-node/boards/utilities.c:48:9:randr	16	static
+../Drivers/LoRaMac-node/boards/utilities.c:53:6:memcpy1	8	static
+../Drivers/LoRaMac-node/boards/utilities.c:61:6:memcpyr	12	static
+../Drivers/LoRaMac-node/boards/utilities.c:70:6:memset1	8	static
+../Drivers/LoRaMac-node/boards/utilities.c:78:8:Nibble2HexChar	0	static
+../Drivers/LoRaMac-node/boards/utilities.c:94:10:Crc32	20	static
+../Drivers/LoRaMac-node/boards/utilities.c:119:10:Crc32Init	0	static
+../Drivers/LoRaMac-node/boards/utilities.c:124:10:Crc32Update	20	static
+../Drivers/LoRaMac-node/boards/utilities.c:148:10:Crc32Finalize	0	static

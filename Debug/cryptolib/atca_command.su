@@ -1,0 +1,3 @@
+../cryptolib/atca_command.c:47:13:initATCACommand	0	static
+../cryptolib/atca_command.c:66:13:newATCACommand	8	static
+../cryptolib/atca_command.c:88:6:deleteATCACommand	8	static

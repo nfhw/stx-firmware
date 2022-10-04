@@ -1,0 +1,4 @@
+atca_crypto_hw_aes_cbc.c:54:13:atcab_aes_cbc_init_ext	24	static
+atca_crypto_hw_aes_cbc.c:81:13:atcab_aes_cbc_init	32	static
+atca_crypto_hw_aes_cbc.c:96:13:atcab_aes_cbc_encrypt_block	48	static
+atca_crypto_hw_aes_cbc.c:135:13:atcab_aes_cbc_decrypt_block	56	static

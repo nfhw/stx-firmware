@@ -1,0 +1,4 @@
+../Drivers/LoRaMac-node/peripherals/cmac.c:59:6:AES_CMAC_Init	8	static
+../Drivers/LoRaMac-node/peripherals/cmac.c:66:6:AES_CMAC_SetKey	8	static
+../Drivers/LoRaMac-node/peripherals/cmac.c:71:6:AES_CMAC_Update	48	static
+../Drivers/LoRaMac-node/peripherals/cmac.c:109:6:AES_CMAC_Final	64	static

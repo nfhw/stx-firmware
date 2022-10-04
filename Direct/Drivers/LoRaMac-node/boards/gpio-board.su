@@ -1,0 +1,7 @@
+../Drivers/LoRaMac-node/boards/gpio-board.c:129:6:GpioMcuSetContext	0	static
+../Drivers/LoRaMac-node/boards/gpio-board.c:134:6:GpioMcuSetInterrupt	40	static
+../Drivers/LoRaMac-node/boards/gpio-board.c:230:6:GpioMcuRemoveInterrupt	32	static
+../Drivers/LoRaMac-node/boards/gpio-board.c:252:6:GpioMcuWrite	8	static
+../Drivers/LoRaMac-node/boards/gpio-board.c:36:6:GpioMcuInit	72	static
+../Drivers/LoRaMac-node/boards/gpio-board.c:276:6:GpioMcuToggle	8	static
+../Drivers/LoRaMac-node/boards/gpio-board.c:301:10:GpioMcuRead	8	static

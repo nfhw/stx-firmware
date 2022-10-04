@@ -1,0 +1,9 @@
+LoRaMacCryptoMiniMouse.cpp:82:6:void LoRaMacComputeMic(const uint8_t*, uint16_t, const uint8_t*, uint32_t, uint8_t, uint32_t, uint32_t*)	40	static
+LoRaMacCryptoMiniMouse.cpp:112:6:void LoRaMacPayloadEncrypt(const uint8_t*, uint16_t, const uint8_t*, uint32_t, uint8_t, uint32_t, uint8_t*)	40	static
+LoRaMacCryptoMiniMouse.cpp:158:6:void LoRaMacPayloadDecrypt(const uint8_t*, uint16_t, const uint8_t*, uint32_t, uint8_t, uint32_t, uint8_t*)	48	static
+LoRaMacCryptoMiniMouse.cpp:164:6:void LoRaMacJoinComputeMic(const uint8_t*, uint16_t, const uint8_t*, uint32_t*)	32	static
+LoRaMacCryptoMiniMouse.cpp:178:6:void LoRaMacJoinDecrypt(const uint8_t*, uint16_t, const uint8_t*, uint8_t*)	32	static
+LoRaMacCryptoMiniMouse.cpp:191:6:void LoRaMacJoinComputeSKeys(const uint8_t*, const uint8_t*, uint16_t, uint8_t*, uint8_t*)	48	static
+LoRaMacCryptoMiniMouse.cpp:214:6:void LoRaMacComputeAndAddMic(uint8_t*, uint16_t, const uint8_t*, uint32_t, uint8_t, uint32_t)	56	static
+LoRaMacCryptoMiniMouse.cpp:222:5:int LoRaMacCheckMic(uint8_t*, uint16_t, const uint8_t*, uint32_t, uint32_t, uint32_t)	32	static
+LoRaMacCryptoMiniMouse.cpp:231:5:int LoRaMacCheckJoinMic(const uint8_t*, uint16_t, const uint8_t*, uint32_t)	16	static

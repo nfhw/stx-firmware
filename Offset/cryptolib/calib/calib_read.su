@@ -1,0 +1,10 @@
+calib_read.c:57:13:calib_read_zone	248	static
+calib_read.c:123:13:calib_read_serial_number	64	static
+calib_read.c:156:13:calib_is_slot_locked	48	static
+calib_read.c:194:13:calib_is_locked	48	static
+calib_read.c:250:13:calib_read_enc	256	static
+calib_read.c:494:13:calib_read_sig	40	static
+calib_read.c:547:13:calib_read_pubkey	80	static
+calib_read.c:643:13:calib_read_bytes_zone	104	static
+calib_read.c:358:13:calib_read_config_zone	24	static
+calib_read.c:407:13:calib_cmp_config_zone	160	static

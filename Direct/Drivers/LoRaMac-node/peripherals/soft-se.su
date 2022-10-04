@@ -1,0 +1,15 @@
+../Drivers/LoRaMac-node/peripherals/soft-se.c:78:30:ComputeCmac	328	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:119:23:SecureElementInit	432	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:197:23:SecureElementComputeAesCmac	16	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:209:23:SecureElementVerifyAesCmac	32	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:233:23:SecureElementAesEncrypt	280	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:165:23:SecureElementSetKey.part.0	40	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:165:23:SecureElementSetKey	8	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:269:23:SecureElementDeriveAndStoreKey	32	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:306:23:SecureElementProcessJoinAccept	32	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:404:23:SecureElementSetDevEui	8	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:414:10:SecureElementGetDevEui	0	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:419:23:SecureElementSetJoinEui	8	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:429:10:SecureElementGetJoinEui	0	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:434:23:SecureElementSetPin	8	static
+../Drivers/LoRaMac-node/peripherals/soft-se.c:445:10:SecureElementGetPin	0	static

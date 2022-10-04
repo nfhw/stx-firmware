@@ -1,0 +1,6 @@
+calib_lock.c:50:13:calib_lock	224	static
+calib_lock.c:92:13:calib_lock_config_zone	8	static
+calib_lock.c:108:13:calib_lock_config_zone_crc	8	static
+calib_lock.c:120:13:calib_lock_data_zone	8	static
+calib_lock.c:136:13:calib_lock_data_zone_crc	8	static
+calib_lock.c:150:13:calib_lock_data_slot	8	static

@@ -1,0 +1,6 @@
+RadioIsrRoutine.cpp:28:25:void RadioContainer<R>::IsrRadio() [with R = SX1276]	40	static
+PhyLayer.h:35:15:static void RadioContainer<R>::CallbackIsrRadio(void*) [with R = SX1276]	8	static
+RadioIsrRoutine.cpp:28:25:void RadioContainer<R>::IsrRadio() [with R = SX1272]	40	static
+PhyLayer.h:35:15:static void RadioContainer<R>::CallbackIsrRadio(void*) [with R = SX1272]	8	static
+RadioIsrRoutine.cpp:28:25:void RadioContainer<R>::IsrRadio() [with R = SX126x]	40	static
+PhyLayer.h:35:15:static void RadioContainer<R>::CallbackIsrRadio(void*) [with R = SX126x]	8	static

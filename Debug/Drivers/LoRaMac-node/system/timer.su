@@ -1,0 +1,14 @@
+../Drivers/LoRaMac-node/system/timer.c:365:13:TimerSetTimeout	16	static
+../Drivers/LoRaMac-node/system/timer.c:164:13:TimerInsertNewHeadTimer	8	static
+../Drivers/LoRaMac-node/system/timer.c:86:6:TimerInit	0	static
+../Drivers/LoRaMac-node/system/timer.c:97:6:TimerSetContext	0	static
+../Drivers/LoRaMac-node/system/timer.c:102:6:TimerStart	24	static
+../Drivers/LoRaMac-node/system/timer.c:178:6:TimerIsStarted	0	static
+../Drivers/LoRaMac-node/system/timer.c:183:6:TimerIrqHandler	24	static
+../Drivers/LoRaMac-node/system/timer.c:235:6:TimerStop	24	static
+../Drivers/LoRaMac-node/system/timer.c:322:6:TimerReset	8	static
+../Drivers/LoRaMac-node/system/timer.c:328:6:TimerSetValue	16	static
+../Drivers/LoRaMac-node/system/timer.c:346:13:TimerGetCurrentTime	8	static
+../Drivers/LoRaMac-node/system/timer.c:352:13:TimerGetElapsedTime	16	static
+../Drivers/LoRaMac-node/system/timer.c:378:13:TimerTempCompensation	8	static
+../Drivers/LoRaMac-node/system/timer.c:383:6:TimerProcess	8	static

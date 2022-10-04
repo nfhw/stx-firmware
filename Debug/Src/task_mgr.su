@@ -1,0 +1,4 @@
+../Src/task_mgr.c:11:14:tasks_add	40	static
+../Src/task_mgr.c:25:6:tasks_del	8	static
+../Src/task_mgr.c:29:5:tasks_has_pending	12	static
+../Src/task_mgr.c:38:6:HAL_LPTIM_AutoReloadMatchCallback	24	static

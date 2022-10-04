@@ -1,0 +1,12 @@
+../Src/sensors.c:63:6:BMA400_Init	72	static
+../Src/sensors.c:139:6:BMA400_Read	40	static
+../Src/sensors.c:162:6:BMA400_Reset	8	static
+../Src/sensors.c:166:6:BMA400_ForeverTest	64	static
+../Src/sensors.c:220:6:SFH7776_Init	56	static
+../Src/sensors.c:288:6:SFH7776_Read	32	static
+../Src/sensors.c:333:6:SFH7776_Reset	32	static
+../Src/sensors.c:339:6:SFH7776_ForeverTest	32	static
+../Src/sensors.c:511:6:HDC2080_Init	56	static
+../Src/sensors.c:552:6:HDC2080_Read	32	static
+../Src/sensors.c:567:6:HDC2080_Reset	32	static
+../Src/sensors.c:574:6:HDC2080_ForeverTest	40	static

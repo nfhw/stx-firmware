@@ -1,0 +1,5 @@
+../Src/main.c:463:6:HAL_GPIO_EXTI_Callback	32	static
+../Src/main.c:585:6:HAL_RTCEx_WakeUpTimerEventCallback	16	static
+../Src/main.c:646:6:Error_Handler	8	static,ignoring_inline_asm
+../Src/main.c:395:6:SystemClock_Config	112	static
+../Src/main.c:94:5:main	96	static

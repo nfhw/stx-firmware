@@ -1,0 +1,15 @@
+st25_ibt.c:346:26:STM32_I2C2_Init	16	static
+st25_ibt.c:133:22:ST25DV_IO_Init	8	static
+st25_ibt.c:137:13:NFCMEM_IO_MemWriteCompleted_Callback	0	static
+st25_ibt.c:210:9:ST25DV_IO_IsNacked	0	static
+st25_ibt.c:232:22:NFCTAG_ConvertStatus	0	static
+st25_ibt.c:274:22:NFCTAG_IO_MemWrite	24	static
+st25_ibt.c:288:22:NFCTAG_IO_MemRead	40	static
+st25_ibt.c:188:22:ST25DV_IO_MemRead	8	static
+st25_ibt.c:300:22:NFCTAG_IO_Read	16	static
+st25_ibt.c:200:22:ST25DV_IO_Read	8	static
+st25_ibt.c:310:9:NFCTAG_IO_IsNacked	0	static
+st25_ibt.c:320:22:NFCTAG_IO_IsDeviceReady	8	static
+st25_ibt.c:221:22:ST25DV_IO_IsDeviceReady	8	static
+st25_ibt.c:149:22:ST25DV_IO_MemWrite	24	static
+st25_ibt.c:390:6:BSP_I2C2_ReInit	8	static

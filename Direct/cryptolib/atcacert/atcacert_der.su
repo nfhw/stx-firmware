@@ -1,0 +1,7 @@
+../cryptolib/atcacert/atcacert_der.c:32:5:atcacert_der_enc_length	20	static
+../cryptolib/atcacert/atcacert_der.c:88:5:atcacert_der_dec_length	32	static
+../cryptolib/atcacert/atcacert_der.c:141:5:atcacert_der_adjust_length	48	static
+../cryptolib/atcacert/atcacert_der.c:183:5:atcacert_der_enc_integer	56	static
+../cryptolib/atcacert/atcacert_der.c:251:5:atcacert_der_dec_integer	40	static
+../cryptolib/atcacert/atcacert_der.c:312:5:atcacert_der_enc_ecdsa_sig_value	40	static
+../cryptolib/atcacert/atcacert_der.c:382:5:atcacert_der_dec_ecdsa_sig_value	96	static

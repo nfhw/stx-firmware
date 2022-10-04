@@ -1,0 +1,10 @@
+hardware.c:62:6:HAL_I2C_MemRxCpltCallback	8	static
+hardware.c:79:19:FLASH_WriteBuffer	32	static
+hardware.c:67:19:writeBufferToFlash	8	static
+hardware.c:24:6:FTM_Loop	40	static
+hardware.c:160:6:blinkXTimes	24	static
+hardware.c:172:6:HW_EnterStandbyMode	8	static
+hardware.c:194:6:HW_EnterStopMode	8	static
+hardware.c:215:6:HW_EraseEEPROM	8	static
+hardware.c:223:6:HW_ProgramEEPROM	16	static
+hardware.c:232:10:HW_ReadEEPROM	0	static

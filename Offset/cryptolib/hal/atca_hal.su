@@ -1,0 +1,4 @@
+atca_hal.c:213:13:hal_iface_register_hal	8	static
+atca_hal.c:232:13:hal_iface_init	0	static
+atca_hal.c:265:13:hal_iface_release	8	static
+atca_hal.c:286:13:hal_check_wake	24	static

@@ -1,0 +1,118 @@
+Configuration	stx-fw
+STM32CubeMX 	6.1.1
+Date	02/11/2021
+MCU	STM32L071KZUx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC	Vrefint Channel	ADC_Vref_Input	VP_ADC_Vref_Input
+I2C1	I2C	I2C1_SCL	PB6
+I2C1	I2C	I2C1_SDA	PB7
+LPTIM1	Counts internal clock events	LPTIM1_VS_LPTIM_counterModeInternalClock	VP_LPTIM1_VS_LPTIM_counterModeInternalClock
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_IN	PC14-OSC32_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_OUT	PC15-OSC32_OUT
+RTC	Activate RTC Clock Source	RTC_VS_RTC_Activate	VP_RTC_VS_RTC_Activate
+RTC	Internal WakeUp	RTC_VS_RTC_WakeUp_intern	VP_RTC_VS_RTC_WakeUp_intern
+SPI1	Full-Duplex Master	SPI1_MISO	PA6
+SPI1	Full-Duplex Master	SPI1_MOSI	PA7
+SPI1	Full-Duplex Master	SPI1_SCK	PA5
+SYS	Serial_Wire	SYS_SWCLK	PA14
+SYS	Serial_Wire	SYS_SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+1	PC14-OSC32_IN	RCC_OSC32_IN	
+2	PC15-OSC32_OUT	RCC_OSC32_OUT	
+6	PA0	GPIO_EXTI0	Button0
+7	PA1	GPIO_EXTI1	NFC Int
+8	PA2	GPIO_Output	RF Switch
+9	PA3	GPIO_EXTI3	TEMP Int
+10	PA4	GPIO_Output	SX126x SPI NSS
+11	PA5	SPI1_SCK	SX126x SPI SCK
+12	PA6	SPI1_MISO	SX126x SPI MISO
+13	PA7	SPI1_MOSI	SX126x SPI MOSI
+14	PB0	GPIO_Output	LED 1
+15	PB1	GPIO_Output	LED 2
+18	PA8	GPIO_Output	DC Conv Mode
+19	PA9	GPIO_EXTI9	Reed Switch
+20	PA10	GPIO_EXTI10	LIGHT Int
+21	PA11	GPIO_Input	SX126x Busy
+22	PA12	GPIO_Output	SX126x DIO3
+23	PA13	SYS_SWDIO	SWDIO STLink
+25	PA14	SYS_SWCLK	SWCLK STLink
+26	PB4	GPIO_Output	SX126x Reset
+27	PB5	GPIO_EXTI5	SX126x DIO1
+28	PB6	I2C1_SCL	
+29	PB7	I2C1_SDA	
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC	Vrefint Channel	ADC_Vref_Input	VP_ADC_Vref_Input
+I2C1	I2C	I2C1_SCL	PB6
+I2C1	I2C	I2C1_SDA	PB7
+LPTIM1	Counts internal clock events	LPTIM1_VS_LPTIM_counterModeInternalClock	VP_LPTIM1_VS_LPTIM_counterModeInternalClock
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_IN	PC14-OSC32_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC32_OUT	PC15-OSC32_OUT
+RTC	Activate RTC Clock Source	RTC_VS_RTC_Activate	VP_RTC_VS_RTC_Activate
+RTC	Internal WakeUp	RTC_VS_RTC_WakeUp_intern	VP_RTC_VS_RTC_WakeUp_intern
+SPI1	Full-Duplex Master	SPI1_MISO	PA6
+SPI1	Full-Duplex Master	SPI1_MOSI	PA7
+SPI1	Full-Duplex Master	SPI1_SCK	PA5
+SYS	Serial_Wire	SYS_SWCLK	PA14
+SYS	Serial_Wire	SYS_SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+1	PC14-OSC32_IN	RCC_OSC32_IN	
+2	PC15-OSC32_OUT	RCC_OSC32_OUT	
+6	PA0	GPIO_EXTI0	Button0
+7	PA1	GPIO_EXTI1	NFC Int
+8	PA2	GPIO_Output	RF Switch
+9	PA3	GPIO_EXTI3	TEMP Int
+10	PA4	GPIO_Output	SX126x SPI NSS
+11	PA5	SPI1_SCK	SX126x SPI SCK
+12	PA6	SPI1_MISO	SX126x SPI MISO
+13	PA7	SPI1_MOSI	SX126x SPI MOSI
+14	PB0	GPIO_Output	LED 1
+15	PB1	GPIO_Output	LED 2
+18	PA8	GPIO_Output	DC Conv Mode
+19	PA9	GPIO_EXTI9	Reed Switch
+20	PA10	GPIO_EXTI10	LIGHT Int
+21	PA11	GPIO_Input	SX126x Busy
+22	PA12	GPIO_Output	SX126x DIO3
+23	PA13	SYS_SWDIO	SWDIO STLink
+25	PA14	SYS_SWCLK	SWCLK STLink
+26	PB4	GPIO_Output	SX126x Reset
+27	PB5	GPIO_EXTI5	SX126x DIO1
+28	PB6	I2C1_SCL	
+29	PB7	I2C1_SDA	
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : stx-fw
+Project Folder : /hw/ibt-1-fw
+Toolchain / IDE : STM32CubeIDE
+Firmware Package Name and Version : STM32Cube FW_L0 V1.12.0
+
+
+Code Generation Settings : 
+STM32Cube MCU packages and embedded software packs : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : Yes
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : Yes
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+

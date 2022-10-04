@@ -1,0 +1,10 @@
+../Drivers/LoRaMac-node/boards/lpm-board.c:34:6:LpmSetOffMode	24	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:60:6:LpmSetStopMode	24	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:118:14:LpmGetMode	16	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:144:13:LpmEnterSleepMode	0	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:148:13:LpmExitSleepMode	0	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:152:13:LpmEnterStopMode	0	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:156:13:LpmExitStopMode	0	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:160:13:LpmEnterOffMode	0	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:164:13:LpmExitOffMode	0	static
+../Drivers/LoRaMac-node/boards/lpm-board.c:86:6:LpmEnterLowPower	8	static

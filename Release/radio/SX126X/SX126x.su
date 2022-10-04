@@ -1,0 +1,34 @@
+SX126x.cpp:29:1:SX126x::SX126x(PinName, PinName, PinName, PinName)	16	static
+SX126x.cpp:81:6:void SX126x::Reset()	16	static
+SX126x.cpp:522:6:void SX126x::waitOnBusy()	8	static
+SX126x.cpp:187:6:void SX126x::CheckDeviceReady()	16	static
+SX126x.cpp:239:6:void SX126x::ReadRegisters(uint16_t, uint8_t*, uint16_t)	32	static
+SX126x.cpp:232:9:uint8_t SX126x::ReadRegister(uint16_t)	16	static
+SX126x.cpp:218:6:void SX126x::ReadBuffer(uint8_t, uint8_t*, uint8_t)	32	static
+SX126x.cpp:286:9:uint8_t SX126x::ReadCommand(OpCode_t, uint8_t*, uint16_t)	40	static
+SX126x.cpp:55:12:IrqFlags_t SX126x::GetIrqFlags()	16	static
+SX126x.cpp:200:6:void SX126x::GetPacketStatusLora(int16_t*, int16_t*, int16_t*)	32	static
+SX126x.cpp:210:6:void SX126x::GetRxBufferStatus(uint8_t*, uint8_t*)	24	static
+SX126x.cpp:42:6:void SX126x::FetchPayload(uint8_t*, uint8_t*, int16_t*, int16_t*)	40	static
+SX126x.cpp:526:6:void SX126x::WriteBuffer(uint8_t, uint8_t*, uint8_t)	32	static
+SX126x.cpp:541:6:void SX126x::WriteCommand(OpCode_t, uint8_t*, uint16_t)	32	static
+SX126x.cpp:154:6:void SX126x::Sleep(bool)	16	static
+SX126x.cpp:164:6:void SX126x::CalibrateImage(uint32_t)	16	static
+SX126x.cpp:258:6:void SX126x::SetDioIrqParams(uint16_t, uint16_t, uint16_t, uint16_t)	24	static
+SX126x.cpp:278:6:void SX126x::ClearIrqStatus(uint16_t)	16	static
+SX126x.cpp:38:6:void SX126x::ClearIrqFlags()	8	static
+SX126x.cpp:303:6:void SX126x::SetBufferBaseAddress(uint8_t, uint8_t)	16	static
+SX126x.cpp:312:6:void SX126x::SetModulationParams(eModulationType, uint8_t, eBandWidth)	32	static
+SX126x.cpp:375:6:void SX126x::SetPacketParams(eModulationType, uint8_t, SX126x::InvertIQ_t)	48	static
+SX126x.cpp:434:6:void SX126x::SetPacketType(eModulationType)	16	static
+SX126x.cpp:434:6:void SX126x::SetPacketType(eModulationType)	8	static
+SX126x.cpp:441:6:void SX126x::SetPaConfig(uint8_t, uint8_t, uint8_t, uint8_t)	24	static
+SX126x.cpp:457:6:void SX126x::SetRfFrequency(uint32_t)	16	static
+SX126x.cpp:470:6:void SX126x::SetStandby(StandbyModes_t)	16	static
+SX126x.cpp:474:6:void SX126x::SetRx(uint32_t)	16	static
+SX126x.cpp:483:6:void SX126x::SetTx(uint32_t)	16	static
+SX126x.cpp:516:6:void SX126x::StopTimerOnPreamble(bool)	16	static
+SX126x.cpp:554:6:void SX126x::WriteRegisters(uint16_t, uint8_t*, uint16_t)	32	static
+SX126x.cpp:129:6:void SX126x::RxLora(eBandWidth, uint8_t, uint32_t, uint32_t)	32	static
+SX126x.cpp:493:6:void SX126x::SetTxParams(int8_t)	32	static
+SX126x.cpp:92:6:void SX126x::SendLora(uint8_t*, uint8_t, uint8_t, eBandWidth, uint32_t, int8_t)	40	static
