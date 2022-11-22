@@ -270,7 +270,7 @@ void SX126xReadBuffer( uint8_t offset, uint8_t *buffer, uint8_t size )
 
 void SX126xSetRfTxPower( int8_t power )
 {
-    SX126xSetTxParams( power, RADIO_RAMP_40_US );
+    SX126xSetTxParams( power, RADIO_RAMP_800_US );
 }
 
 uint8_t SX126xGetDeviceId( void ) {

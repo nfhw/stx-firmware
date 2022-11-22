@@ -278,9 +278,6 @@ if (ATECC_status != ATCA_SUCCESS) {
   }
 #endif
 
-  // Feedback that a boot or reboot has happened
-  LEDBlink(BlinkPattern_B);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
