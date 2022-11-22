@@ -1,3 +1,0 @@
-../cryptolib/atca_debug.c:32:6:atca_trace_config	0	static
-../cryptolib/atca_debug.c:37:13:atca_trace	0	static
-../cryptolib/atca_debug.c:42:13:atca_trace_msg	8	static

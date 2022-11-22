@@ -1,4 +1,0 @@
-../Src/isr.c:132:13:DBG_PrintBuffer	16	static
-../Src/isr.c:49:6:ButtonISR	56	static
-../Src/isr.c:142:6:ReedSwitchISR	56	static
-../Src/isr.c:276:6:NFCISR	304	static

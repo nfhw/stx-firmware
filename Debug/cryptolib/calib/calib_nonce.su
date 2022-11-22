@@ -1,6 +1,0 @@
-../cryptolib/calib/calib_nonce.c:57:13:calib_nonce_base	216	static
-../cryptolib/calib/calib_nonce.c:130:13:calib_nonce	16	static
-../cryptolib/calib/calib_nonce.c:154:13:calib_nonce_load	16	static
-../cryptolib/calib/calib_nonce.c:186:13:calib_nonce_rand	16	static
-../cryptolib/calib/calib_nonce.c:199:13:calib_challenge	8	static
-../cryptolib/calib/calib_nonce.c:216:13:calib_challenge_seed_update	8	static

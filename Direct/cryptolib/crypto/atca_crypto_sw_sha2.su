@@ -1,8 +1,0 @@
-../cryptolib/crypto/atca_crypto_sw_sha2.c:38:5:atcac_sw_sha2_256_init	8	static
-../cryptolib/crypto/atca_crypto_sw_sha2.c:57:5:atcac_sw_sha2_256_update	8	static
-../cryptolib/crypto/atca_crypto_sw_sha2.c:70:5:atcac_sw_sha2_256_finish	8	static
-../cryptolib/crypto/atca_crypto_sw_sha2.c:81:13:atcac_sha256_hmac_init	24	static
-../cryptolib/crypto/atca_crypto_sw_sha2.c:132:13:atcac_sha256_hmac_update	8	static
-../cryptolib/crypto/atca_crypto_sw_sha2.c:145:13:atcac_sha256_hmac_finish	48	static
-../cryptolib/crypto/atca_crypto_sw_sha2.c:180:5:atcac_sw_sha2_256	208	static
-../cryptolib/crypto/atca_crypto_sw_sha2.c:207:13:atcac_sha256_hmac_counter	40	static

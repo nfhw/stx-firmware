@@ -1,8 +1,0 @@
-atcacert_client.c:47:5:atcacert_get_response	8	static
-atcacert_client.c:59:5:atcacert_read_device_loc	104	static
-atcacert_client.c:175:5:atcacert_write_cert	184	static
-atcacert_client.c:279:5:atcacert_create_csr	208	static
-atcacert_client.c:243:5:atcacert_create_csr_pem	40	static
-atcacert_client.c:372:5:atcacert_read_subj_key_id	112	static
-atcacert_client.c:413:5:atcacert_read_cert_size	96	static
-atcacert_client.c:112:5:atcacert_read_cert	176	static

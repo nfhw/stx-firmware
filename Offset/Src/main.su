@@ -1,8 +1,0 @@
-main.cpp:593:6:void DebugArr(const void*, size_t)	16	static
-main.cpp:519:6:void HAL_GPIO_EXTI_Callback(uint16_t)	8	static
-main.cpp:638:6:void enqueueToSend(MsgType)	24	static
-main.cpp:600:6:void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef*)	16	static
-main.cpp:750:6:void Error_Handler()	8	static,ignoring_inline_asm
-main.cpp:457:6:void SystemClock_Config()	112	static
-main.cpp:136:5:int main()	2456	static,ignoring_inline_asm
-main.cpp:759:1:cpp)	0	static

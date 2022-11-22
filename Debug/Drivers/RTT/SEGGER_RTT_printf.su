@@ -1,4 +1,0 @@
-../Drivers/RTT/SEGGER_RTT_printf.c:118:13:_StoreChar	8	static
-../Drivers/RTT/SEGGER_RTT_printf.c:143:13:_PrintUnsigned	40	static
-../Drivers/RTT/SEGGER_RTT_printf.c:328:5:SEGGER_RTT_vprintf	144	static
-../Drivers/RTT/SEGGER_RTT_printf.c:502:5:SEGGER_RTT_printf	12	static

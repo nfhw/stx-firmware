@@ -1,7 +1,0 @@
-../Drivers/LoRaMac-node/system/gpio.c:29:6:GpioInit	24	static
-../Drivers/LoRaMac-node/system/gpio.c:34:6:GpioSetContext	8	static
-../Drivers/LoRaMac-node/system/gpio.c:39:6:GpioSetInterrupt	8	static
-../Drivers/LoRaMac-node/system/gpio.c:44:6:GpioRemoveInterrupt	8	static
-../Drivers/LoRaMac-node/system/gpio.c:49:6:GpioWrite	8	static
-../Drivers/LoRaMac-node/system/gpio.c:54:6:GpioToggle	8	static
-../Drivers/LoRaMac-node/system/gpio.c:59:10:GpioRead	8	static

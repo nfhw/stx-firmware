@@ -1,3 +1,0 @@
-calib_sign.c:50:13:calib_sign_base	216	static
-calib_sign.c:113:13:calib_sign	32	static
-calib_sign.c:169:13:calib_sign_internal	8	static

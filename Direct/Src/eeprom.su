@@ -1,5 +1,0 @@
-../Src/eeprom.c:41:13:DebugArr	16	static
-../Src/eeprom.c:47:13:DebugLE	16	static
-../Src/eeprom.c:363:10:EEPROM_CRC	16	static
-../Src/eeprom.c:302:6:EEPROM_Save	296	static
-../Src/eeprom.c:53:6:EEPROM_Load	56	static,ignoring_inline_asm

@@ -1,3 +1,0 @@
-../cryptolib/atcacert/atcacert_host_hw.c:36:5:atcacert_verify_cert_hw	144	static
-../cryptolib/atcacert/atcacert_host_hw.c:75:5:atcacert_gen_challenge_hw	8	static
-../cryptolib/atcacert/atcacert_host_hw.c:86:5:atcacert_verify_response_hw	24	static

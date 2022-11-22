@@ -1,5 +1,0 @@
-isr.c:133:13:DBG_PrintBuffer	16	static
-isr.c:21:13:ButtonTask_SinglePress	8	static
-isr.c:49:6:ButtonISR	56	static
-isr.c:142:6:ReedSwitchISR	72	static
-isr.c:278:6:NFCISR	312	static

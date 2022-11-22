@@ -1,4 +1,0 @@
-../cryptolib/crypto/atca_crypto_hw_aes_cbcmac.c:47:13:atcab_aes_cbcmac_init_ext	24	static
-../cryptolib/crypto/atca_crypto_hw_aes_cbcmac.c:74:13:atcab_aes_cbcmac_init	16	static
-../cryptolib/crypto/atca_crypto_hw_aes_cbcmac.c:90:13:atcab_aes_cbcmac_update	48	static
-../cryptolib/crypto/atca_crypto_hw_aes_cbcmac.c:141:13:atcab_aes_cbcmac_finish	8	static

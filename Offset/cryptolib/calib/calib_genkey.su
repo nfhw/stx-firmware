@@ -1,3 +1,0 @@
-calib_genkey.c:54:13:calib_genkey_base	216	static
-calib_genkey.c:120:13:calib_genkey	16	static
-calib_genkey.c:137:13:calib_get_pubkey	16	static

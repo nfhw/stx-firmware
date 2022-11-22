@@ -1,0 +1,24 @@
+# Produced by STM32CubeIDE
+/.settings/
+/Debug/
+/Release/
+/Direct/
+/Offset/
+
+# CMake outputs
+/CMakeFiles/
+/CMakeCache.txt
+/Makefile
+/compile_commands.json
+
+# Ctags source index outputs
+/tags
+
+# CScope
+/cscope.in.out
+/cscope.out
+/cscope.po.out
+
+# Vim temporary files
+.*.swp
+.*.swo

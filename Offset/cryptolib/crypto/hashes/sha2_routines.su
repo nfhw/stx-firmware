@@ -1,5 +1,0 @@
-sha2_routines.c:40:13:sw_sha256_process	344	static
-sha2_routines.c:146:6:sw_sha256_init	8	static
-sha2_routines.c:169:6:sw_sha256_update	32	static
-sha2_routines.c:204:6:sw_sha256_final	24	static
-sha2_routines.c:250:6:sw_sha256	184	static

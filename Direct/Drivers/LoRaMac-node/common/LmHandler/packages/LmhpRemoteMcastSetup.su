@@ -1,8 +1,0 @@
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:220:13:LmhpRemoteMcastSetupIsInitialized	0	static
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:225:13:LmhpRemoteMcastSetupIsTxPending	0	static
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:203:13:LmhpRemoteMcastSetupInit	8	static
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:452:13:OnSessionStopTimer	8	static
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:445:13:OnSessionStartTimer	8	static
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:260:13:LmhpRemoteMcastSetupOnMcpsIndication	88	static
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:230:13:LmhpRemoteMcastSetupProcess	24	static
-../Drivers/LoRaMac-node/common/LmHandler/packages/LmhpRemoteMcastSetup.c:198:15:LmhpRemoteMcastSetupPackageFactory	0	static

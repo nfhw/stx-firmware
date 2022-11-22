@@ -1,6 +1,0 @@
-atcacert_pem.c:35:5:atcacert_encode_pem	48	static
-atcacert_pem.c:103:5:atcacert_decode_pem	24	static
-atcacert_pem.c:153:5:atcacert_encode_pem_cert	16	static
-atcacert_pem.c:164:5:atcacert_encode_pem_csr	16	static
-atcacert_pem.c:175:5:atcacert_decode_pem_cert	16	static
-atcacert_pem.c:186:5:atcacert_decode_pem_csr	16	static

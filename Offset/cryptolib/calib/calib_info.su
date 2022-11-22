@@ -1,4 +1,0 @@
-calib_info.c:51:13:calib_info_base	216	static
-calib_info.c:97:13:calib_info	8	static
-calib_info.c:116:13:calib_info_get_latch	24	static
-calib_info.c:144:13:calib_info_set_latch	8	static

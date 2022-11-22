@@ -1,3 +1,0 @@
-calib_counter.c:44:13:calib_counter	216	static
-calib_counter.c:103:13:calib_counter_increment	8	static
-calib_counter.c:114:13:calib_counter_read	8	static

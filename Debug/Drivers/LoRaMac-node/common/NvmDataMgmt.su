@@ -1,4 +1,0 @@
-../Drivers/LoRaMac-node/common/NvmDataMgmt.c:51:6:NvmDataMgmtEvent	0	static
-../Drivers/LoRaMac-node/common/NvmDataMgmt.c:56:10:NvmDataMgmtStore	64	static
-../Drivers/LoRaMac-node/common/NvmDataMgmt.c:151:10:NvmDataMgmtRestore	56	static
-../Drivers/LoRaMac-node/common/NvmDataMgmt.c:218:6:NvmDataMgmtFactoryReset	8	static

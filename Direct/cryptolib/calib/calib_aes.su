@@ -1,4 +1,0 @@
-../cryptolib/calib/calib_aes.c:49:13:calib_aes	216	static
-../cryptolib/calib/calib_aes.c:112:13:calib_aes_encrypt	16	static
-../cryptolib/calib/calib_aes.c:132:13:calib_aes_decrypt	16	static
-../cryptolib/calib/calib_aes.c:149:13:calib_aes_gfm	64	static

@@ -1,6 +1,0 @@
-../cryptolib/atca_device.c:119:13:initATCADevice	16	static
-../cryptolib/atca_device.c:40:12:newATCADevice	24	static
-../cryptolib/atca_device.c:147:13:atGetCommands	0	static
-../cryptolib/atca_device.c:156:11:atGetIFace	0	static
-../cryptolib/atca_device.c:165:13:releaseATCADevice	8	static
-../cryptolib/atca_device.c:91:6:deleteATCADevice	8	static

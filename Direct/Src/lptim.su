@@ -1,3 +1,0 @@
-../Src/lptim.c:30:6:MX_LPTIM1_Init	8	static
-../Src/lptim.c:57:6:HAL_LPTIM_MspInit	8	static
-../Src/lptim.c:77:6:HAL_LPTIM_MspDeInit	8	static

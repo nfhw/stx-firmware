@@ -1,4 +1,0 @@
-../cryptolib/crypto/atca_crypto_sw_sha1.c:39:5:atcac_sw_sha1_init	8	static
-../cryptolib/crypto/atca_crypto_sw_sha1.c:57:5:atcac_sw_sha1_update	8	static
-../cryptolib/crypto/atca_crypto_sw_sha1.c:69:5:atcac_sw_sha1_finish	8	static
-../cryptolib/crypto/atca_crypto_sw_sha1.c:83:5:atcac_sw_sha1	144	static
