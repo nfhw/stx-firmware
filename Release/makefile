@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
 ################################################################################
 
 -include ../makefile.init
@@ -8,17 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include mbed-os/platform/subdir.mk
--include mbed-os/hal/TARGET_FLASH_CMSIS_ALGO/subdir.mk
--include mbed-os/hal/subdir.mk
--include mbed-os/events/equeue/tests/subdir.mk
--include mbed-os/events/equeue/subdir.mk
--include mbed-os/events/subdir.mk
--include mbed-os/drivers/subdir.mk
 -include Src/subdir.mk
--include Drivers/STM32L0xx_HAL_Driver/Src/subdir.mk
--include Drivers/CMSIS/Device/ST/STM32L0xx/Source/Templates/subdir.mk
--include subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -34,8 +25,8 @@ endif
 ifneq ($(strip $(CXX_DEPS)),)
 -include $(CXX_DEPS)
 endif
-ifneq ($(strip $(ASM_DEPS)),)
--include $(ASM_DEPS)
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
 endif
 ifneq ($(strip $(S_UPPER_DEPS)),)
 -include $(S_UPPER_DEPS)
@@ -50,44 +41,67 @@ endif
 
 -include ../makefile.defs
 
-# Add inputs and outputs from these tool invocations to the build variables 
-SECONDARY_FLASH += \
-ibt-1-fw.hex \
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
 
-SECONDARY_SIZE += \
-ibt-1-fw.siz \
+
+BUILD_ARTIFACT_NAME := stx-fw
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
+
+# Add inputs and outputs from these tool invocations to the build variables 
+EXECUTABLES += \
+stx-fw.elf \
+
+MAP_FILES += \
+stx-fw.map \
+
+SIZE_OUTPUT += \
+default.size.stdout \
+
+OBJDUMP_LIST += \
+stx-fw.list \
 
 
 # All Target
-all: ibt-1-fw.elf secondary-outputs
+all: main-build
+
+# Main-build Target
+main-build: stx-fw.elf secondary-outputs
 
 # Tool invocations
-ibt-1-fw.elf: $(OBJS) $(USER_OBJS)
-	@echo 'Building target: $@'
-	@echo 'Invoking: GNU ARM Cross C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m3 -mthumb -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g -Xlinker --gc-sections -Wl,-Map,"ibt-1-fw.map" -o "ibt-1-fw.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+stx-fw.elf stx-fw.map: $(OBJS) $(USER_OBJS) ../ldscripts/linker.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "stx-fw.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"../ldscripts/linker.ld" --specs=nosys.specs -Wl,-Map="stx-fw.map" -Wl,--gc-sections -static -Wl,-cref,-u,Reset_Handler --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-ibt-1-fw.hex: ibt-1-fw.elf
-	@echo 'Invoking: GNU ARM Cross Create Flash Image'
-	arm-none-eabi-objcopy -O ihex "ibt-1-fw.elf"  "ibt-1-fw.hex"
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-ibt-1-fw.siz: ibt-1-fw.elf
-	@echo 'Invoking: GNU ARM Cross Print Size'
-	arm-none-eabi-size --format=berkeley "ibt-1-fw.elf"
+stx-fw.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "stx-fw.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(SECONDARY_FLASH)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(CPP_DEPS) ibt-1-fw.elf
+	-$(RM) default.size.stdout stx-fw.elf stx-fw.list stx-fw.map
 	-@echo ' '
 
-secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
-.PHONY: all clean dependents
+fail-specified-linker-script-missing:
+	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
+	@exit 2
+
+warn-no-linker-script-specified:
+	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
+
+.PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
 
 -include ../makefile.targets

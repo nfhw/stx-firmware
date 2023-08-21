@@ -46,6 +46,9 @@ struct LRW_Msg {
 struct LRW_Handle {
   uint8_t retrans_left;
   uint8_t retrans_index;
+  int8_t retrans_txp_prior;
+  bool retrans_txp_override;
+  bool retrans_txp_internal;
   struct LRW_Msg queue[LRW_QUEUE_LEN];
 };
 

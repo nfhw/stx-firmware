@@ -609,6 +609,7 @@ size_t PBEncodeMsg_DeviceSensors(uint8_t *msg, size_t len, bool pw_valid) {
   size_t size = 0;
   uint32_t b;
   (void)pw_valid;
+  float voltage, temperature;
 
   /* discriminator byte specifies message DeviceSensors */
   if(size++ < len)
@@ -626,7 +627,8 @@ size_t PBEncodeMsg_DeviceSensors(uint8_t *msg, size_t len, bool pw_valid) {
   );
 
   /*  uint8_t: Device Battery Voltage */
-  size += PBEncodeMsgField(msg, len, size, PBSMSG_TX_DEVICE_BATTERY_VOLTAGE, (uint64_t)getBatteryVoltage() / 10);
+  getBatteryVoltageAndTemperature(&voltage, &temperature);
+  size += PBEncodeMsgField(msg, len, size, PBSMSG_TX_DEVICE_BATTERY_VOLTAGE, (uint64_t)(voltage * 100));
 
 #ifdef STE
 #ifndef BSEC
@@ -677,6 +679,7 @@ size_t PBEncodeMsg_DeviceSensors(uint8_t *msg, size_t len, bool pw_valid) {
   /*  int16_t: Z-Axis Acceleration */
   size += PBEncodeMsgField(msg, len, size, PBSMSG_TX_SENSOR_Z_AXIS, PBEncodeSInt(bma400.fix_z));
 #elif defined(STA)
+  size += PBEncodeMsgField(msg, len, size, PBSMSG_TX_SENSOR_TEMPERATURE, PBEncodeSInt(temperature * 100));
   /*  uint8_t: Gesture Count */
   size += PBEncodeMsgField(msg, len, size, PBSMSG_TX_SENSOR_GESTURE_SINGLE_COUNT, (uint64_t)DevCfg.singleCount);
   size += PBEncodeMsgField(msg, len, size, PBSMSG_TX_SENSOR_GESTURE_DOUBLE_COUNT, (uint64_t)DevCfg.doubleCount);

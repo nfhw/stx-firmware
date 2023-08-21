@@ -56,7 +56,11 @@ struct WakeUpHandler {
 };
 
 /* Exported constants --------------------------------------------------------*/
-#define VREFINT_CAL_ADDR    0x1FF80078; // 2 Byte at this address is VRefInt_cal @3.0V/25 deg.C
+#define VREFINT_CAL_ADDR     ((uint16_t*) 0x1FF80078U) // 2 Byte at this address is VRefInt_cal @3.0V/25 deg.C
+#define TEMPSENSOR_CAL1_ADDR ((uint16_t*) 0x1FF8007AU) /* Internal temperature sensor, address of parameter TS_CAL1: On STM32L0, temperature sensor ADC raw data acquired at temperature  30 DegC (tolerance: +-5 DegC), Vref+ = 3.0 V (tolerance: +-10 mV). */
+#define TEMPSENSOR_CAL2_ADDR ((uint16_t*) 0x1FF8007EU) /* Internal temperature sensor, address of parameter TS_CAL2: On STM32L0, temperature sensor ADC raw data acquired at temperature 130 DegC (tolerance: +-5 DegC), Vref+ = 3.0 V (tolerance: +-10 mV). */
+#define TEMPSENSOR_CAL1_TEMP (30U)                       /* Internal temperature sensor, temperature at which temperature sensor has been calibrated in production for data into TEMPSENSOR_CAL1_ADDR (tolerance: +-5 DegC) (unit: DegC). */
+#define TEMPSENSOR_CAL2_TEMP (130U)                      /* Internal temperature sensor, temperature at which temperature sensor has been calibrated in production for data into TEMPSENSOR_CAL2_ADDR (tolerance: +-5 DegC) (unit: DegC). */
 
 /* Bitmask for LPTIM LED task */
 #define LEDBLINK_BUTTON_DISABLE 0x0U
@@ -110,6 +114,7 @@ static_assert(sizeof(LoRaMacNvmData_t) < EEPROM_LORA_END - EEPROM_LORA, "LoRaMac
 extern uint8_t detectedGesture; // Currently detected gesture
 extern struct WakeUpHandler wuh;
 extern bool hwSlept;
+extern volatile int adcConvDone;
 
 /* Exported macros -----------------------------------------------------------*/
 #undef DEBUG_PRINTF
@@ -125,7 +130,7 @@ extern bool hwSlept;
 #endif
 
 /* Exported functions ------------------------------------------------------- */
-uint32_t getBatteryVoltage();
+void getBatteryVoltageAndTemperature(float *voltage, float *temperature);
 void enqueueToSend(enum MsgType msg_type, uint8_t trigger_type);
 void hal_deinit();
 

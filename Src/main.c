@@ -34,6 +34,7 @@
 #include "cryptoauthlib.h"
 #include "atca_devtypes.h"
 #include "common/LmHandler/LmHandler.h"
+#include "sx126x.h"
 #include "lrw.h"
 #include "eeprom.h"
 #include "task_mgr.h"
@@ -66,6 +67,12 @@
 ATCAIfaceCfg *gCfg = &cfg_ateccx08a_i2c_default;
 ATCA_STATUS ATECC_status;
 #endif
+
+// Globals
+volatile int alarmVal = 0;
+void HAL_RTC_AlarmAEventCallback( RTC_HandleTypeDef *hrtc ) {
+  alarmVal = 1;
+}
 
 static unsigned joinTrials;
 
@@ -114,15 +121,75 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_ADC_Init();
-  MX_I2C1_Init();
-  MX_LPTIM1_Init();
-  MX_RTC_Init();
-  MX_SPI1_Init();
+  //MX_DMA_Init();
+  //MX_ADC_Init();
+  //MX_I2C1_Init();
+  //MX_LPTIM1_Init();
+  //MX_RTC_Init();
+  //MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   HW_GPIO_PostInit();
   RtcInit();
+
+
+
+  // Event Loop
+  int count = 0;
+  while(1) {
+      if(count++ < 2) {
+        HAL_Delay(1000);
+        goto sleep;
+      }
+      RTC_AlarmTypeDef alarm;
+      RTC_TimeTypeDef ts;
+      RTC_DateTypeDef ds;
+
+      DEBUG_PRINTF("MAIN 00   %d\n", HAL_GetTick());
+      // Disable Alarm
+      HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);        // Disable Interrupt
+      __HAL_RTC_ALARM_CLEAR_FLAG(&hrtc, RTC_FLAG_ALRAF);  // Clear Flag (RTC ALARM A)
+      __HAL_RTC_ALARM_EXTI_CLEAR_FLAG();                  // Clear Flag (EXTI)
+      DEBUG_PRINTF("MAIN 01   %d\n", HAL_GetTick());
+
+      // Get Time
+      do {
+      HAL_RTC_GetTime(&hrtc, &ts, FORMAT_BIN);
+      HAL_RTC_GetDate(&hrtc, &ds, FORMAT_BIN);
+      } while(ts.Seconds == 59); // cheat: Increment second without care of real clock
+      DEBUG_PRINTF("MAIN 02   %d\n", HAL_GetTick());
+
+      // Set Alarm
+      alarm.AlarmTime.SubSeconds     = ts.SubSeconds;                // 210
+      alarm.AlarmSubSecondMask       = 8 << RTC_ALRMASSR_MASKSS_Pos; // 0x8000000
+      alarm.AlarmTime.Seconds        = ts.Seconds + 1;               // 27
+      alarm.AlarmTime.Minutes        = ts.Minutes;                   // 0
+      alarm.AlarmTime.Hours          = ts.Hours;                     // 0
+      alarm.AlarmDateWeekDay         = ds.WeekDay;                   // 1
+      alarm.AlarmTime.TimeFormat     = ts.TimeFormat;                // 0
+      alarm.AlarmDateWeekDaySel      = RTC_ALARMDATEWEEKDAYSEL_DATE; // 0
+      alarm.AlarmMask                = RTC_ALARMMASK_NONE;           // 0
+      alarm.Alarm                    = RTC_ALARM_A;                  // 0x100
+      alarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;      // 0
+      alarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;     // 0
+      HAL_RTC_SetAlarm_IT(&hrtc, &alarm, RTC_FORMAT_BIN);
+      DEBUG_PRINTF("MAIN 03   %d\n", HAL_GetTick());
+
+      // Wait Alarm
+      for(alarmVal = 0; !alarmVal;);
+      HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A);
+      __HAL_RTC_ALARM_CLEAR_FLAG(&hrtc, RTC_FLAG_ALRAF);
+      __HAL_RTC_ALARM_EXTI_CLEAR_FLAG();
+      DEBUG_PRINTF("MAIN 04   %d\n", HAL_GetTick());
+
+sleep:
+      // Stop Mode
+      HAL_RTC_MspDeInit(&hrtc);
+      DEBUG_PRINTF("STOP  B   %d\n\n", HAL_GetTick());
+      HW_EnterStopMode();
+      DEBUG_PRINTF("STOP  E   %d\n", HAL_GetTick());
+      HAL_RTC_MspInit(&hrtc);
+
+  }
 
   // TODO: Optimize to enable this only when we are using the RF Chip. Relevant?
   // XXX: Must Enable RF_Switch prior to I2C Scan, in case of I2C1 Bus Lockup
@@ -151,6 +218,18 @@ int main(void)
   // while(1) {};
 
   LRW_Init();
+
+  // Radio Testing: Output continuous wave
+  //         868 MHz EU  915 MHz US
+  // Start   867900000   903900000
+  // Middle  867700000   915900000
+  // End     868100000   923300000
+  // while(1) {
+  //   SX126xSetRfFrequency(867700000);
+  //   SX126xSetRfTxPower(14);
+  //   SX126xSetTxContinuousWave();
+  //   DEBUG_MSG("CW Test shouldn't loop without the rtc timer.");
+  // }
 
   // LED Testing: Blink Red, then Green, with toggle interval of 3 seconds
   // HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, GPIO_PIN_RESET);
@@ -351,7 +430,7 @@ if (ATECC_status != ATCA_SUCCESS) {
     if(!DutyCycleWaitTime) {
       if(!LRW_IsJoined()) {
         DEBUG_MSG("LRW NOT JOINED\n");
-        if(joinTrials == 5) {
+        if(joinTrials == 1) {
           joinTrials = 0;
           DEBUG_MSG("GIVING UP JOINING\n");
           LEDBlink(BlinkPattern_RRR);
@@ -451,124 +530,8 @@ extern Gpio_t *GpioIrq[16];
  *        * Interrupt Status Register  - Cause of Interrupt
  */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-  uint8_t triggerType;
-  switch(GPIO_Pin) {
-
-  /* Button press/release or acceleration sensor */
-  case Button0_Pin: {
-#ifdef STA
-    DEBUG_MSG("IRQ Button Pin\n");
-
-    /* Potential Refactor: Relocate to HW_EnterStopMode()? See HAL_PWR_EnterSTOPMode() notes */
-    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
-
-    /* Discard if LoRaWAN connection not established */
-    if(!LRW_IsJoined()) {
-      DEBUG_MSG("LRW WARN  UNJOINED, Ignore Event!\n");
-      break;
-    }
-
-    /* LoRaWAN is busy, don't accept blinks and thus button presses */
-    if(LRW_IsBusy())
-      break;
-
-    ButtonISR();
-#endif
-#ifdef STX
-    triggerType = LRW_B0_TRIGGER_MOTION;
-    BMA400_Read();
-    DEBUG_PRINTF("SEN BMA400  IRQ trigger:%u X:%5d Y:%5d Z:%5d rX:%5d rY:%5d rZ:%5d IRQ:0x%04x\n",
-          triggerType, bma400.fix_x, bma400.fix_y, bma400.fix_z,
-          bma400.fix_x_ref, bma400.fix_y_ref, bma400.fix_z_ref, bma400.status);
-    /* Discard if LoRaWAN connection not established */
-    if(!LRW_IsJoined()) {
-      DEBUG_MSG("LRW WARN  UNJOINED, Ignore Event!\n");
-      break;
-    }
-    if(!DevCfg.useSensor.bma400) {
-      DEBUG_MSG("SEN BMA400  UNUSED, Ignore Event!\n");
-      break;
-    }
-    enqueueToSend(EVENT, triggerType);
-#endif
-    break;
-  }
-
-  /* SX126x LoRaWAN RX/TX Done */
-  case SX126x_DIO1_Pin: {
-    GpioIrq[5]->IrqHandler(GpioIrq[5]->Context);
-    break;
-  }
-
-  /* ST25DV NFC Mailbox read/written by phone */
-  case NFC_Int_Pin: {
-    HW_ExitStopMode();
-    NFCISR();
-    break;
-  }
-
-  /* Temperature and humidity sensor */
-  case TEMP_Int_Pin: {
-#ifdef STX
-    HDC2080_Read();
-    triggerType =
-      hdc2080.status & 0x40 ? LRW_B0_TRIGGER_TEMPERATURE_HIGH :
-      hdc2080.status & 0x20 ? LRW_B0_TRIGGER_TEMPERATURE_LOW :
-      hdc2080.status & 0x10 ? LRW_B0_TRIGGER_HUMIDITY_HIGH : LRW_B0_TRIGGER_HUMIDITY_LOW;
-    DEBUG_PRINTF("SEN HDC2080 IRQ trigger:%u CONFIG:0x%02x\n", triggerType, hdc2080.status);
-    /* Discard if LoRaWAN connection not established */
-    if(!LRW_IsJoined()) {
-      DEBUG_MSG("LRW WARN  UNJOINED, Ignore Event!\n");
-      break;
-    }
-    if(!DevCfg.useSensor.hdc2080) {
-      DEBUG_MSG("SEN HDC2080 UNUSED, Ignore Event!\n");
-      break;
-    }
-    enqueueToSend(EVENT, triggerType);
-#endif
-    break;
-  }
-
-  /* Reed switch aka magnet sensor */
-  case Reed_Switch_Pin: {
-#ifdef STX
-    DEBUG_PRINTF("SEN Reed Switch IRQ trigger:%u\n", LRW_B0_TRIGGER_REED_SWITCH);
-    /* Discard if LoRaWAN connection not established */
-    if(!LRW_IsJoined()) {
-      DEBUG_MSG("LRW WARN  UNJOINED, Ignore Event!\n");
-      break;
-    }
-    /* LoRaWAN is busy, don't accept blinks and thus button presses */
-    if(LRW_IsBusy())
-      break;
-    ReedSwitchISR();
-#endif
-    break;
-  }
-
-  /* Light sensor */
-  case LIGHT_Int_Pin: {
-#ifdef STX
-    SFH7776_Read();
-    triggerType = sfh7776.als_vis < sfh7776.als_vis_tl ? LRW_B0_TRIGGER_LIGHT_LOW : LRW_B0_TRIGGER_LIGHT_HIGH;
-    DEBUG_PRINTF("SEN SFH7776 IRQ trigger:%d ALS_VIS:0x%04x ALS_IR:0x%04x lux:%5d\n", triggerType, sfh7776.als_vis, sfh7776.als_ir, sfh7776.lux);
-    /* Discard if LoRaWAN connection not established */
-    if(!LRW_IsJoined()) {
-      DEBUG_MSG("LRW WARN  UNJOINED, Ignore Event!\n");
-      break;
-    }
-    if(!DevCfg.useSensor.sfh7776) {
-      DEBUG_MSG("SEN SHF7776 UNUSED, Ignore Event!\n");
-      break;
-    }
-    enqueueToSend(EVENT, triggerType);
-#endif
-    break;
-  }
-  default:
-    DEBUG_MSG("IRQ Unhandled\n");
-  }
+  DEBUG_PRINTF("IRQ  EXTI %d pin:%d\n", HAL_GetTick(), GPIO_Pin);
+  HW_ExitStopMode();
 }
 
 /* Wake-up timer (RTC) implementation */
@@ -593,8 +556,13 @@ static void Sleep(void) {
   HAL_Delay(100);
 
   /* Finish up LED blinks & button gestures */
-  if(tasks_has_pending())
+  if(tasks_has_pending()) {
+    DBG_PRINTF("H1NC tasks_has_pending tasks_ticks:%d ", tasks_ticks);
+    for(size_t i = 0; i < TASK_MAX; i++) {
+      DBG_PRINTF("%2d: %10d\n", i, tasks[i].when);
+    }
     return;
+  }
 
   /* Sleep if NFC had no activity for last 2 seconds */
   if(NFC_HasActivity())

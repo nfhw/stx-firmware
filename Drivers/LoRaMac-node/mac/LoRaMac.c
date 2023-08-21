@@ -48,6 +48,7 @@
 #include "hardware.h"
 
 #include "LoRaMac.h"
+#include "lrw.h"
 
 #ifndef LORAMAC_VERSION
 /*!
@@ -2056,6 +2057,12 @@ static void ProcessMacCommands( uint8_t *payload, uint8_t macIndex, uint8_t comm
                                 Nvm.MacGroup2.ChannelsDatarateChangedLinkAdrReq = true;
                             }
                             Nvm.MacGroup1.ChannelsDatarate = linkAdrDatarate;
+                            // #NFUSE XXX BEGIN
+                            if(!lrw.retrans_txp_internal && lrw.retrans_txp_override) {
+                              lrw.retrans_txp_prior = linkAdrTxPower;
+                            }
+                            lrw.retrans_txp_internal = false;
+                            // #NFUSE XXX END
                             Nvm.MacGroup1.ChannelsTxPower = linkAdrTxPower;
                             Nvm.MacGroup2.MacParams.ChannelsNbTrans = linkAdrNbRep;
                         }

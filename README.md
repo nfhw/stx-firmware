@@ -246,15 +246,6 @@ To join device to ttn application via [TTN Console](https://console.thethingsnet
     Device joined blink pattern 1xRed 1xGreen. In case of button, gesture blinks are disabled if not joined.  
     TTN Console provides traffic view at Application side and Gateway side.
 
-### TTN Related
-
-Debugging to reset nonces in TTN for a certain sensor:
-
-```
-./ttnctl-linux-amd64 devices set device02 --app-key 81FF80DE5E8F5C8E50843224FF292C43
-./ttnctl-linux-amd64 devices set device02 --app-key 81FF80DE5E8F5C8E50843224FF292C42
-```
-
 ## Legal
 
 Contains automatically generated and manually written copyrighted code from the

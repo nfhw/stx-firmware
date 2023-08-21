@@ -489,17 +489,6 @@ void RTC_IRQHandler( void )
     HAL_RTCEx_WakeUpTimerIRQHandler(&hrtc);
 }
 
-
-/*!
- * \brief  Alarm A callback.
- *
- * \param [IN] hrtc RTC handle
- */
-void HAL_RTC_AlarmAEventCallback( RTC_HandleTypeDef *hrtc )
-{
-    TimerIrqHandler( );
-}
-
 void RtcBkupWrite( uint32_t data0, uint32_t data1 )
 {
     HAL_RTCEx_BKUPWrite( &hrtc, RTC_BKP_DR0, data0 );

@@ -22,6 +22,7 @@
 extern ADC_HandleTypeDef hadc;
 extern LPTIM_HandleTypeDef hlptim1;
 struct WakeUpHandler wuh;
+volatile int adcConvDone = 0;
 bool hwSlept;
 
 /* NAME
@@ -90,23 +91,36 @@ uint32_t I2C_Scan(void) {
  * RETURN VALUE
  *        Millivolts, e.g. 3263, 3293 is 3.263V and 3.293V respectively.
  */
-uint32_t getBatteryVoltage() {
+void getBatteryVoltageAndTemperature(float *voltage, float *temperature) {
   // ADC self calibration, has to be done before any ADC Start/Enable
   while (HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED) != HAL_OK);
 
   // values for calculation of actually VDDA-supply and reference voltage
-  uint32_t VREFINT_CAL;
-  uint32_t vdda;
-  const uint16_t *p = (uint16_t*) VREFINT_CAL_ADDR;
-  VREFINT_CAL = *p; // read the value at pointer address
+  const uint16_t VREFINT_CAL  = *VREFINT_CAL_ADDR;
+  const uint16_t TEMP30_CAL   = *TEMPSENSOR_CAL1_ADDR;
+  const uint16_t TEMP130_CAL  = *TEMPSENSOR_CAL2_ADDR;
+  const uint16_t TEMP30       = TEMPSENSOR_CAL1_TEMP;
+  const uint16_t TEMP130      = TEMPSENSOR_CAL2_TEMP;
+  const float    FACTORY_VOLT = 3.0;
 
   // Start ADC with DMA support
   volatile uint16_t adc_value[2] = { 0, 0 };
   HAL_ADC_Start_DMA(&hadc, (uint32_t*) adc_value, 2);
-  HAL_Delay(10);
-  vdda = ((3.0 * 1000 * VREFINT_CAL) / adc_value[1]);
+
+  // Wait for ADC-DMA to finish (note the volatile global)
+  for(adcConvDone = 0; !adcConvDone;);
+
   HAL_ADC_Stop_DMA(&hadc);
-  return vdda;
+
+  // Calculate
+  float vdda = (FACTORY_VOLT * VREFINT_CAL) / adc_value[0];
+  float temp = (float)adc_value[1] * ((float)vdda / FACTORY_VOLT) - (float)TEMP30_CAL;
+  temp *= TEMP130     - TEMP30;
+  temp /= TEMP130_CAL - TEMP30_CAL;
+  temp += 30;
+
+  *voltage = vdda;
+  *temperature = temp;
 }
 
 void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c) {
@@ -152,6 +166,7 @@ void LEDBlinkTask(void* info) {
  *   Thus Performing blinks while Button is masked by LEDBlink, is undefined behaviour.
  */
 uint32_t LEDBlink(enum LEDBlinkPattern pattern) {
+  return;
   struct task t;
   uint32_t when = tasks_ticks + 1;
   t.arg = (void*) (LEDBLINK_BUTTON_DISABLE | LEDBLINK_COLOR_GREEN);
@@ -388,24 +403,19 @@ void HW_EnterStandbyMode() {
 void HW_EnterStopMode() {
 
   // TODO: Remove in #PRODUCTION. Helps development, as Stop Mode disconnects GDB.
-  return;
+  // return;
 
-  HAL_LPTIM_Counter_Stop_IT(&hlptim1);
+  HAL_ADC_DeInit(&hadc);
+  //HAL_LPTIM_Counter_Stop_IT(&hlptim1);
+  //HAL_LPTIM_MspDeInit(&hlptim1);
 
-#if defined(STX)
-  /* Ignore Sensor wakeups */
-  DevCfg.useSensor.bma400  ? SET_BIT(EXTI->IMR, Button0_Pin)   : CLEAR_BIT(EXTI->IMR, Button0_Pin);
-  DevCfg.useSensor.hdc2080 ? SET_BIT(EXTI->IMR, TEMP_Int_Pin)  : CLEAR_BIT(EXTI->IMR, TEMP_Int_Pin);
-  DevCfg.useSensor.sfh7776 ? SET_BIT(EXTI->IMR, LIGHT_Int_Pin) : CLEAR_BIT(EXTI->IMR, LIGHT_Int_Pin);
-#endif
 
   /* Sleep 1ms so RTT Logs reach the Host */
-  DBG_PRINTF("GOING TO STOP! RTC:%d SysTick:%d\n", HW_RTCGetSTime(), HAL_GetTick());
-  HAL_Delay(1);
+  //DBG_PRINTF("GOING TO STOP! RTC:%d SysTick:%d\n", HW_RTCGetSTime(), HAL_GetTick());
+  HAL_Delay(100);
 
   HAL_GPIO_WritePin(DC_Conv_Mode_GPIO_Port, DC_Conv_Mode_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(RF_Switch_GPIO_Port, RF_Switch_Pin, GPIO_PIN_RESET);
-  //HAL_GPIO_WritePin(SX126x_SPI_NSS_GPIO_Port, SX126x_SPI_NSS_Pin, GPIO_PIN_RESET);
 
   hal_deinit();
   HAL_PWREx_EnableUltraLowPower();
@@ -425,30 +435,20 @@ void HW_ExitStopMode() {
 
   HAL_NVIC_ClearPendingIRQ(EXTI4_15_IRQn);
   HAL_NVIC_ClearPendingIRQ(EXTI0_1_IRQn);
+  HAL_ADC_Init(&hadc);
 
   hal_reinit();
 
-  DBG_PRINTF("WAKE UP! RTC:%d SysTick:%d\n", HW_RTCGetSTime(), HAL_GetTick());
+  //DBG_PRINTF("WAKE UP! RTC:%d SysTick:%d\n", HW_RTCGetSTime(), HAL_GetTick());
 
   HAL_GPIO_WritePin(DC_Conv_Mode_GPIO_Port, DC_Conv_Mode_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(RF_Switch_GPIO_Port, RF_Switch_Pin, GPIO_PIN_SET);
 
-  if(!I2C_Scan()) {
-    MX_I2C1_Init();
-    I2C_Scan();
-  }
-
-  // Reset SX126x so LRW doesn't forever loop.
-  // Can't use LRW_Init, because it resets duty cycle time credits.
-  SX126xReset();
-  SX126xIoRfSwitchInit();
-  Radio.SetPublicNetwork(true);
-  Radio.Sleep();
 
   // Re-enable mailbox volatile register. ST25DV likely loses power during Stop Mode.
-  ST25DV_SetMBEN_Dyn(&St25Dv_Obj);
+  //ST25DV_SetMBEN_Dyn(&St25Dv_Obj);
 
-  HAL_LPTIM_Counter_Start_IT(&hlptim1, TIMER_COUNT);
+  //HAL_LPTIM_Counter_Start_IT(&hlptim1, TIMER_COUNT);
 }
 
 void HW_EraseEEPROM(uint32_t address) {
@@ -636,4 +636,9 @@ void HW_RTCWUTSet(uint32_t seconds) {
 void Breakpoint(void) {
   asm("nop");
   // asm("bkpt 0x44");
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
+    /* When ADC-DMA transfer is complete, i.e. VREFINT and TEMPSENSOR */
+    adcConvDone = 1;
 }

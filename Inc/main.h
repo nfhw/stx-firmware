@@ -132,7 +132,7 @@ void Error_Handler(void);
 #define SX126x_DIO1_EXTI_IRQn EXTI4_15_IRQn
 /* USER CODE BEGIN Private defines */
 #define MSG_FORMAT_VERSION 1
-#define FIRMWARE_VERSION 10 // divide by 10 to get actual version
+#define FIRMWARE_VERSION 11 // divide by 10 to get actual version
 
 #define USE_ATECC608A
 
@@ -152,8 +152,8 @@ void Error_Handler(void);
  * STX: Reed Switch + HDC2080 (Humidity, Temperature) + SFH7776 (Luminance) + BMA400 (Accelerometer)
  * STE: BME680 (Temperature, Humidity, Pressure, Gas Resistance)
  */
-//#define STA
-#define STX
+#define STA
+//#define STX
 //#define STE
 
 /* Operation Mode

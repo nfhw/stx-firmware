@@ -695,6 +695,14 @@ static void McpsConfirm(McpsConfirm_t *mcpsConfirm) {
     lrw.retrans_left = 0;
     lrw.queue[lrw.retrans_index].msg_type = 0;
   }
+  /* restore ADR tx power */
+  if(!lrw.retrans_left && lrw.retrans_txp_override) {
+    MibRequestConfirm_t mibReq;
+    lrw.retrans_txp_override = false;
+    mibReq.Type = MIB_CHANNELS_TX_POWER;
+    mibReq.Param.ChannelsTxPower = lrw.retrans_txp_prior;
+    LoRaMacMibSetRequestConfirm(&mibReq);
+  }
 
   OnTxData(&TxParams);
 }
@@ -814,25 +822,33 @@ void enqueueToSend(enum MsgType msg_type, uint8_t trigger_type) {
   }
   uint8_t *msg = lrw.queue[i].msg;
 
-  uint32_t volts = getBatteryVoltage();
+  float voltage, temperature;
+  getBatteryVoltageAndTemperature(&voltage, &temperature);
 
   /* Compose a message */
   switch(msg_type) {
   case SCHEDULED: {
 #if defined(STA)
     { /* Battery Voltage */
-      uint32_t v = volts / 10;
+      uint32_t v = voltage * 100;
       v = v < 201 ? 201 : v;
       v = v > 327 ? 327 : v;
+      /* MCU Temperature */
+      int32_t t = temperature * 10;
+      t = t < -400 ? -400 : t;
+      t = t > 1250 ? 1250 : t;
+      t = (t + 400) * 255 / 1650;
       msg[1] = (v - 200) & 0x7f;
+      msg[2] = t;
     }
-    lrw.queue[i].len = 2;
-    msg[0] = 0;
+    lrw.queue[i].len = 3;
+    msg[0] = 0x40 /* version */ | 0; // NB! 0x3c bits are modified at send time! Contains TX Power
     break;
 #elif defined(STE)
-    memset(msg, 0, 10);
+    memset(msg, 0, 11);
+    msg[0] = 0x40 /* version */;
     { /* Battery Voltage */
-      uint32_t v = volts / 10;
+      uint32_t v = voltage * 100;
       v = v < 201 ? 201 : v;
       v = v > 327 ? 327 : v;
       msg[1] = (v - 200) & 0x7f;
@@ -859,33 +875,34 @@ void enqueueToSend(enum MsgType msg_type, uint8_t trigger_type) {
     }
 #if defined(BSEC)
     { /* BSEC IAQ Accuracy */
-      msg[0] |= bme680.bsec.acc & 0x03;
+      msg[10] |= bme680.bsec.acc & 0x03;
     }
     { /* BSEC IAQ */
       uint16_t v =
           bme680.bsec.iaq < 0 ? 0x1ff :
           bme680.bsec.iaq > 510 ? 0x1fe :
           roundf(bme680.bsec.iaq);
-      msg[6] = v >>  0 << 0 & 0xff;
-      msg[1] |= v >>  8 << 7 & 0x80;
+      msg[ 6]  = v >>  0 << 0 & 0xff;
+      msg[10] |= v >>  8 << 7 & 0x80;
     }
     { /* BSEC VOC */
       uint16_t v = BSEC_float(bme680.bsec.voc);
-      msg[7] = v >>  0 << 0 & 0xff;
-      msg[9] |= v >>  8 << 0 & 0x0f;
-      msg[0] |= v >> 12 << 5 & 0x20;
+      msg[ 7]  = v >>  0 << 0 & 0xff;
+      msg[ 9] |= v >>  8 << 0 & 0x0f;
+      msg[10] |= v >> 12 << 5 & 0x20;
     }
     { /* BSEC CO2 */
       uint16_t v =
           bme680.bsec.co2 < 0 ? 0 :
           bme680.bsec.co2 > 32767 ? 32767 :
           bme680.bsec.co2;
-      msg[8] = v >>  0 << 0 & 0xff;
-      msg[9] |= v >>  8 << 4 & 0xf0;
-      msg[0] |= v >> 12 << 2 & 0x1c;
+      msg[ 8]  = v >>  0 << 0 & 0xff;
+      msg[ 9] |= v >>  8 << 4 & 0xf0;
+      msg[10] |= v >> 12 << 2 & 0x1c;
     }
-    lrw.queue[i].len = 10;
+    lrw.queue[i].len = 11;
 #else
+    static_assert(0, "Not adapted for V1.1 Firmware or documented.");
     { /* BME680: Temperature, Humidity, Pressure, Air Quality Index */
       BME680_Read();
       unsigned u9_temp =
@@ -918,27 +935,34 @@ void enqueueToSend(enum MsgType msg_type, uint8_t trigger_type) {
   case EVENT: {
 #ifdef STA
     { /* Battery Voltage */
-      uint32_t v = volts / 10;
+      uint32_t v = voltage * 100;
       v = v < 201 ? 201 : v;
       v = v > 327 ? 327 : v;
+      /* MCU Temperature */
+      int32_t t = temperature * 10;
+      t = t < -400 ? -400 : t;
+      t = t > 1250 ? 1250 : t;
+      t = (t + 400) * 255 / 1650;
       msg[1] = (v - 200) & 0x7f;
+      msg[2] = t;
     }
     { /* Gesture Event */
       uint8_t gest_cnt, gest;
       switch(detectedGesture) {
-      case 1: gest = 0x00, DevCfg.changed.any = true, gest_cnt = DevCfg.singleCount++; break;
-      case 2: gest = 0x10, DevCfg.changed.any = true, gest_cnt = DevCfg.doubleCount++; break;
-      case 3: gest = 0x20, DevCfg.changed.any = true, gest_cnt = DevCfg.longCount++; break;
-      default: DBG_PRINTF("LRW ERR Unknown gesture %u\n", detectedGesture);
+      case 1: gest = 0x0, DevCfg.changed.any = true, gest_cnt = DevCfg.singleCount++; break;
+      case 2: gest = 0x1, DevCfg.changed.any = true, gest_cnt = DevCfg.doubleCount++; break;
+      case 3: gest = 0x2, DevCfg.changed.any = true, gest_cnt = DevCfg.longCount++; break;
+      default: gest = 0x3; gest_cnt = 0; DBG_PRINTF("LRW ERR Unknown gesture %u\n", detectedGesture);
       }
-      msg[0] = gest | LRW_B0_TRIGGER_EVENT;
-      msg[2] = gest_cnt;
+      msg[0]  = ((gest & 0x01) << 1) | 0x40 /* version */ | LRW_B0_TRIGGER_EVENT; // NB! 0x3c bits are modified at send time! Contains TX Power
+      msg[1] |= ((gest & 0x02) >> 1 << 7);
+      msg[3] = gest_cnt;
     }
-    lrw.queue[i].len = 3;
+    lrw.queue[i].len = 4;
 #endif
 #ifdef STX
     { /* Battery Voltage */
-      uint32_t v = volts / 10;
+      uint32_t v = voltage * 100;
       v = v < 201 ? 201 : v;
       v = v > 327 ? 327 : v;
       msg[1] = (v - 200) & 0x7f;
@@ -962,7 +986,9 @@ void enqueueToSend(enum MsgType msg_type, uint8_t trigger_type) {
       msg[10] = sfh7776.lux;
       msg[11] = sfh7776.lux >> 8 & 0x3f;
     }
-    msg[0] = lrw.queue[i].trigger_type & 0xf;
+    msg[ 0]  = 0x40 /* version */ | (lrw.queue[i].trigger_type & 0x03);
+    msg[ 1] |=                      (lrw.queue[i].trigger_type & 0x04) >> 2 << 7;
+    msg[11] |=                      (lrw.queue[i].trigger_type & 0x18) >> 3 << 6;
     lrw.queue[i].len = 12;
 #endif
 #ifdef STE
@@ -992,8 +1018,8 @@ void enqueueToSend(enum MsgType msg_type, uint8_t trigger_type) {
     if(events % 73 == 0) {
       uint32_t *d146 = (uint32_t*)EEPROM_LOG_VOLTYR + events / 146;
       uint32_t bak = *d146;
-      bak = events % 146 == 0 ? (bak & 0xFFFF0000) | volts :
-                                (bak & 0x0000FFFF) | volts << 16;
+      bak = events % 146 == 0 ? (bak & 0xFFFF0000) | (uint16_t)(voltage * 1000) :
+                                (bak & 0x0000FFFF) | (uint16_t)(voltage * 1000) << 16;
       HW_EraseEEPROM((uint32_t)d146);
       HW_ProgramEEPROM((uint32_t)d146, bak);
     }
@@ -1036,6 +1062,25 @@ void LRW_Send(void) {
     return;
   }
 
+  /* if prior confirmed message NACK'ed, then assert max tx power */
+  if(lrw.retrans_left && DevCfg.confirmedMsgs) {
+    MibRequestConfirm_t mibReq;
+    mibReq.Type = MIB_CHANNELS_TX_POWER;
+    LoRaMacMibGetRequestConfirm(&mibReq);
+
+    /* In case downlink changes TX power while we're tampering it. */
+    if(!lrw.retrans_txp_override) {
+      lrw.retrans_txp_override = true;
+      lrw.retrans_txp_prior = mibReq.Param.ChannelsTxPower;
+    }
+
+    if(mibReq.Param.ChannelsTxPower != EU868_MAX_TX_POWER) {
+        mibReq.Param.ChannelsTxPower = EU868_MAX_TX_POWER;
+        LoRaMacMibSetRequestConfirm(&mibReq);
+        return; // NOTE: Invoke LoRaMacProcess(), then event will loop around back here.
+    }
+  }
+
   /* If using confirmed messages, schedule retransmissions */
   if(!lrw.retrans_left && DevCfg.confirmedMsgs) {
     lrw.retrans_left = 3;
@@ -1052,6 +1097,14 @@ void LRW_Send(void) {
   appData.Buffer = lrw.queue[i].msg;
   appData.BufferSize = lrw.queue[i].len;
   appData.Port = DevCfg.txPort;
+
+  { /* Embed TX Power */
+    MibRequestConfirm_t mibReq;
+    mibReq.Type = MIB_CHANNELS_TX_POWER;
+    LoRaMacMibGetRequestConfirm(&mibReq);
+    appData.Buffer[0] &= 0xc3; // clear bits
+    appData.Buffer[0] |= (mibReq.Param.ChannelsTxPower & 0x7) << 2; // set bits
+  }
   LRW_TX(&appData);
 
   /* Duty cycle restricted, try again later */

@@ -33,6 +33,7 @@
 #include "boards/utilities.h"
 #include "RegionCommon.h"
 #include "system/systime.h"
+#include "lrw.h" /* lrw.retrans_txp_internal */
 
 #define BACKOFF_DC_1_HOUR                   100
 #define BACKOFF_DC_10_HOURS                 1000
@@ -458,6 +459,10 @@ uint8_t RegionCommonLinkAdrReqVerifyParams( RegionCommonLinkAdrReqVerifyParams_t
         {
             status &= 0xFD; // Datarate KO
         }
+
+        // #NFUSE XXX BEGIN
+        lrw.retrans_txp_internal = txPower == 0x0F;
+        // #NFUSE XXX END
 
         // Verify tx power
         if( txPower == 0x0F )
